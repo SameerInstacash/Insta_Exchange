@@ -42,6 +42,8 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
     var appCodeStr = ""
     var resultJOSN = JSON()
     
+    var strAppCodeInQrStatus = ""
+    
     let hud = JGProgressHUD()
 
     override func viewDidLoad() {
@@ -364,7 +366,6 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
         */
         
         */
-        
    
         
         //let endPoint = UserDefaults.standard.string(forKey: "endpoint")!
@@ -394,15 +395,7 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
             }
             
             guard let data = data, error == nil else {
-                /*
-                // check for fundamental networking error
-                DispatchQueue.main.async() {
-                    print("error=\(error.debugDescription)")
-                    //self.loaderImg.layer.removeAllAnimations()
-                    //self.loaderImg.isHidden = true
-                    //self.retryBtn.isHidden = false
-                }*/
-                
+               
                 DispatchQueue.main.async() {
                     self.view.makeToast(error?.localizedDescription, duration: 3.0, position: .bottom)
                 }
@@ -410,8 +403,6 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            
-            //* SAMEER-14/6/22
             do {
                 let json = try JSON(data: data)
                 if json["status"] == "Success" {
@@ -420,11 +411,15 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PriceViewController") as! PriceViewController
                         
                         if self.questionAppCodeStr != "" {
-                            vc.appPhysicalQuestionCodeStr = self.questionAppCodeStr
+                            
+                            vc.appPhysicalQuestionCodeStr = self.questionAppCodeStr + ";" + self.strAppCodeInQrStatus
                             print("self.questionAppCodeStr", self.questionAppCodeStr)
+                            
                         }else {
-                            vc.appCodeStr = self.appCodeStr
+                            
+                            vc.appCodeStr = self.appCodeStr + ";" + self.strAppCodeInQrStatus
                             print("self.appCodeStr", self.appCodeStr)
+                            
                         }
                         
                         print("Result JSON 4: \(self.resultJOSN)")

@@ -487,9 +487,20 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         */
         
+        
+        /*
         DispatchQueue.main.async() {
             self.getProductsDetailsQuestions()
         }
+        */
+        
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CrackCheckVC") as! CrackCheckVC
+        print("Result JSON before CrackCheckVC page: \(self.resultJSON)")
+        vc.resultJSON = self.resultJSON
+        vc.appCodeStr = self.appCodeStr
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
         
     }
     
@@ -859,7 +870,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 if json["status"] == "Success" {
                     print("Question data is:","\(json)")
                     
-                    AppHardwareQuestionsData = CosmeticQuestions.init(json: json)
+                    AppHardwareQuestionsData = try CosmeticQuestions.init(from: json as! Decoder)
                     
                     arrAppHardwareQuestions = [Questions]()
                     arrAppQuestionsAppCodes = [String]()

@@ -34,9 +34,11 @@ class PreviousQuotationsViewController: UIViewController {
    
     var ref = ""
     var endPoint = ""
-    //@IBOutlet weak var smartExLoadingImage: UIImageView!
-    
     let hud = JGProgressHUD()
+    
+    
+    var sessionDict = [String:Any]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

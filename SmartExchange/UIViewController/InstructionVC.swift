@@ -145,9 +145,9 @@ class InstructionVC: UIViewController, UICollectionViewDataSource, UICollectionV
     //MARK: IBActions
     @IBAction func nextBtnPressed(_ sender: UIButton) {
         
-        //self.touchScreenTest(self.resultJSON)
+        self.touchScreenTest(self.resultJSON)
         
-        self.TestResultScreen(self.resultJSON)
+        //self.TestResultScreen(self.resultJSON)
         
     }
     

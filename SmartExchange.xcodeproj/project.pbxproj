@@ -99,6 +99,8 @@
 		59E086D62674A709003FDA1C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E086D42674A709003FDA1C /* Reachability.swift */; };
 		59F8C3C22D31676800FC263F /* PreviousQuotePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8C3C12D31676800FC263F /* PreviousQuotePopUp.swift */; };
 		59F8C3C42D31873500FC263F /* GlobalSkipPopUpVC 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8C3C32D31873400FC263F /* GlobalSkipPopUpVC 2.swift */; };
+		59FA7D2C2D33ABC700BBD83D /* PreviousSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FA7D2B2D33ABC700BBD83D /* PreviousSessionVC.swift */; };
+		59FA7D2E2D33C48900BBD83D /* CrackCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FA7D2D2D33C48900BBD83D /* CrackCheckVC.swift */; };
 		9F3B8B721FD07057605F914D /* Pods_SmartExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A605FA6818744F36A4A27C8 /* Pods_SmartExchangeTests.framework */; };
 		C312E7D622EE201300B4D291 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C312E7D522EE201300B4D291 /* UserDetailsViewController.swift */; };
 		C31CFDED207DE80C003870BE /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31CFDEC207DE80C003870BE /* ScreenViewController.swift */; };
@@ -247,6 +249,8 @@
 		59E086D42674A709003FDA1C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		59F8C3C12D31676800FC263F /* PreviousQuotePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousQuotePopUp.swift; sourceTree = "<group>"; };
 		59F8C3C32D31873400FC263F /* GlobalSkipPopUpVC 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlobalSkipPopUpVC 2.swift"; sourceTree = "<group>"; };
+		59FA7D2B2D33ABC700BBD83D /* PreviousSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousSessionVC.swift; sourceTree = "<group>"; };
+		59FA7D2D2D33C48900BBD83D /* CrackCheckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrackCheckVC.swift; sourceTree = "<group>"; };
 		64CE37AA01A63F11FAC23EED /* Pods-SmartExchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartExchangeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartExchangeUITests/Pods-SmartExchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A605FA6818744F36A4A27C8 /* Pods_SmartExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B18DDCEBD9E2021D1AC3896 /* Pods-SmartExchangeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartExchangeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartExchangeUITests/Pods-SmartExchangeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -389,22 +393,14 @@
 				59420D28262EBFA30048B712 /* WiFiTestVC.swift */,
 				C3E76E691E7D5C5900228428 /* InternalTests.swift */,
 				C393FA88207625C600D43AEB /* ResultsViewController.swift */,
-				C31CFDF020871398003870BE /* Question.swift */,
-				C3DED6BE207C83B800324995 /* Answer.swift */,
-				C3DED6C2207C8B8100324995 /* APIClient.swift */,
-				C31CFDEE2080E052003870BE /* HardwareQuestionsViewController.swift */,
+				59FA7D2D2D33C48900BBD83D /* CrackCheckVC.swift */,
 				59DA3423283B78FC005AC9CA /* QuestionsVC.swift */,
 				1829BEBB2B08B1F100C2A828 /* ImageInfoPopUpVC.swift */,
 				C363AE48208F270E00D2AC54 /* PriceViewController.swift */,
 				C312E7D522EE201300B4D291 /* UserDetailsViewController.swift */,
-				59CF225928447D1C00E28F15 /* UserDetailsVC.swift */,
-				C3FAA26422F44FF100233503 /* PreviousQuotationsViewController.swift */,
-				18C9E2D029DFDF7800270508 /* BuildPopUpVC.swift */,
-				C37A34E32074075C004A4986 /* IMEIViewController.swift */,
-				C39F31DB1E7A969C00959100 /* SmartExMainVC.swift */,
-				1871654E2A70E62600E5DEB4 /* StoreSliderVC.swift */,
-				187165542A71014500E5DEB4 /* FindStoreVC.swift */,
 				59F8C3C12D31676800FC263F /* PreviousQuotePopUp.swift */,
+				59FA7D2B2D33ABC700BBD83D /* PreviousSessionVC.swift */,
+				59FA7D2F2D33E1F400BBD83D /* Not used VC */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -541,6 +537,24 @@
 				59E086D32674A709003FDA1C /* StoreUrlData.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		59FA7D2F2D33E1F400BBD83D /* Not used VC */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAA26422F44FF100233503 /* PreviousQuotationsViewController.swift */,
+				C31CFDF020871398003870BE /* Question.swift */,
+				C3DED6BE207C83B800324995 /* Answer.swift */,
+				C3DED6C2207C8B8100324995 /* APIClient.swift */,
+				C31CFDEE2080E052003870BE /* HardwareQuestionsViewController.swift */,
+				18C9E2D029DFDF7800270508 /* BuildPopUpVC.swift */,
+				C37A34E32074075C004A4986 /* IMEIViewController.swift */,
+				C39F31DB1E7A969C00959100 /* SmartExMainVC.swift */,
+				1871654E2A70E62600E5DEB4 /* StoreSliderVC.swift */,
+				187165542A71014500E5DEB4 /* FindStoreVC.swift */,
+				59CF225928447D1C00E28F15 /* UserDetailsVC.swift */,
+			);
+			path = "Not used VC";
 			sourceTree = "<group>";
 		};
 		79A20DAEF8AFF9C8F1365D80 /* Pods */ = {
@@ -1058,6 +1072,7 @@
 				C31CFDF120871398003870BE /* Question.swift in Sources */,
 				59DA342F283B8ED3005AC9CA /* SpecificationValue.swift in Sources */,
 				5966EF4C2614810500E91F21 /* Recording.swift in Sources */,
+				59FA7D2E2D33C48900BBD83D /* CrackCheckVC.swift in Sources */,
 				C3F2C42F1E7EC73E0034E035 /* VolumeRockerVC.swift in Sources */,
 				1871654F2A70E62600E5DEB4 /* StoreSliderVC.swift in Sources */,
 				59E086D62674A709003FDA1C /* Reachability.swift in Sources */,
@@ -1067,6 +1082,7 @@
 				59DA3430283B8ED3005AC9CA /* ConditionValue.swift in Sources */,
 				C3FAA26522F44FF100233503 /* PreviousQuotationsViewController.swift in Sources */,
 				C343A76F1E7FBFA500C355DD /* EarphoneJackVC.swift in Sources */,
+				59FA7D2C2D33ABC700BBD83D /* PreviousSessionVC.swift in Sources */,
 				59F8C3C42D31873500FC263F /* GlobalSkipPopUpVC 2.swift in Sources */,
 				59420D29262EBFA30048B712 /* WiFiTestVC.swift in Sources */,
 				C39F31DC1E7A969C00959100 /* SmartExMainVC.swift in Sources */,

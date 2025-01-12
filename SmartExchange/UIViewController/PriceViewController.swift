@@ -33,7 +33,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //@IBOutlet weak var tradeInOnlineView: UIView!
     //@IBOutlet weak var tradeInOnlineMessageTxtView: UITextView!
     
-    @IBOutlet weak var lblTitle: UILabel!
+    //@IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var refValueLabel: UILabel!
     
     @IBOutlet weak var offeredPriceInfo: UILabel!
@@ -41,8 +41,8 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var payableBtnInfo: UILabel!
     
     @IBOutlet weak var uploadIdBtn: UIButton!
-    @IBOutlet weak var buySmartPhoneBtn: UIButton!
-    @IBOutlet weak var lblCheckout: UILabel!
+    //@IBOutlet weak var buySmartPhoneBtn: UIButton!
+    //@IBOutlet weak var lblCheckout: UILabel!
     
     @IBOutlet weak var offeredPrice: UILabel!
     @IBOutlet weak var diagnosisCharges: UILabel!
@@ -82,6 +82,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
         self.setStatusBarColor(themeColor: GlobalUtility().AppThemeColor)
         
         DispatchQueue.main.async {
@@ -208,16 +209,16 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func changeLanguageOfUI() {
                 
-        self.lblTitle.text = self.getLocalizatioStringValue(key: "Quotation")
+        //self.lblTitle.text = self.getLocalizatioStringValue(key: "Quotation")
         
         self.offeredPriceInfo.text = self.getLocalizatioStringValue(key: "Offered Price")
         self.diagnosisChargesInfo.text = self.getLocalizatioStringValue(key: "Diagnosis Charges")
         self.payableBtnInfo.text = self.getLocalizatioStringValue(key: "Estimated Amount")
         
         self.uploadIdBtn.setTitle(self.getLocalizatioStringValue(key: "Scan Identity Card (IC) to proceed"), for: UIControlState.normal)
-        self.buySmartPhoneBtn.setTitle(self.getLocalizatioStringValue(key: "BUY A SMARTPHONE"), for: UIControlState.normal)
+        //self.buySmartPhoneBtn.setTitle(self.getLocalizatioStringValue(key: "BUY A SMARTPHONE"), for: UIControlState.normal)
         
-        self.lblCheckout.text = self.getLocalizatioStringValue(key: "Checkout our Refurb Phones")
+        //self.lblCheckout.text = self.getLocalizatioStringValue(key: "Checkout our Refurb Phones")
          
     }
     
@@ -749,7 +750,8 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         self.loaderImage.isHidden = true
                         self.uploadIdBtn.isHidden = false
                         self.refValueLabel.isHidden = false
-                        let refno = self.getLocalizatioStringValue(key: "Reference No")
+                        //let refno = self.getLocalizatioStringValue(key: "Reference No")
+                        let refno = self.getLocalizatioStringValue(key: "Ref# ")
                         self.refValueLabel.text = "\(refno): \(self.orderId)"
                         
                         DispatchQueue.main.async {
@@ -860,6 +862,25 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     */
     
+    @IBAction func copyBtnTapped(_ sender:UIButton) {
+        
+        if (isSynced){
+            UIPasteboard.general.string = self.orderId
+            
+            DispatchQueue.main.async() {
+                self.view.makeToast(self.getLocalizatioStringValue(key: "copied"), duration: 1.0, position: .bottom)
+            }
+            
+        }else{
+            
+            DispatchQueue.main.async {
+                self.view.makeToast(self.getLocalizatioStringValue(key: "Please wait for the results to sync to the server!"), duration: 2.0, position: .bottom)
+            }
+            
+        }
+        
+    }
+    
     @IBAction func buySmartPhoneBtnTapped(_ sender:UIButton) {
         
         if (isSynced){
@@ -878,10 +899,23 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
     }
     
+    @IBAction func restartTestsBtnClicked(_ sender: UIButton) {
+        
+        if (self.isSynced) {
+            
+            self.ShowRestartPopUp()
+            
+        }else{
+            DispatchQueue.main.async() {
+                self.view.makeToast(self.getLocalizatioStringValue(key: "Please wait for the results to sync to the server!"), duration: 2.0, position: .bottom)
+            }
+        }
+        
+    }
     
     @IBAction func uploadIdBtnClicked(_ sender: UIButton) {
         
-        if sender.titleLabel?.text == self.getLocalizatioStringValue(key: "Scan Identity Card (IC) to proceed") {
+        if sender.titleLabel?.text == self.getLocalizatioStringValue(key: "UPLOAD ID") {
             
             if (isSynced){
                 let camera = DKCamera()
@@ -963,7 +997,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             if json["status"] == "Success" {
                                 
                                 DispatchQueue.main.async() {
-                                    self.uploadIdBtn.setTitle(self.getLocalizatioStringValue(key: "Back to home"), for: .normal)
+                                    //self.uploadIdBtn.setTitle(self.getLocalizatioStringValue(key: "Back to home"), for: .normal)
                                     self.view.makeToast(self.getLocalizatioStringValue(key: "Photo Id uploaded successfully!"), duration: 1.0, position: .bottom)
                                 }
                                 
@@ -1050,6 +1084,45 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
 
+    func ShowRestartPopUp() {
+        
+        let popUpVC = self.storyboard?.instantiateViewController(withIdentifier: "GlobalSkipPopUpVC") as! GlobalSkipPopUpVC
+        
+        popUpVC.strTitle = "Are you sure, you want to restart the process."
+        popUpVC.strMessage = ""
+        popUpVC.strBtnYesTitle = "No"
+        popUpVC.strBtnNoTitle = "Yes"
+        popUpVC.strBtnRetryTitle = ""
+        popUpVC.isShowThirdBtn = false
+        
+        popUpVC.userConsent = { btnTag in
+            switch btnTag {
+            case 1:
+                
+                break
+                
+            case 2:
+                
+                hardwareQuestionsCount = 0
+                AppQuestionIndex = -1
+                AppResultString = ""
+                
+                let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let centerVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                appDel.window!.rootViewController = centerVC
+                appDel.window!.makeKeyAndVisible()
+                
+            default:
+                                
+                break
+            }
+        }
+        
+        popUpVC.modalPresentationStyle = .overFullScreen
+        self.present(popUpVC, animated: false) { }
+        
+    }
     
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var myTableViewHeightConstraint: NSLayoutConstraint!

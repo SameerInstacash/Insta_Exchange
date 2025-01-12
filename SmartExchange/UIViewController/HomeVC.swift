@@ -585,9 +585,26 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     }
     
     @IBAction func previousQuotationBtnPressed(_ sender: Any) {
+        
+        /*
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousQuotationsViewController") as! PreviousQuotationsViewController
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true)
+        */
+        
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousQuotePopUp") as! PreviousQuotePopUp
+        
+        vc.popupDismiss = { productDict in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousSessionVC") as! PreviousSessionVC
+            vc.sessionDict = productDict
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
+        
     }
     
     @IBAction func findNearByStoreBtnPressed(_ sender: Any) {
@@ -707,8 +724,8 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                             vc.strDeviceImg = productImage
                                                         
                             vc.modalPresentationStyle = .overFullScreen
-                            //self.present(vc, animated: true, completion: nil)
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            self.present(vc, animated: true, completion: nil)
+                            //self.navigationController?.pushViewController(vc, animated: true)
                             
                         }
                         
@@ -742,6 +759,8 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         }
         task.resume()
     }
+    
+    
     
     func StartDiagnosticFlow() {
         
