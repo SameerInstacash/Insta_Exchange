@@ -1,0 +1,375 @@
+
+/* Class = "UILabel"; text = "Cracked"; ObjectID = "0QK-kJ-Re6"; */
+"0QK-kJ-Re6.text" = "เสีย";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "0gb-tI-f4A"; */
+"0gb-tI-f4A.normalTitle" = "ข้าม";
+
+/* Class = "UILabel"; text = "Samsung Galaxy Note 8 (6GB/64 GB)"; ObjectID = "1rX-1m-ZTL"; */
+"1rX-1m-ZTL.text" = "Samsung Galaxy Note 8 (6GB/64 GB)";
+
+/* Class = "UIViewController"; title = "SmartExMainVC"; ObjectID = "2Ue-3S-Xj5"; */
+"2Ue-3S-Xj5.title" = "SmartExMainVC";
+
+/* Class = "UILabel"; text = "Select the available original accessories"; ObjectID = "3BY-Gv-mwa"; */
+"3BY-Gv-mwa.text" = "โปรดเลือกอุปกรณ์สภาพเหมือนใหม่";
+
+/* Class = "UILabel"; text = "2017-10-04 09:30"; ObjectID = "3Ev-EV-9j3"; */
+"3Ev-EV-9j3.text" = "2017-10-04 09:30";
+
+/* Class = "UIButton"; normalTitle = "Schedule Visit"; ObjectID = "3ic-De-Cim"; */
+"3ic-De-Cim.normalTitle" = "ลงทะเบียนนัด";
+
+/* Class = "UILabel"; text = "Flawless"; ObjectID = "4ev-OJ-c3t"; */
+"4ev-OJ-c3t.text" = "ไม่มีรอย";
+
+/* Class = "UILabel"; text = "Welcome to SmartExchange"; ObjectID = "51j-2f-3Wf"; */
+"51j-2f-3Wf.text" = " ยินดีต้อนรับสู่ Blynk Exchange";
+
+/* Class = "UILabel"; text = "Blur"; ObjectID = "69s-sS-9dY"; */
+"69s-sS-9dY.text" = "เบลอ";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "6Aq-cM-WI1"; */
+"6Aq-cM-WI1.text" = "N/A";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "8Gn-I9-OwG"; */
+"8Gn-I9-OwG.normalTitle" = "ข้าม";
+
+/* Class = "UILabel"; text = "Minor Scratches"; ObjectID = "8hV-Dq-jEc"; */
+"8hV-Dq-jEc.text" = "ถลอก";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8jr-Re-nei"; */
+"8jr-Re-nei.text" = "Label";
+
+/* Class = "UILabel"; text = "Broken"; ObjectID = "8oT-ns-Yrz"; */
+"8oT-ns-Yrz.text" = "เสีย";
+
+/* Class = "UIButton"; normalTitle = "Upload Id Proof"; ObjectID = "9MO-YD-Da8"; */
+"9MO-YD-Da8.normalTitle" = "อัพโหลดเอกสารยืนยันตัวตน";
+
+/* Class = "UILabel"; text = "More than 10 months (No Bill required)"; ObjectID = "9Mk-7x-gTz"; */
+"9Mk-7x-gTz.text" = "มากกว่า 10 เดือน (ไม่ต้องมีบิล)";
+
+/* Class = "UILabel"; text = "Authenticate with Touch Id/ Face Id of your phone"; ObjectID = "9Nj-Wt-d5y"; */
+"9Nj-Wt-d5y.text" = "ยืนยันด้วยนิ้วมือของท่านบแป้น Touch ID";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "9e8-5Y-nx2"; */
+"9e8-5Y-nx2.normalTitle" = "ข้าม";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "9sM-V9-yzh"; */
+"9sM-V9-yzh.text" = "N/A";
+
+/* Class = "UILabel"; text = "Okay"; ObjectID = "9wX-gy-VgZ"; */
+"9wX-gy-VgZ.text" = "ตกลง";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "A4W-NK-gLG"; */
+"A4W-NK-gLG.normalTitle" = "ยื่น";
+
+/* Class = "UIViewController"; title = "FingerPrint VC"; ObjectID = "AdB-6A-2qS"; */
+"AdB-6A-2qS.title" = "ลายนิ้วมือ VC";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Agn-j5-xW3"; */
+"Agn-j5-xW3.normalTitle" = "ถัดไป";
+
+/* Class = "UILabel"; text = "Heavily Scratched"; ObjectID = "AwI-s0-Tgg"; */
+"AwI-s0-Tgg.text" = "มีรอยมาก";
+
+/* Class = "UILabel"; text = "Reference No"; ObjectID = "BPX-vM-H9N"; */
+"BPX-vM-H9N.text" = "รหัสอ้างอิง";
+
+/* Class = "UILabel"; text = "Device Body (Side & Back Cover)"; ObjectID = "BUw-2X-xG4"; */
+"BUw-2X-xG4.text" = "ตัวเครื่อง (ด้านข้างและด้านหลัง)";
+
+/* Class = "UILabel"; text = "Please plug-in/plug-out the charger of your device."; ObjectID = "BXk-Ti-lN5"; */
+"BXk-Ti-lN5.text" = "โปรดเสียบปลั๊ก / ปลั๊กอุปกรณ์ชาร์จของท่าน";
+
+/* Class = "UIViewController"; title = "HomeVC"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "HomeVC";
+
+/* Class = "UILabel"; text = "Okay"; ObjectID = "Be2-Be-9TU"; */
+"Be2-Be-9TU.text" = "ตกลง";
+
+/* Class = "UILabel"; text = "Cracked"; ObjectID = "ByD-ED-e1P"; */
+"ByD-ED-e1P.text" = "ราคาเสนอ";
+
+/* Class = "UILabel"; text = "DIAGNOSIS RESULTS"; ObjectID = "C6g-kW-Reb"; */
+"C6g-kW-Reb.text" = "ผลการการตรวจสอบ";
+
+/* Class = "UILabel"; text = "Functional Checks"; ObjectID = "EIq-xj-k2e"; */
+"EIq-xj-k2e.text" = "การตรวจสอบการใช้งาน";
+
+/* Class = "UILabel"; text = "Broken"; ObjectID = "EWk-bk-Xve"; */
+"EWk-bk-Xve.text" = "เสีย";
+
+/* Class = "UIButton"; normalTitle = "Change Language"; ObjectID = "EXd-VH-nSC"; */
+"EXd-VH-nSC.normalTitle" = "เปลี่ยนภาษา";
+
+/* Class = "UITextView"; text = "Please press the following buttons or keys on your phone."; ObjectID = "FQb-ge-po2"; */
+"FQb-ge-po2.text" = "กรุณากดปุ่มเร่งเสียงและปุ่มลดเสียง";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "FzY-c5-e32"; */
+"FzY-c5-e32.normalTitle" = "ถัดไป";
+
+/* Class = "UILabel"; text = "Failed and Skipped Tests"; ObjectID = "GLa-NK-pel"; */
+"GLa-NK-pel.text" = "การตรวจสอบที่ไม่ผ่านและที่ได้ข้าม";
+
+/* Class = "UILabel"; text = "Earphone"; ObjectID = "GO7-HF-uJW"; */
+"GO7-HF-uJW.text" = "หูฟัง";
+
+/* Class = "UILabel"; text = "Press Volume down Button"; ObjectID = "HO2-w5-xkQ"; */
+"HO2-w5-xkQ.text" = "กดปุ่มลดระดับเสียง";
+
+/* Class = "UILabel"; text = "None of the above"; ObjectID = "HS8-jC-nh7"; */
+"HS8-jC-nh7.text" = "มิข้อใด";
+
+/* Class = "UILabel"; text = "Original Charger"; ObjectID = "Hvc-Sy-aQq"; */
+"Hvc-Sy-aQq.text" = "สายชาร์จสภาพเหมือนใหม่";
+
+/* Class = "UILabel"; text = "Heavy Scratches"; ObjectID = "Iio-dD-jnX"; */
+"Iio-dD-jnX.text" = "รอยขีดข่วนหนัก";
+
+/* Class = "UILabel"; text = "Offered Price"; ObjectID = "J8c-58-LZg"; */
+"J8c-58-LZg.text" = "ราคาเสนอ";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "L37-x6-f6b"; */
+"L37-x6-f6b.normalTitle" = "ถัดไป";
+
+/* Class = "UIButton"; normalTitle = "Start Test"; ObjectID = "L3O-3L-gpn"; */
+"L3O-3L-gpn.normalTitle" = "เริ่มการตรวจสอบ";
+
+/* Class = "UILabel"; text = "Place your palm over the Proximity Sensors and wave as shown in the image"; ObjectID = "NAR-FO-ih2"; */
+"NAR-FO-ih2.text" = "วางฝ่ามือของคุณไว้เหนือเซ็นเซอร์ความใกล้ชิดและคลื่นตามที่แสดงในภาพ";
+
+/* Class = "UILabel"; text = "Click 'Start Test', then swipe along the squares"; ObjectID = "NZs-1E-ZfP"; */
+"NZs-1E-ZfP.text" = "คลิก 'เริ่มการทดสอบ' จากนั้นปัดไปตามช่องสี่เหลี่ยม";
+
+/* Class = "UILabel"; text = "iPhone"; ObjectID = "NnB-K6-v8r"; */
+"NnB-K6-v8r.text" = "iPhone";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "Nsg-T8-c5G"; */
+"Nsg-T8-c5G.normalTitle" = "ข้าม";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "OH3-pm-ZZC"; */
+"OH3-pm-ZZC.normalTitle" = "ข้าม";
+
+/* Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "OYz-Zp-uLr"; */
+"OYz-Zp-uLr.normalTitle" = "ถัดไป";
+
+/* Class = "UILabel"; text = "Phone Locks for Apple (Network lock or Network or Passcode or iCloud)"; ObjectID = "Oin-YM-NLF"; */
+"Oin-YM-NLF.text" = "ล็อคโทรศัพท์สำหรับ Apple (ล็อคเครือข่ายหรือเครือข่ายหรือรหัสผ่านหรือ iCloud)";
+
+/* Class = "UIButton"; normalTitle = "Let's Get Started"; ObjectID = "QPs-FR-MD8"; */
+"QPs-FR-MD8.normalTitle" = "มาเริ่มกันเลย";
+
+/* Class = "UILabel"; text = "Please enter the following details to continue"; ObjectID = "Rzm-IE-JCy"; */
+"Rzm-IE-JCy.text" = "โปรดป้อนข้อมูลต่อไปนี้เพื่อดำเนินการต่อ";
+
+/* Class = "UIButton"; normalTitle = "Authenticate "; ObjectID = "SYm-Rf-lmq"; */
+"SYm-Rf-lmq.normalTitle" = "รับรองความถูกต้อง ";
+
+/* Class = "UILabel"; text = "Select if applicable"; ObjectID = "TLB-JR-oqj"; */
+"TLB-JR-oqj.text" = "เลือกถ้าเกี่ยวข้อง";
+
+/* Class = "UILabel"; text = "ZWGU025225"; ObjectID = "TyC-Pd-Su9"; */
+"TyC-Pd-Su9.text" = "ZWGU025225";
+
+/* Class = "UITextView"; text = "Turn on screen auto-rotation, then click 'Start Test' and rotate your device from Portrait to Landscape view"; ObjectID = "UhM-0B-0hy"; */
+"UhM-0B-0hy.text" = "โปรดเปิดค่าตั้งให้หน้าจอหมุนอัตโนมัติ จากนั้นกด 'เริ่มการตรวจสอบ' และปรับเครื่องจากแนวตั้งเป็นมุมมองแนวนอน";
+
+/* Class = "UILabel"; text = "None of the above"; ObjectID = "Xmb-7b-DsQ"; */
+"Xmb-7b-DsQ.text" = "มิข้อใด";
+
+/* Class = "UILabel"; text = "IMEI/Serial:"; ObjectID = "Xrt-Zm-oce"; */
+"Xrt-Zm-oce.text" = "รหัส IMEI / ซีเรียล:";
+
+/* Class = "UILabel"; text = "Main Camera (Camera Glass)"; ObjectID = "Y75-Xy-ETb"; */
+"Y75-Xy-ETb.text" = "กล้องหลัก (กระจกกล้อง)";
+
+/* Class = "UILabel"; text = "Box"; ObjectID = "YPX-Ef-gVH"; */
+"YPX-Ef-gVH.text" = "กล่องโทรศัพท์";
+
+/* Class = "UILabel"; text = "Unlocked"; ObjectID = "YZj-Zf-cWv"; */
+"YZj-Zf-cWv.text" = "ไม่ติดล้อค";
+
+/* Class = "UILabel"; text = "865800022196205"; ObjectID = "ZGJ-pa-ZMg"; */
+"ZGJ-pa-ZMg.text" = "865800022196205";
+
+/* Class = "UILabel"; text = "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests."; ObjectID = "ZYc-Xt-Bha"; */
+"ZYc-Xt-Bha.text" = "โปรดตรวจสอบว่าได้เปิด Bluetooth, GPS และ Wifi แล้วในค่าตั้งเครื่อง และกดเริ่มเพื่อเริ่มการตรวจสอบ";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "aPN-ah-eIi"; */
+"aPN-ah-eIi.normalTitle" = "ข้าม";
+
+/* Class = "UIButton"; normalTitle = "Previous Quotation"; ObjectID = "bSD-wv-rtF"; */
+"bSD-wv-rtF.normalTitle" = "ใบเสนอราคาก่อนหน้า";
+
+/* Class = "UIViewController"; title = "HomeVC"; ObjectID = "cMU-6X-LPQ"; */
+"cMU-6X-LPQ.title" = "HomeVC";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "cO6-VF-qOJ"; */
+"cO6-VF-qOJ.title" = "หัวข้อ";
+
+/* Class = "UILabel"; text = "Loose"; ObjectID = "d0L-qx-2E0"; */
+"d0L-qx-2E0.text" = "หลวม";
+
+/* Class = "UILabel"; text = "Please plug-in/plug-out your earphones."; ObjectID = "dLo-6U-Jwv"; */
+"dLo-6U-Jwv.text" = "โปรดเสียบเข้า / เสียบออกหูฟังของท่าน";
+
+/* Class = "UILabel"; text = "Diagnosis Charges"; ObjectID = "dMu-hK-xnD"; */
+"dMu-hK-xnD.text" = "ค่าธรรมเนียมการตรวจสอบ";
+
+/* Class = "UILabel"; text = "Flawless"; ObjectID = "dbY-BS-Ftc"; */
+"dbY-BS-Ftc.text" = "ไม่มีรอย";
+
+/* Class = "UILabel"; text = "LCD/Screen Glass"; ObjectID = "dyK-uP-MdD"; */
+"dyK-uP-MdD.text" = "จอ LCD / กระจกหน้าจอ";
+
+/* Class = "UITextField"; placeholder = "Store Token"; ObjectID = "etK-pq-3tO"; */
+"etK-pq-3tO.placeholder" = "โทเค็นร้านค้า";
+
+/* Class = "UILabel"; text = "How old is your device?"; ObjectID = "ezH-mg-THX"; */
+"ezH-mg-THX.text" = "เครื่องท่านอายุเท่าไหร่";
+
+/* Class = "UILabel"; text = "Click ‘Start Test’. Test will begin and a white screen will be displayed for 10 seconds. If you see any black or white spot on your screen, please click ‘Yes’."; ObjectID = "fOm-Sy-kdw"; */
+"fOm-Sy-kdw.text" = "คลิก ‘เริ่มทดสอบ’ การทดสอบจะเริ่มขึ้นและหน้าจอสีขาวจะปรากฏขึ้นเป็นเวลา 10 วินาที หากคุณเห็นจุดดำหรือขาวบนหน้าจอของคุณโปรดคลิก ‘ใช่’";
+
+/* Class = "UILabel"; text = "Device has undergone repairs"; ObjectID = "fgQ-Fz-dUE"; */
+"fgQ-Fz-dUE.text" = "เครื่องได้รับการซ่อมแซม";
+
+/* Class = "UILabel"; text = "Between 3 to 10 months (Bill required)"; ObjectID = "fhj-4O-wQW"; */
+"fhj-4O-wQW.text" = " ระหว่าง 3 ถึง 10 เดือน (ต้องจ่ายบิล)";
+
+/* Class = "UILabel"; text = "Dented"; ObjectID = "gjY-xp-rax"; */
+"gjY-xp-rax.text" = "มีรอยบุบ";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "hAo-CY-yf7"; */
+"hAo-CY-yf7.text" = "N/A";
+
+/* Class = "UILabel"; text = "Welcome to SmartExchange"; ObjectID = "hAx-KT-Npv"; */
+"hAx-KT-Npv.text" = " ยินดีต้อนรับสู่ Blynk Exchange";
+
+/* Class = "UILabel"; text = "Please Enter IMEI of your device"; ObjectID = "hJQ-Ip-7oW"; */
+"hJQ-Ip-7oW.text" = " โปรดป้อนรหัส IMEI ของเครื่องท่าน";
+
+/* Class = "UILabel"; text = "Hardware Buttons or Keys"; ObjectID = "hKh-yz-g2T"; */
+"hKh-yz-g2T.text" = " ปุ่มฮาร์ดแวร์หรือคีย์";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "hX4-UY-VUE"; */
+"hX4-UY-VUE.placeholder" = "ชื่อ";
+
+/* Class = "UILabel"; text = "Please enter ‘Store Token’ and submit or click ‘Scan QR Code’ to begin Diagnostics. To view previous results, click on ‘Previous Quotation’"; ObjectID = "hlm-iZ-cM4"; */
+"hlm-iZ-cM4.text" = "โปรดป้อน ‘Store Token’ และส่งหรือคลิก ‘สแกนรหัส QR’ เพื่อเริ่มการวินิจฉัย หากต้องการดูผลลัพธ์ก่อนหน้าคลิกที่ 'ใบเสนอราคาก่อนหน้า'";
+
+/* Class = "UILabel"; text = "Flawless"; ObjectID = "hnW-6N-E81"; */
+"hnW-6N-E81.text" = "ไม่มีรอย";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "hpI-bh-ShW"; */
+"hpI-bh-ShW.placeholder" = "อีเมล";
+
+/* Class = "UILabel"; text = "Estimated Amount"; ObjectID = "ieS-PV-9gr"; */
+"ieS-PV-9gr.text" = "จำนวนเงินโดยประมาณ";
+
+/* Class = "UILabel"; text = "Not Working"; ObjectID = "ilt-W0-iH7"; */
+"ilt-W0-iH7.text" = "ไม่ทำงาน";
+
+/* Class = "UITextField"; placeholder = "Mobile Number"; ObjectID = "kDf-TI-ClZ"; */
+"kDf-TI-ClZ.placeholder" = "เบอร์มือถือ";
+
+/* Class = "UILabel"; text = "Discolored"; ObjectID = "kLA-cb-BRI"; */
+"kLA-cb-BRI.text" = "กะดำกะด่าง";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "kZB-zU-mYG"; */
+"kZB-zU-mYG.normalTitle" = "ไปต่อ";
+
+/* Class = "UILabel"; text = "Dented"; ObjectID = "lHl-c8-cT7"; */
+"lHl-c8-cT7.text" = "มีรอยบุบ";
+
+/* Class = "UIButton"; normalTitle = "Scan QR"; ObjectID = "lJZ-w4-Gge"; */
+"lJZ-w4-Gge.normalTitle" = "สแกนรหัส QR";
+
+/* Class = "UILabel"; text = "Locked"; ObjectID = "llW-U7-ssc"; */
+"llW-U7-ssc.text" = "ติดล้อค";
+
+/* Class = "UILabel"; text = "9461594523"; ObjectID = "lz8-hS-tYP"; */
+"lz8-hS-tYP.text" = "9461594523";
+
+/* Class = "UILabel"; text = "Click on ‘Start Test” and take a picture from your camera to run auto-focus test"; ObjectID = "mid-jj-p2L"; */
+"mid-jj-p2L.text" = "คลิกที่ 'เริ่มการทดสอบ' และถ่ายภาพจากกล้องของคุณเพื่อเรียกใช้การทดสอบโฟกัสอัตโนมัติ";
+
+/* Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "moQ-w4-DEK"; */
+"moQ-w4-DEK.normalTitle" = "ถัดไป";
+
+/* Class = "UILabel"; text = "2-3 Minor Scratches"; ObjectID = "ncq-Bv-XSn"; */
+"ncq-Bv-XSn.text" = "มีรอยเล็กน้อย 2-3 รอย";
+
+/* Class = "UILabel"; text = "Cracked"; ObjectID = "nmM-UW-AmA"; */
+"nmM-UW-AmA.text" = "แตก";
+
+/* Class = "UILabel"; text = "I hearby acknowledge that I have read, understand and agree to the Terms and Conditions."; ObjectID = "nu3-WH-NP2"; */
+"nu3-WH-NP2.text" = "ฉันได้ยินโดยรับทราบว่าฉันได้อ่านเข้าใจและยอมรับข้อกำหนดและเงื่อนไข";
+
+/* Class = "UILabel"; text = "Press Volume up Button"; ObjectID = "oAg-4h-KF2"; */
+"oAg-4h-KF2.text" = "กดปุ่มเร่งเสียง";
+
+/* Class = "UITextField"; placeholder = "Reference Number"; ObjectID = "oBW-si-waW"; */
+"oBW-si-waW.placeholder" = "รหัสอ้างอิง";
+
+/* Class = "UILabel"; text = "Scratched"; ObjectID = "p2g-sp-YAw"; */
+"p2g-sp-YAw.text" = "ถลอก";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "p39-LA-avj"; */
+"p39-LA-avj.normalTitle" = "ถัดไป";
+
+/* Class = "UILabel"; text = "Ankit Arora"; ObjectID = "phb-dE-znY"; */
+"phb-dE-znY.text" = "Ankit Arora";
+
+/* Class = "UILabel"; text = "abhimanyu@getinstacash.in"; ObjectID = "q9E-qh-JhI"; */
+"q9E-qh-JhI.text" = "abhimanyu@getinstacash.in";
+
+/* Class = "UILabel"; text = "Missing"; ObjectID = "qMw-nS-fjX"; */
+"qMw-nS-fjX.text" = "หายไป";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "qfx-n8-rt4"; */
+"qfx-n8-rt4.normalTitle" = "ยื่น";
+
+/* Class = "UILabel"; text = "Smart Exchange"; ObjectID = "rYZ-6H-s8P"; */
+"rYZ-6H-s8P.text" = "Blynk Exchange";
+
+/* Class = "UILabel"; text = "Broken"; ObjectID = "sbY-nN-ZH2"; */
+"sbY-nN-ZH2.text" = "เสีย";
+
+/* Class = "UIButton"; normalTitle = "Start Test"; ObjectID = "snY-LS-IkO"; */
+"snY-LS-IkO.normalTitle" = "เริ่มการตรวจสอบ";
+
+/* Class = "UIViewController"; title = "Camera VC"; ObjectID = "u1o-bH-sYm"; */
+"u1o-bH-sYm.title" = "Camera VC";
+
+/* Class = "UILabel"; text = "Silver Frame / Bezel (around screen)"; ObjectID = "v18-zZ-hzq"; */
+"v18-zZ-hzq.text" = "กรอบสีเงิน / กรอบ (รอบหน้าจอ)";
+
+/* Class = "UIButton"; normalTitle = "Begin Tests"; ObjectID = "wzU-9L-cRI"; */
+"wzU-9L-cRI.normalTitle" = "เริ่มต้นการตรวจสอบ";
+
+/* Class = "UILabel"; text = "Less than 3 months (Bill required)"; ObjectID = "x5F-CL-Xop"; */
+"x5F-CL-Xop.text" = "น้อยกว่า 3 เดือน (ต้องมีบิล)";
+
+/* Class = "UIButton"; normalTitle = "Start Test"; ObjectID = "x9D-EE-jw0"; */
+"x9D-EE-jw0.normalTitle" = "เริ่มการตรวจสอบ";
+
+/* Class = "UIButton"; normalTitle = "Start Test"; ObjectID = "xBf-UM-6aS"; */
+"xBf-UM-6aS.normalTitle" = "เริ่มการตรวจสอบ";
+
+/* Class = "UITextField"; accessibilityLabel = "Please Enter IMEI"; ObjectID = "xbY-p9-iVW"; */
+"xbY-p9-iVW.accessibilityLabel" = " โปรดป้อนรหัส IMEI ของเครื่องท่าน";
+
+/* Class = "UITextField"; placeholder = "Dial *#06# for IMEI Number"; ObjectID = "xbY-p9-iVW"; */
+"xbY-p9-iVW.placeholder" = "กด * # 06 # สำหรับหมายเลข IMEI";
+
+/* Class = "UIButton"; normalTitle = "Home"; ObjectID = "xgo-ab-ntg"; */
+"xgo-ab-ntg.normalTitle" = "Home";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "yOx-YY-b4S"; */
+"yOx-YY-b4S.normalTitle" = "ไปต่อ";
+
+/* Class = "UILabel"; text = "Preferred Time"; ObjectID = "yZy-g9-0RR"; */
+"yZy-g9-0RR.text" = "เวลาที่ต้องการ";

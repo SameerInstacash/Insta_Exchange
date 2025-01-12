@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "BBCF543E-C61A-401A-9315-60359D69021A"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E749D477-1FC1-46D4-A822-D3D7BC802414"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartExchange/UIViewController/DeadPixelVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "761"
+            endingLineNumber = "761"
+            landmarkName = "setRandomBackgroundColor_old()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53BB1EEB-95FD-47EA-BB84-0089E6B257A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartExchange/UIViewController/DeadPixelVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "803"
+            endingLineNumber = "803"
+            landmarkName = "setRandomBackgroundColor_old()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartExchange/UIViewController/DeadPixelVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "secondConfirmationPopUpShow()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - 1537fb03c63373f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/xcode-15%20App/November-23%20-%20MultiLingual/December-23/1:12:23/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1460">
+               </Location>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - 1537fb03c63373f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/xcode-15%20App/November-23%20-%20MultiLingual/December-23/1:12:23/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - 1537fb03c63373f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/xcode-15%20App/November-23%20-%20MultiLingual/December-23/6:12:23/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - d57e7f13434591b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/December-23/6:12:23/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - b8337b8d0e66f350"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/December-23/29:12:23/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - a0d47e20b1f2dc58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/December-23/30:12:23/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - 4e41095d26b651bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/March-24/2:3:24/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+               <Location
+                  uuid = "3DBA490E-80E7-4F8A-8DE5-A9065A23CC41 - bbb8618a0cf2b63d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SellNCash.DeadPixelVC.secondConfirmationPopUpShow() -&gt; ()"
+                  moduleName = "SellNCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/InstaCash%20Projects/NayaPurano/NayaPurano%20Exchange-C2B2B/March-24/4:3:24/NayaPurano_Exchange_iOS_C2B2B/SmartExchange/UIViewController/DeadPixelVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "363"
+                  endingLineNumber = "363"
+                  offsetFromSymbolStart = "1320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5784B0A-EE1C-4AEA-8E7B-47F5C45DE262"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartExchange/UIViewController/DeadPixelVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "775"
+            endingLineNumber = "775"
+            landmarkName = "setRandomBackgroundColor_old()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

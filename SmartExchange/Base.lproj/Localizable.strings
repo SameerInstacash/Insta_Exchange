@@ -1,0 +1,93 @@
+"Back_camera_auth"="This app is not authorized to use Back Camera.";
+"Error" = "Error";
+"Setting" = "Setting";
+"Cancel" = "Cancel";
+"Reader_not_supported_by_the_current_device" = "Reader not supported by the current device";
+"header_title" = "Application needs following permission to complete diagnosis. The Location request is required for completion of GPS Diagnosis";
+"Dead_Pixel_Test" = "Dead Pixel Test";
+"dead_pixel_msg" = "Did you see any black or white spots on the screen?";
+"Yes" = "Yes";
+"No" = "No";
+"retry" = "retry";
+//"skip_info" = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?";
+"skip_info" = "If you skip this test, there would be a reduction in the price offered. Are You Sure?";
+
+"Checking_Network" = "Checking Network";
+"Checking_Bluetooth" = "Checking Bluetooth";
+"Checking_GPS" = "Checking GPS...";
+"Checking_WiFi" = "Checking WiFi";
+"Tests_Complete" = "Tests Complete !";
+"internet_prompt" = "Please Check Internet conection.";
+"pos_info" = "Please make sure you've entered the details in the POS.";
+"reader_info" = "Reader not supported by the current device";
+"camer_permission" = "This app is not authorized to use Back Camera.";
+"setting" = "Setting";
+
+"portrait_mode" = "Now rotate your device back to Portrait view.";
+"landscape_mode" = "Please switch the Device to Landscape View.";
+
+"invalid_imei" = "Invalid IMEI Number Entered.";
+"imei_validation_info" = "Please Enter a valid 15-digit IMEI Number";
+"screen_failed_info" = "Screen Diagnosis Test Failed!";
+"retry_test" = "Do you want to retry the test?";
+"continue" = "Continue";
+"submit" = "Submit";
+"reference_no" = "Reference No";
+"skip" = "Skip";
+"rota_info" = "Turn on screen auto-rotation, then click 'Start Test' and rotate your device from Portrait to Landscape view";
+"hard_btn_info" = "Please press the following buttons or keys on your phone.";
+"lcd" = "LCD/Screen Glass";
+"cpbp_info" = "Device Body (Side & Back Cover)";
+"mobile_place" = "Mobile Number";
+"email_place" = "Email Address";
+"name_place" = "Name";
+"user_details_info" = "Please enter the following details to continue";
+"user_btn_continue" = "Continue";
+"upload_btn_text" = "Scan Identity Card (IC) to proceed";
+"schedule_btn_text" = "Schedule Visit";
+"cracked" = "Cracked";
+"broken" = "Broken";
+"Dented" = "Dented";
+"Not_Working" = "Not Working";
+"flawless" = "Flawless";
+"Minor_Scratches" = "2-3 Minor Scratches";
+"Heavily_Scratched" = "Heavily Scratched";
+"device_body" = "Device Body";
+"Phone_Locks" = "Phone Locks";
+"store_token" = "Store Token";
+//"Wifi_info" = "WiFi, Bluetooth or GPS: Defective";
+
+"nfc_info" = "NFC: Defective";
+
+//Test Title
+"rotation_test" = "Auto Rotation Diagnosis";
+"Proximity_test" = "Proximity Sensor Diagnosis";
+"hardware_test" = "Hardware Button Diagnosis";
+"earphone_test" = "Earphone Jack Diagnosis";
+"charger_test" = "Device Charger Diagnosis";
+"camera_test" = "Camera Diagnosis";
+"fingerprint_test" = "FingerPrint Scanner Diagnosis";
+"wifi_test" = "WIFI Diagnosis";
+//"gsm_test" = "GSM Diagnosis";
+//"bluetooth_test" = "Bluetooth Diagnosis";
+//"gps_test" = "GPS Diagnosis";
+"mic_test" = "Microphone Diagnosis";
+"speakers_test" = "Speakers Diagnosis";
+"vibrator_test" = "Vibrator Diagnosis";
+
+
+//Test Failed Info
+"rotation_info" = "Auto Roatation: Defective";
+"Proximity_info" = "Proximity Sensor: Defective";
+"hardware_info" = "Hardware Buttons: Defective";
+"earphone_info" = "Earphone Jack: Defective";
+"charger_info" = "Device Charger: Defective";
+"camera_info" = "Camera: Defective";
+"fingerprint_info" = "Device Biometrics: Defective";
+"wifi_info" = "WIFI: Defective";
+"gsm_info" = "GSM: Defective";
+"bluetooth_info" = "Bluetooth: Defective";
+"gps_info" = "GPS: Defective";
+"mic_info" = "Microphone: Defective";
+"speakers_info" = "Speakers: Defective";
+"vibrator_info" = "Vibrator: Defective";

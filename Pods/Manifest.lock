@@ -1,0 +1,247 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
+  - BEMCheckBox (1.4.1)
+  - BiometricAuthentication (2.0.2)
+  - DateTimePicker (2.5.3)
+  - Deviice (2.1.1)
+  - DKCamera (1.6.7)
+  - DropDown (2.3.13)
+  - DynamicBlurView (3.0.1)
+  - EZSwipeController (0.6.1)
+  - Firebase/Analytics (9.6.0):
+    - Firebase/Core
+  - Firebase/Core (9.6.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (~> 9.6.0)
+  - Firebase/CoreOnly (9.6.0):
+    - FirebaseCore (= 9.6.0)
+  - Firebase/Crashlytics (9.6.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 9.6.0)
+  - Firebase/Database (9.6.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 9.6.0)
+  - FirebaseAnalytics (9.6.0):
+    - FirebaseAnalytics/AdIdSupport (= 9.6.0)
+    - FirebaseCore (~> 9.0)
+    - FirebaseInstallations (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (9.6.0):
+    - FirebaseCore (~> 9.0)
+    - FirebaseInstallations (~> 9.0)
+    - GoogleAppMeasurement (= 9.6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseCore (9.6.0):
+    - FirebaseCoreDiagnostics (~> 9.0)
+    - FirebaseCoreInternal (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+  - FirebaseCoreDiagnostics (9.6.0):
+    - GoogleDataTransport (< 10.0.0, >= 9.1.4)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseCoreInternal (9.6.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+  - FirebaseCrashlytics (9.6.0):
+    - FirebaseCore (~> 9.0)
+    - FirebaseInstallations (~> 9.0)
+    - GoogleDataTransport (< 10.0.0, >= 9.1.4)
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (~> 2.1)
+  - FirebaseDatabase (9.6.0):
+    - FirebaseCore (~> 9.0)
+    - leveldb-library (~> 1.22)
+  - FirebaseInstallations (9.6.0):
+    - FirebaseCore (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/UserDefaults (~> 7.7)
+    - PromisesObjC (~> 2.1)
+  - GoogleAppMeasurement (9.6.0):
+    - GoogleAppMeasurement/AdIdSupport (= 9.6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (9.6.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 9.6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (9.6.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleDataTransport (9.2.3):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.11.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.11.1):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.11.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.11.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.11.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.11.1)"
+  - GoogleUtilities/Reachability (7.11.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.11.1):
+    - GoogleUtilities/Logger
+  - GPUImage (0.1.7)
+  - INTULocationManager (4.3.2)
+  - JGProgressHUD (2.2)
+  - JPSVolumeButtonHandler (1.0.5)
+  - leveldb-library (1.22.1)
+  - Luminous (1.0.2):
+    - Deviice
+  - MaterialCard (1.1.4)
+  - nanopb (2.30909.0):
+    - nanopb/decode (= 2.30909.0)
+    - nanopb/encode (= 2.30909.0)
+  - nanopb/decode (2.30909.0)
+  - nanopb/encode (2.30909.0)
+  - PopupDialog (0.9.2):
+    - DynamicBlurView (~> 3.0.1)
+  - PromisesObjC (2.2.0)
+  - PureLayout (2.0.6)
+  - QRCodeReader.swift (8.1.1)
+  - SwiftGifOrigin (1.7.0)
+  - SwiftOCR (1.1):
+    - GPUImage
+  - SwiftyJSON (5.0.1)
+  - Toast-Swift (3.0.1)
+  - TransitionButton (0.5.3)
+
+DEPENDENCIES:
+  - AlamofireImage (~> 3.3)
+  - BEMCheckBox
+  - BiometricAuthentication (~> 2.0.2)
+  - DateTimePicker
+  - DKCamera
+  - DropDown
+  - EZSwipeController
+  - Firebase/Analytics
+  - Firebase/Crashlytics
+  - Firebase/Database
+  - INTULocationManager
+  - JGProgressHUD
+  - JPSVolumeButtonHandler
+  - Luminous (~> 1.0.2)
+  - MaterialCard
+  - PopupDialog (~> 0.5)
+  - PureLayout (~> 2.0.5)
+  - QRCodeReader.swift (~> 8.1.1)
+  - SwiftGifOrigin
+  - SwiftOCR
+  - SwiftyJSON
+  - Toast-Swift (~> 3.0.1)
+  - TransitionButton
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - BEMCheckBox
+    - BiometricAuthentication
+    - DateTimePicker
+    - Deviice
+    - DKCamera
+    - DropDown
+    - DynamicBlurView
+    - EZSwipeController
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreInternal
+    - FirebaseCrashlytics
+    - FirebaseDatabase
+    - FirebaseInstallations
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleUtilities
+    - GPUImage
+    - INTULocationManager
+    - JGProgressHUD
+    - JPSVolumeButtonHandler
+    - leveldb-library
+    - Luminous
+    - MaterialCard
+    - nanopb
+    - PopupDialog
+    - PromisesObjC
+    - PureLayout
+    - QRCodeReader.swift
+    - SwiftGifOrigin
+    - SwiftOCR
+    - SwiftyJSON
+    - Toast-Swift
+    - TransitionButton
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  BiometricAuthentication: ce2f923d4df7a4b340e154137e7b47e544abc1ae
+  DateTimePicker: 52701ddf656a50856d3510955933f767cd2c947c
+  Deviice: 1c168656d3c350e22ae45383b1169df130ecf928
+  DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  EZSwipeController: 255b0f8aed31963b0236802c926e27dd006a2532
+  Firebase: 5ae8b7cf8efce559a653aef0ad95bab3f427c351
+  FirebaseAnalytics: 89ad762c6c3852a685794174757e2c60a36b6a82
+  FirebaseCore: 2082fffcd855f95f883c0a1641133eb9bbe76d40
+  FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
+  FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
+  FirebaseCrashlytics: 3210572ddb77801e5a0bd9d7bc890769f2066a0c
+  FirebaseDatabase: 3de19e533a73d45e25917b46aafe1dd344ec8119
+  FirebaseInstallations: 0a115432c4e223c5ab20b0dbbe4cbefa793a0e8e
+  GoogleAppMeasurement: 6de2b1a69e4326eb82ee05d138f6a5cb7311bcb1
+  GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
+  GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  INTULocationManager: e5dc524611b0cd582f473bc56cc8c389adb2f338
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  JPSVolumeButtonHandler: 53110330c9168ed325def93eabff39f0fe3e8082
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  Luminous: dfc2b9dfb22d4eb0d836881eb2495ec3fd3fc605
+  MaterialCard: 95fe84134e995d8688a88d2d305c520291910f6d
+  nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
+  PopupDialog: f4bb461bf70ff422be0b56656566424ee9273080
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
+  QRCodeReader.swift: b164a681887de276d405ff02bce854d82cd6360b
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
+  SwiftOCR: e1a5c7582f074b54df2b1ad273983088b3cf5d45
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
+  TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
+
+PODFILE CHECKSUM: d33cb053d16efe238d2fb3e0d83f7e7979040690
+
+COCOAPODS: 1.12.1

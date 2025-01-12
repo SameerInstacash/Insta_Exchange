@@ -1,0 +1,31 @@
+uploading map to new relic
+executing upload_map_file_to_new_relic
+New Relic: map file upload attempt #1 (of 3)
+Using URL: https://mobile-symbol-upload.eu01.nr-data.net
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/InstaCash Projects/NayaPurano/NayaPurano Exchange-C2B2B/July-23/27:7:23/NayaPurano_Exchange_iOS_C2B2B/Pods/NewRelicAgent/NewRelic.xcframework/Resources/generateMap.py", line 252, in <module>
+    processDsymFile(dsym, workDir)
+  File "/Users/apple/Desktop/InstaCash Projects/NayaPurano/NayaPurano Exchange-C2B2B/July-23/27:7:23/NayaPurano_Exchange_iOS_C2B2B/Pods/NewRelicAgent/NewRelic.xcframework/Resources/generateMap.py", line 201, in processDsymFile
+    nrZipFile.write(file.name)
+  File "/Applications/Xcode-14.2.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/zipfile.py", line 1727, in write
+    zinfo = ZipInfo.from_file(filename, arcname,
+  File "/Applications/Xcode-14.2.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/zipfile.py", line 501, in from_file
+    st = os.stat(filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/apple/Library/Developer/Xcode/DerivedData/SmartExchange-fdijmcodyrvnithjlsimvfcgbdfu/Build/Intermediates.noindex/SmartExchange.build/Debug-iphoneos/SmartExchange.build/tmp/e5b906f681e931fca52374d069258cec.map'
+New Relic: map file upload attempt #2 (of 3)
+Using URL: https://mobile-symbol-upload.eu01.nr-data.net
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/InstaCash Projects/NayaPurano/NayaPurano Exchange-C2B2B/July-23/27:7:23/NayaPurano_Exchange_iOS_C2B2B/Pods/NewRelicAgent/NewRelic.xcframework/Resources/generateMap.py", line 252, in <module>
+    processDsymFile(dsym, workDir)
+  File "/Users/apple/Desktop/InstaCash Projects/NayaPurano/NayaPurano Exchange-C2B2B/July-23/27:7:23/NayaPurano_Exchange_iOS_C2B2B/Pods/NewRelicAgent/NewRelic.xcframework/Resources/generateMap.py", line 201, in processDsymFile
+    nrZipFile.write(file.name)
+  File "/Applications/Xcode-14.2.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/zipfile.py", line 1727, in write
+    zinfo = ZipInfo.from_file(filename, arcname,
+  File "/Applications/Xcode-14.2.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/zipfile.py", line 501, in from_file
+    st = os.executing upload_dsym_to_new_relic
+new relic: successfully uploaded dsym files
+apple/Library/Developer/Xcode/DerivedData/SmartExchange-fdijmcodyrvnithjlsimvfcgbdfu/Build/Intermediates.noindex/SmartExchange.build/Debug-iphoneos/SmartExchange.build/tmp/e5b906f681e931fca52374d069258cec.map'
+New Relic: map file upload attempt #3 (of 3)
+Using URL: https://mobile-symbol-upload.eu01.nr-data.net
+executing upload_dsym_to_new_relic
+new relic: successfully uploaded dsym files
