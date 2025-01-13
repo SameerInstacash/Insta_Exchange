@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "ic_landscape.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "devicerotation.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

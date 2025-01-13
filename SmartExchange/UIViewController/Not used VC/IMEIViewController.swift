@@ -43,7 +43,7 @@ class IMEIViewController: UIViewController,UITextFieldDelegate {
     
     func changeLanguageOfUI() {
   
-        self.lblTitle.text = self.getLocalizatioStringValue(key: "Nayapurano Exchange")
+        self.lblTitle.text = self.getLocalizatioStringValue(key: "IC Exchange")
         self.lblPleaseEnter.text = self.getLocalizatioStringValue(key: "Please Enter IMEI of your device")
         
         self.txtFieldIMEI.placeholder = self.getLocalizatioStringValue(key: "Dial *#06# for IMEI Number")

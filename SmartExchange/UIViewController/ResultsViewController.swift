@@ -669,22 +669,24 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeadPixelVC") as! DeadPixelVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.deadPixelRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
-                        
-                        /*
-                         let vc  = DeadPixelVC()
-                         vc.isComingFromTestResult = true
-                         vc.resultJSON = self.resultJSON
-                         vc.modalPresentationStyle = .fullScreen
-                         self.present(vc, animated: true, completion: nil)
-                         */
-                        
+                                           
                     }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Screen" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScreenViewController") as! ScreenViewController
                         vc.isComingFromTestResult = true
+                        
+                        vc.screenRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -694,6 +696,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AutoRotationVC") as! AutoRotationVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.rotationRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -703,6 +710,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProximityVC") as! ProximityVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.proximityRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -712,6 +724,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "VolumeRockerVC") as! VolumeRockerVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.volumeRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -722,24 +739,40 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EarphoneJackVC") as! EarphoneJackVC
                         vc.isComingFromTestResult = true
+                     
+                     vc.earphoneRetryDiagnosis = { retryJSON in
+                         self.resultJSON = retryJSON
+                     }
+                     
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                         
                     }
+                    */
                     else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Charger" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeviceChargerVC") as! DeviceChargerVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.chargerRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                         
-                    }*/
+                    }
                     else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Camera" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
                         vc.isComingFromTestResult = true
+                        
+                        vc.cameraRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -749,6 +782,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "FingerprintViewController") as! FingerprintViewController
                         vc.isComingFromTestResult = true
+                        
+                        vc.biometricRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -758,6 +796,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "InternalTestsVC") as! InternalTestsVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.backgroundRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -767,6 +810,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "WiFiTestVC") as! WiFiTestVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.wifiRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -776,6 +824,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "MicrophoneVC") as! MicrophoneVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.micRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -784,6 +837,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SpeakerVC") as! SpeakerVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.speakerRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -792,6 +850,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "VibratorVC") as! VibratorVC
                         vc.isComingFromTestResult = true
+                        
+                        vc.vibratorRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -808,6 +871,11 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
                         vc.isComingFromTestResult = true
+                        
+                        vc.cameraRetryDiagnosis = { retryJSON in
+                            self.resultJSON = retryJSON
+                        }
+                        
                         vc.resultJSON = self.resultJSON
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)

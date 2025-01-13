@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "vibrations@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "vibrations@2x.png",
+      "filename" : "ic_vibrations.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

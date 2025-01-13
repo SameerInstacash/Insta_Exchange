@@ -361,7 +361,7 @@ class CrackCheckVC: UIViewController {
                                     print("appCD.appCode in specificationValue" , appCD.appCode ?? "")
                                  
                                     if self.arrAppCodeInQrStatus.contains(appCD.appCode ?? "") {
-                                        
+                                        break
                                     }
                                     else {
                                         
@@ -383,7 +383,7 @@ class CrackCheckVC: UIViewController {
                                     print("appCD.appCode in conditionValue" , appCD.appCode ?? "")
                                     
                                     if self.arrAppCodeInQrStatus.contains(appCD.appCode ?? "") {
-                                        
+                                        break
                                     }
                                     else {
                                         

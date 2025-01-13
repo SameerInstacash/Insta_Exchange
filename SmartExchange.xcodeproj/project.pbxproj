@@ -1301,7 +1301,7 @@
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Nayapurano Exchange";
+				INFOPLIST_KEY_CFBundleDisplayName = "IC Exchange";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1339,7 +1339,7 @@
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Nayapurano Exchange";
+				INFOPLIST_KEY_CFBundleDisplayName = "IC Exchange";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

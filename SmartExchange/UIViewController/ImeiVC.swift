@@ -10,11 +10,14 @@ import Vision
 import Photos
 import JGProgressHUD
 
+var detectScreenshot : (() -> Void)?
+var currentIMEI = String()
+
 class ImeiVC: UIViewController {
     
-    @IBOutlet weak var gradientBGView: UIView!
-    @IBOutlet weak var shadowBtmView: UIView!
-    @IBOutlet weak var txtFieldIMEI: UITextField!
+    @IBOutlet weak var gradientBGView: UIView?
+    @IBOutlet weak var shadowBtmView: UIView?
+    @IBOutlet weak var txtFieldIMEI: UITextField?
     @IBOutlet weak var autoDetectBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
@@ -23,6 +26,7 @@ class ImeiVC: UIViewController {
     @IBOutlet weak var lblDeviceBox: UILabel!
     
     var strIMEI = ""
+    //var currentIMEI = String()
     var images:[UIImage] = []
     let hud = JGProgressHUD()
     
@@ -38,7 +42,18 @@ class ImeiVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)                
+        super.viewWillAppear(animated)
+        
+        detectScreenshot = {
+            // Start observing for changes
+            PhotoLibraryObserver.shared.startObserving()
+            ImeiVC().fetchPhotos()
+        }
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
     }
     
@@ -48,20 +63,14 @@ class ImeiVC: UIViewController {
         self.setStatusBarColor()
         self.navigationController?.navigationBar.isHidden = true
         
-        DispatchQueue.main.async(execute: {
-            
-            self.gradientBGView.cornerRadius(usingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 50.0, height: 50.0))
-            UIView.addShadowOn4side(baseView: self.shadowBtmView)
-            
-            
-            self.setBoldTextInString()
-            
-        })
+        self.gradientBGView?.cornerRadius(usingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 50.0, height: 50.0))
+        
+        UIView.addShadowOn4side(baseView: self.shadowBtmView ?? UIView())
+        
+        self.setBoldTextInString()
         
         self.hideKeyboardWhenTappedAround()
         
-        //self.autoDetectBtn.layer.cornerRadius = 5.0
-        //self.nextBtn.layer.cornerRadius = 5.0
     }
     
     func setBoldTextInString() {
@@ -76,7 +85,10 @@ class ImeiVC: UIViewController {
         let normalString = NSMutableAttributedString(string: normalText)
         attributedString1.append(normalString)
         attributedString1.append(attributedString2)
-        self.lblDial.attributedText = attributedString1
+        
+        if self.lblDial != nil {
+            self.lblDial.attributedText = attributedString1
+        }
         
         //2
         let settingboldText = "Settings:"
@@ -85,7 +97,10 @@ class ImeiVC: UIViewController {
         let normalText2 = " Go to Settings > About Phone > IMEI."
         let normalString2 = NSMutableAttributedString(string: normalText2)
         settingattributedString2.append(normalString2)
-        self.lblDeviceSetting.attributedText = settingattributedString2
+        
+        if self.lblDeviceSetting != nil {
+            self.lblDeviceSetting.attributedText = settingattributedString2
+        }
         
         //3
         let boxBoldText = "Device Box:"
@@ -94,7 +109,10 @@ class ImeiVC: UIViewController {
         let boxNormalText = " Device Box: Check the original packaging box of your device for the IMEl number."
         let boxNormalString = NSMutableAttributedString(string: boxNormalText)
         boxAttributedString.append(boxNormalString)
-        self.lblDeviceBox.attributedText = boxAttributedString
+        
+        if self.lblDeviceBox != nil {
+            self.lblDeviceBox.attributedText = boxAttributedString
+        }
         
     }
     
@@ -130,27 +148,27 @@ class ImeiVC: UIViewController {
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
         
-        if (txtFieldIMEI.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) ?? false {
+        if (txtFieldIMEI?.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) ?? false {
             
             DispatchQueue.main.async {
                 self.view.makeToast(self.getLocalizatioStringValue(key: "Please enter IMEI/Serial no."), duration: 2.0, position: .top)
             }
             
         }
-        else if (txtFieldIMEI.text?.count ?? 0 < 15) {
+        else if (txtFieldIMEI?.text?.count ?? 0 < 15) {
             
             DispatchQueue.main.async {
                 self.view.makeToast(self.getLocalizatioStringValue(key: "Please enter valid IMEI/Serial no."), duration: 2.0, position: .top)
             }
             
         }
-        else if (txtFieldIMEI.text?.count == 15) {
+        else if (txtFieldIMEI?.text?.count == 15) {
             
-            if self.isIMEIValid(imeiNumber: self.txtFieldIMEI.text ?? "") {
+            if self.isIMEIValid(imeiNumber: self.txtFieldIMEI?.text ?? "") {
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-                vc.IMEINumber = self.txtFieldIMEI.text ?? ""
-                UserDefaults.standard.set("\(self.txtFieldIMEI.text ?? "")", forKey: "imei_number")
+                vc.IMEINumber = self.txtFieldIMEI?.text ?? ""
+                UserDefaults.standard.set("\(self.txtFieldIMEI?.text ?? "")", forKey: "imei_number")
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }else{
@@ -172,12 +190,14 @@ class ImeiVC: UIViewController {
         
     }
     
-    
     func fetchPhotos () {
         // Sort the images by descending creation date and fetch the first 3
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
         fetchOptions.fetchLimit = 1
+        
+        // Filter for screenshots
+        fetchOptions.predicate = NSPredicate(format: "mediaSubtype == %d", PHAssetMediaSubtype.photoScreenshot.rawValue)
         
         // Fetch the image assets
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
@@ -256,25 +276,44 @@ class ImeiVC: UIViewController {
                 
                 print("text we get from image" , text) // text we get from image
                 
-                // "Cancel, Device Info, EID 89049032005008882600059522292094, IMEI 351082467537885, IMEI2 351082467981000, MEID 35108246753788"
-                
                 let keyword1 = "IMEI"
                 let keyword2 = "IMEI2"
                 
                 if let result2 = self.getNextWord(after: keyword2, in: text) {
-                    print("Next word after '\(keyword2)': \(result2)")
+                    //print("Next word after '\(keyword2)': \(result2)")
                     
-                    self.txtFieldIMEI.text = result2.replacingOccurrences(of: ",", with: "")
+                    currentIMEI = result2
+                    
+                    self.txtFieldIMEI?.text = result2.replacingOccurrences(of: ",", with: "")
+                    
                 } else {
-                    print("'\(keyword2)' not found in the text.")
+                    //print("'\(keyword2)' not found in the text.")
+                    
+                    if currentIMEI != "" {
+                        self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                    }
+                    
                 }
                 
                 if let result1 = self.getNextWord(after: keyword1, in: text) {
-                    print("Next word after '\(keyword1)': \(result1)")
+                    //print("Next word after '\(keyword1)': \(result1)")
                     
-                    self.txtFieldIMEI.text = result1.replacingOccurrences(of: ",", with: "")
+                    currentIMEI = result1
+                    //print("currentIMEI 1",currentIMEI)
+                    
+                    self.txtFieldIMEI?.text = result1.replacingOccurrences(of: ",", with: "")
+                    
+                    // Stop observing for changes
+                    PhotoLibraryObserver.shared.stopObserving()
+                    
                 } else {
-                    print("'\(keyword1)' not found in the text.")
+                    //print("'\(keyword1)' not found in the text.")
+                    //print("currentIMEI 1",currentIMEI)
+                    
+                    if currentIMEI != "" {
+                        self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                    }
+                    
                 }
                 
             }
@@ -289,7 +328,7 @@ class ImeiVC: UIViewController {
                 try handler.perform([request])
             }
             catch (let err) {
-                print("err :", err)
+                //print("err :", err)
                 
                 DispatchQueue.main.async {
                     self.hud.dismiss()
@@ -317,3 +356,24 @@ class ImeiVC: UIViewController {
     
 }
 
+// Register for photo library changes
+class PhotoLibraryObserver: NSObject, PHPhotoLibraryChangeObserver {
+    static let shared = PhotoLibraryObserver()
+    
+    func startObserving() {
+        PHPhotoLibrary.shared().register(self)
+    }
+    
+    func stopObserving() {
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+    }
+    
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        // Fetch the most recent screenshot after a change
+        DispatchQueue.main.async {
+            //fetchMostRecentScreenshot()
+            
+            ImeiVC().fetchPhotos()
+        }
+    }
+}

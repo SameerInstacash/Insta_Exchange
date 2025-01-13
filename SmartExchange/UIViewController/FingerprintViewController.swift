@@ -371,7 +371,6 @@ class FingerprintViewController: UIViewController {
                 }
                 
              
-             
                 if self.isComingFromTestResult {
                     
                     guard let didFinishRetryDiagnosis = self.biometricRetryDiagnosis else { return }

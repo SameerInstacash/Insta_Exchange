@@ -829,8 +829,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhz-AG-rg7">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nayapurano Exchange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCt-gl-7Jv">
-                                        <rect key="frame" x="108.33333333333333" y="11.666666666666668" width="197.66666666666669" height="21.000000000000004"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IC Exchange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCt-gl-7Jv">
+                                        <rect key="frame" x="154" y="11.666666666666668" width="106.33333333333331" height="21.000000000000004"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="0qS-ck-RXs"/>
                                         </constraints>
@@ -1767,6 +1767,7 @@
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="aC5-M5-DyL">
                                 <rect key="frame" x="107" y="268" width="200" height="200"/>
+                                <color key="tintColor" red="0.98823529409999999" green="0.3294117647" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="82R-S6-hx3"/>
                                     <constraint firstAttribute="height" constant="200" id="lqZ-eN-cVm"/>
@@ -2188,12 +2189,13 @@
                     <connections>
                         <outlet property="beginBtn" destination="TFD-ZA-b3W" id="1fn-5v-19b"/>
                         <outlet property="lblTestNum" destination="kXA-3g-WyR" id="pTM-DX-muJ"/>
+                        <outlet property="rotationImgVW" destination="zXw-au-u77" id="wub-XN-sLF"/>
                         <outlet property="testProgress" destination="Tkh-3F-Qu3" id="S26-Xc-Kmq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aer-CI-W1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="183"/>
+            <point key="canvasLocation" x="2697.1014492753625" y="182.60869565217394"/>
         </scene>
         <!--Earphone JackVC-->
         <scene sceneID="W9h-mo-1vO">
@@ -2900,8 +2902,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZX-Rf-aqW">
                                 <rect key="frame" x="0.0" y="20" width="414" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nayapurano Exchange" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2m-CI-ZNk">
-                                        <rect key="frame" x="108.66666666666667" y="13" width="196.66666666666663" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IC Exchange" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2m-CI-ZNk">
+                                        <rect key="frame" x="152.66666666666666" y="13" width="108.99999999999997" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -3372,23 +3374,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the QR Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfS-B0-FCn">
-                                <rect key="frame" x="20" y="80" width="374" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <color key="textColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for crack detection on screen make sure the phone has internet connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxw-Y2-EgI">
-                                <rect key="frame" x="30" y="114" width="354" height="45"/>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr-code" translatesAutoresizingMaskIntoConstraints="NO" id="Ifl-43-HW6">
-                                <rect key="frame" x="57" y="218" width="300" height="300"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99t-eP-9xR" customClass="cornerView" customModule="SellNCash" customModuleProvider="target">
+                                <rect key="frame" x="30" y="70" width="354" height="119"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the QR Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfS-B0-FCn">
+                                        <rect key="frame" x="10" y="20" width="334" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="textColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for crack detection on screen make sure the phone has internet connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxw-Y2-EgI">
+                                        <rect key="frame" x="10" y="54" width="334" height="45"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                        <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.98039215686274506" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="SHJ-jn-OYd"/>
-                                    <constraint firstAttribute="width" constant="300" id="ZMp-vR-2eM"/>
+                                    <constraint firstItem="cxw-Y2-EgI" firstAttribute="top" secondItem="SfS-B0-FCn" secondAttribute="bottom" constant="10" id="4hK-gV-1hL"/>
+                                    <constraint firstAttribute="trailing" secondItem="cxw-Y2-EgI" secondAttribute="trailing" constant="10" id="Bxd-9D-MGB"/>
+                                    <constraint firstAttribute="trailing" secondItem="SfS-B0-FCn" secondAttribute="trailing" constant="10" id="E1e-Wz-q5Q"/>
+                                    <constraint firstItem="SfS-B0-FCn" firstAttribute="top" secondItem="99t-eP-9xR" secondAttribute="top" constant="20" id="Mq7-FC-NO2"/>
+                                    <constraint firstItem="cxw-Y2-EgI" firstAttribute="leading" secondItem="99t-eP-9xR" secondAttribute="leading" constant="10" id="SNp-m8-Cqi"/>
+                                    <constraint firstAttribute="bottom" secondItem="cxw-Y2-EgI" secondAttribute="bottom" constant="20" id="WWP-EU-UeJ"/>
+                                    <constraint firstItem="SfS-B0-FCn" firstAttribute="leading" secondItem="99t-eP-9xR" secondAttribute="leading" constant="10" id="jwb-ow-M93"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr-code" translatesAutoresizingMaskIntoConstraints="NO" id="Ifl-43-HW6">
+                                <rect key="frame" x="67" y="264.66666666666669" width="280" height="280.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="SHJ-jn-OYd"/>
+                                    <constraint firstAttribute="width" constant="280" id="ZMp-vR-2eM"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sv5-wv-uiN" customClass="CornerButton" customModule="SellNCash" customModuleProvider="target">
@@ -3423,18 +3445,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Piw-qn-pmh" firstAttribute="centerY" secondItem="sv5-wv-uiN" secondAttribute="centerY" id="4iu-nI-caQ"/>
-                            <constraint firstItem="SfS-B0-FCn" firstAttribute="leading" secondItem="cS8-nx-D6g" secondAttribute="leading" constant="20" id="59E-8n-1K7"/>
-                            <constraint firstItem="cxw-Y2-EgI" firstAttribute="top" secondItem="SfS-B0-FCn" secondAttribute="bottom" constant="10" id="6JB-tz-Gjk"/>
                             <constraint firstItem="Ifl-43-HW6" firstAttribute="centerX" secondItem="HZa-31-4G6" secondAttribute="centerX" id="8MB-6d-14w"/>
-                            <constraint firstItem="SfS-B0-FCn" firstAttribute="top" secondItem="cS8-nx-D6g" secondAttribute="top" constant="60" id="HgR-Ik-3Qe"/>
                             <constraint firstItem="sv5-wv-uiN" firstAttribute="leading" secondItem="cS8-nx-D6g" secondAttribute="leading" constant="20" id="IRk-XY-NO2"/>
                             <constraint firstItem="cS8-nx-D6g" firstAttribute="trailing" secondItem="sv5-wv-uiN" secondAttribute="trailing" constant="20" id="Pig-Nx-wNW"/>
-                            <constraint firstItem="cS8-nx-D6g" firstAttribute="trailing" secondItem="SfS-B0-FCn" secondAttribute="trailing" constant="20" id="T7I-Sn-XV5"/>
+                            <constraint firstItem="99t-eP-9xR" firstAttribute="top" secondItem="cS8-nx-D6g" secondAttribute="top" constant="50" id="QHu-WU-pz4"/>
+                            <constraint firstItem="cS8-nx-D6g" firstAttribute="trailing" secondItem="99t-eP-9xR" secondAttribute="trailing" constant="30" id="eR5-36-y4e"/>
+                            <constraint firstItem="99t-eP-9xR" firstAttribute="leading" secondItem="cS8-nx-D6g" secondAttribute="leading" constant="30" id="fXQ-G2-tm8"/>
                             <constraint firstItem="Piw-qn-pmh" firstAttribute="centerX" secondItem="sv5-wv-uiN" secondAttribute="centerX" id="qXi-jA-pS3"/>
-                            <constraint firstItem="cS8-nx-D6g" firstAttribute="trailing" secondItem="cxw-Y2-EgI" secondAttribute="trailing" constant="30" id="wcK-bZ-0Go"/>
                             <constraint firstItem="cS8-nx-D6g" firstAttribute="bottom" secondItem="sv5-wv-uiN" secondAttribute="bottom" constant="20" id="xiq-Ha-4kB"/>
-                            <constraint firstItem="Ifl-43-HW6" firstAttribute="centerY" secondItem="HZa-31-4G6" secondAttribute="centerY" id="xqO-r0-vbc"/>
-                            <constraint firstItem="cxw-Y2-EgI" firstAttribute="leading" secondItem="cS8-nx-D6g" secondAttribute="leading" constant="30" id="zHf-rU-wh9"/>
+                            <constraint firstItem="Ifl-43-HW6" firstAttribute="centerY" secondItem="HZa-31-4G6" secondAttribute="centerY" multiplier="1.1" id="xqO-r0-vbc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3797,8 +3816,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qca-Mx-McZ">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nayapurano Exchange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyU-X8-aVy">
-                                        <rect key="frame" x="108.33333333333333" y="11.666666666666668" width="197.66666666666669" height="21.000000000000004"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IC Exchange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyU-X8-aVy">
+                                        <rect key="frame" x="154" y="11.666666666666668" width="106.33333333333331" height="21.000000000000004"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="tyN-FV-kqY"/>
                                         </constraints>
@@ -5439,7 +5458,7 @@ voice for 4 seconds to check your microphone is working or not</string>
         <image name="info" width="24" height="24"/>
         <image name="internal.gif" width="312" height="312"/>
         <image name="loader.gif" width="136" height="122"/>
-        <image name="mic 1" width="158.66667175292969" height="158.66667175292969"/>
+        <image name="mic 1" width="209" height="209"/>
         <image name="proximity" width="209" height="209"/>
         <image name="qr-code" width="200" height="200"/>
         <image name="rotation 1" width="209" height="209"/>

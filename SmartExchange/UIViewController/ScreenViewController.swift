@@ -42,8 +42,8 @@ class ScreenViewController: UIViewController {
         super.viewDidLoad()
         
         self.setStatusBarColor(themeColor: GlobalUtility().AppThemeColor)
-        
-        
+                
+        //self.screenImageView.setImageColor(color: #colorLiteral(red: 0.9882352941, green: 0.3294117647, blue: 0, alpha: 1))
         
         //MARK: SAMEER 27/6/23
         //DispatchQueue.main.async {

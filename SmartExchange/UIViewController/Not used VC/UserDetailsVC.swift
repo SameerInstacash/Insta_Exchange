@@ -92,7 +92,7 @@ class UserDetailsVC: UIViewController, UITextFieldDelegate, UITableViewDataSourc
     
     func changeLanguageOfUI() {
                 
-        self.lblTitle.text = self.getLocalizatioStringValue(key: "Nayapurano Exchange")
+        self.lblTitle.text = self.getLocalizatioStringValue(key: "IC Exchange")
         
         self.setTextOfUserLabel()
         

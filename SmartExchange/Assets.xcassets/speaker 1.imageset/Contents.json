@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "speaker@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "speaker@2x.png",
+      "filename" : "ic_speaker.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

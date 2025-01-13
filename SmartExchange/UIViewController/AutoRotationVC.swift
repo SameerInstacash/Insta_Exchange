@@ -25,6 +25,8 @@ class AutoRotationVC: UIViewController {
     //@IBOutlet weak var AutoRotationImage: UIImageView!
     //@IBOutlet weak var AutoRotationImageView: UIImageView!
     
+    @IBOutlet weak var rotationImgVW: UIImageView!
+    
     var hasStarted = false
     var resultJSON = JSON()
     var isComingFromTestResult = false
@@ -241,10 +243,14 @@ class AutoRotationVC: UIViewController {
             print("LandScape")
             //self.lblAutoRotationDetail.text = self.getLocalizatioStringValue(key: "Now rotate your device back to Portrait view.")
             //self.AutoRotationImageView.image = UIImage(named: "portrait_image")!
+            
+            self.rotationImgVW.image = UIImage(named: "ic_portrait")
         }
         
         if (UIDeviceOrientationIsPortrait(UIDevice.current.orientation))
         {
+            self.rotationImgVW.image = UIImage(named: "ic_landscape")
+            
             print("Portrait")
             UserDefaults.standard.set(true, forKey: "rotation")
             self.resultJSON["Rotation"].int = 1

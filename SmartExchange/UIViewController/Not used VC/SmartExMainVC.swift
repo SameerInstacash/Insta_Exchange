@@ -47,7 +47,7 @@ class SmartExMainVC: UIViewController {
     
     func changeLanguageOfUI() {
   
-        self.lblTitle.text = self.getLocalizatioStringValue(key: "Nayapurano Exchange")
+        self.lblTitle.text = self.getLocalizatioStringValue(key: "IC Exchange")
         self.lblGetUpto.text = self.getLocalizatioStringValue(key: "GET UP TO")
                 
         self.getStartedBtn.setTitle(self.getLocalizatioStringValue(key: "Let's Get Started"), for: .normal)

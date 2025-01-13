@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Group 5941.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 5941@2x.png",
+      "filename" : "ic_charger.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

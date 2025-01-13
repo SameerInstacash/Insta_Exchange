@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "fingerprint.png",
       "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "filename" : "fingerprint@2x.png",
+      "filename" : "fingerprint.png",
       "idiom" : "iphone",
       "scale" : "2x"
     },
