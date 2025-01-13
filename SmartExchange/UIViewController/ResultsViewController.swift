@@ -870,7 +870,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 if json["status"] == "Success" {
                     print("Question data is:","\(json)")
                     
-                    AppHardwareQuestionsData = try CosmeticQuestions.init(from: json as! Decoder)
+                    AppHardwareQuestionsData = CosmeticQuestions.init(json: json)
                     
                     arrAppHardwareQuestions = [Questions]()
                     arrAppQuestionsAppCodes = [String]()

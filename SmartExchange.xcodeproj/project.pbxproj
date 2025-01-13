@@ -1296,7 +1296,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SmartExchange/Blynk Exchange.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.1;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
@@ -1313,7 +1313,7 @@
 					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.0.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.instaexchange;
 				PRODUCT_NAME = SellNCash;
@@ -1335,7 +1335,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SmartExchange/Blynk Exchange.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.1;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
@@ -1351,7 +1351,7 @@
 					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.0.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.instaexchange;
 				PRODUCT_NAME = SellNCash;

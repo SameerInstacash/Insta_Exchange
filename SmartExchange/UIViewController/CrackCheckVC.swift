@@ -43,7 +43,7 @@ class CrackCheckVC: UIViewController {
     //MARK: Custom Methods
     func setQrCodeWithBase64() {
         
-        let baseUrl = "https://phone-grading-app.web.app/?customerData=ODYxMzgwMDY0NDI3MTQzLDIwNTM2Mjc="
+        let baseUrl = "https://phone-grading-app.web.app/?customerData="
         let IMEI = UserDefaults.standard.string(forKey: "imei_number") ?? ""
         let customerId = UserDefaults.standard.string(forKey: "customer_id") ?? ""
         
@@ -58,9 +58,25 @@ class CrackCheckVC: UIViewController {
         }
         
         strCombine = baseUrl + strImeiCustID
+        print("strCombine" , strCombine)
         
         self.qrImgView.image = generateQRCode(from: strCombine)
         
+        /*
+        if let qrCodeImage = decodeBase64ToImage(base64String: strCombine) {
+            self.qrImgView.image = qrCodeImage
+        } else {
+            print("Failed to decode Base64 string into an image.")
+        }
+        */
+        
+    }
+    
+    private func decodeBase64ToImage(base64String: String) -> UIImage? {
+        guard let imageData = Data(base64Encoded: base64String, options: .ignoreUnknownCharacters) else {
+            return nil
+        }
+        return UIImage(data: imageData)
     }
     
     func generateQRCode(from string: String) -> UIImage? {
@@ -195,30 +211,33 @@ class CrackCheckVC: UIViewController {
                     
                     print("checkCrackQRStatus response is:","\(json)")
                     
-                    let currentStatus = json["msg"].string ?? ""
+                    let msgDict = json["msg"]
+                    let currentStatus = msgDict["status"].string ?? ""
                     
                     if currentStatus.lowercased() == "open" {
-                        self.btnManualProcess.isHidden = false
+                        //self.btnManualProcess.isHidden = false
                     }
                     else if currentStatus.lowercased() == "processing" {
                         
-                        self.btnManualProcess.isHidden = true
-                        
-                        self.loaderImgView.isHidden = false
-                        // Load GIF In Image view
-                        let jeremyGifUp = UIImage.gifImageWithName("loader")
-                        self.loaderImgView.image = jeremyGifUp
-                        self.loaderImgView.stopAnimating()
-                        self.loaderImgView.startAnimating()
+                        DispatchQueue.main.async {
+                            self.btnManualProcess.isHidden = true
+                            
+                            self.loaderImgView.isHidden = false
+                            // Load GIF In Image view
+                            let jeremyGifUp = UIImage.gifImageWithName("loader")
+                            self.loaderImgView.image = jeremyGifUp
+                            self.loaderImgView.stopAnimating()
+                            self.loaderImgView.startAnimating()
+                        }
                         
                     }
                     else {
                         
-                        self.strAppCodeInQrStatus = json["msg"].string ?? ""
+                        self.strAppCodeInQrStatus = msgDict["appCodes"].string ?? ""
                         print("self.strAppCodeInQrStatus", self.strAppCodeInQrStatus)
                         
                         //self.arrAppCodeInQrStatus = ["SPTS01", "CPBP01"]
-                        self.arrAppCodeInQrStatus = self.strAppCodeInQrStatus.components(separatedBy: ",")
+                        self.arrAppCodeInQrStatus = self.strAppCodeInQrStatus.components(separatedBy: ";")
                         print("self.arrAppCodeInQrStatus", self.arrAppCodeInQrStatus)
                         
                         DispatchQueue.main.async() {
@@ -325,8 +344,8 @@ class CrackCheckVC: UIViewController {
                 if json["status"] == "Success" {
                     print("Question data is:","\(json)")
                     
-                    //AppHardwareQuestionsData = CosmeticQuestions.init(json: json)
-                    AppHardwareQuestionsData = try CosmeticQuestions.init(from: json as! Decoder)
+                    AppHardwareQuestionsData = CosmeticQuestions.init(json: json)
+                    //AppHardwareQuestionsData = try CosmeticQuestions.init(from: json as! Decoder)
                     
                     arrAppHardwareQuestions = [Questions]()
                     arrAppQuestionsAppCodes = [String]()
@@ -335,20 +354,52 @@ class CrackCheckVC: UIViewController {
                     
                     for enableQuestion in AppHardwareQuestionsData?.msg?.questions ?? [] {
                         if enableQuestion.isInput == "1" {
-                                                                          
-                            for appCD in enableQuestion.appCodes ?? [] {
-                                print("appCD.appCode" , appCD)
-                                
-                                if self.arrAppCodeInQrStatus.contains(appCD) {
+                            
+                            
+                            if let val = enableQuestion.specificationValue {
+                                for appCD in val {
+                                    print("appCD.appCode in specificationValue" , appCD.appCode ?? "")
+                                 
+                                    if self.arrAppCodeInQrStatus.contains(appCD.appCode ?? "") {
+                                        
+                                    }
+                                    else {
+                                        
+                                        if enableQuestion.isInput == "1" {
+                                            arrAppHardwareQuestions?.append(enableQuestion)
+                                            hardwareQuestionsCount += 1
+                                            
+                                            break
+                                        }
+                                        
+                                    }
                                     
                                 }
-                                else {
-                                    arrAppHardwareQuestions?.append(enableQuestion)
-                                    hardwareQuestionsCount += 1
-                                }
-                                
                             }
                             
+                            
+                            if let val = enableQuestion.conditionValue {
+                                for appCD in val {
+                                    print("appCD.appCode in conditionValue" , appCD.appCode ?? "")
+                                    
+                                    if self.arrAppCodeInQrStatus.contains(appCD.appCode ?? "") {
+                                        
+                                    }
+                                    else {
+                                        
+                                        if enableQuestion.isInput == "1" {
+                                            arrAppHardwareQuestions?.append(enableQuestion)
+                                            hardwareQuestionsCount += 1
+                                            
+                                            break
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                            }
+                            
+
                         }
                     }
                     
