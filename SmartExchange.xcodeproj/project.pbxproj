@@ -14,7 +14,6 @@
 		1829BEBC2B08B1F100C2A828 /* ImageInfoPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1829BEBB2B08B1F100C2A828 /* ImageInfoPopUpVC.swift */; };
 		183634552A8DED8300F56BB7 /* FloatingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183634532A8DED8300F56BB7 /* FloatingItemCell.swift */; };
 		183634562A8DED8300F56BB7 /* FloatingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183634542A8DED8300F56BB7 /* FloatingItemCell.xib */; };
-		1848448829E92FAB0048EADC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1848448729E92FAB0048EADC /* GoogleService-Info.plist */; };
 		1871654F2A70E62600E5DEB4 /* StoreSliderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871654E2A70E62600E5DEB4 /* StoreSliderVC.swift */; };
 		187165522A70E91800E5DEB4 /* StoreSliderCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187165502A70E91800E5DEB4 /* StoreSliderCVCell.xib */; };
 		187165532A70E91800E5DEB4 /* StoreSliderCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187165512A70E91800E5DEB4 /* StoreSliderCVCell.swift */; };
@@ -27,6 +26,7 @@
 		18C9E2D129DFDF7800270508 /* BuildPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9E2D029DFDF7800270508 /* BuildPopUpVC.swift */; };
 		18C9E2D329DFE28600270508 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9E2D229DFE28600270508 /* CountryModel.swift */; };
 		18CC5C052B0E1D1D004471D8 /* CountryLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC5C042B0E1D1D004471D8 /* CountryLanguages.swift */; };
+		592F3BB62D3BB0FA0099DBA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 592F3BB52D3BB0FA0099DBA6 /* GoogleService-Info.plist */; };
 		593E3E52294B343300BCEEEB /* CosmeticQuestionTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593E3E51294B343300BCEEEB /* CosmeticQuestionTblCell.swift */; };
 		593E8A922D2C38D6008BAE7A /* ImeiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593E8A912D2C38D6008BAE7A /* ImeiVC.swift */; };
 		5941862C282E277900DB2723 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59418623282E276200DB2723 /* Poppins-Thin.ttf */; };
@@ -80,7 +80,6 @@
 		59986B3E295046C100910ACA /* QuestAnsrTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59986B3C295046C100910ACA /* QuestAnsrTblCell.swift */; };
 		59986B3F295046C100910ACA /* QuestAnsrTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59986B3D295046C100910ACA /* QuestAnsrTblCell.xib */; };
 		59B4365D294C762D00E4F1FB /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 59B4365C294C762D00E4F1FB /* loader.gif */; };
-		59BCFB1C29B9E87B00ACE80A /* GoogleService-Info-NayaPurano.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59BCFB1B29B9E87A00ACE80A /* GoogleService-Info-NayaPurano.plist */; };
 		59BDBE38283F396B00A7890F /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59BDBE32283F396800A7890F /* TPKeyboardAvoidingTableView.m */; };
 		59BDBE39283F396B00A7890F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 59BDBE33283F396800A7890F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		59BDBE3A283F396B00A7890F /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59BDBE36283F396A00A7890F /* TPKeyboardAvoidingScrollView.m */; };
@@ -160,7 +159,6 @@
 		1829BEBB2B08B1F100C2A828 /* ImageInfoPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfoPopUpVC.swift; sourceTree = "<group>"; };
 		183634532A8DED8300F56BB7 /* FloatingItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingItemCell.swift; sourceTree = "<group>"; };
 		183634542A8DED8300F56BB7 /* FloatingItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingItemCell.xib; sourceTree = "<group>"; };
-		1848448729E92FAB0048EADC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1871654E2A70E62600E5DEB4 /* StoreSliderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSliderVC.swift; sourceTree = "<group>"; };
 		187165502A70E91800E5DEB4 /* StoreSliderCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreSliderCVCell.xib; sourceTree = "<group>"; };
 		187165512A70E91800E5DEB4 /* StoreSliderCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreSliderCVCell.swift; sourceTree = "<group>"; };
@@ -174,6 +172,7 @@
 		18C9E2D229DFE28600270508 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		18CC5C042B0E1D1D004471D8 /* CountryLanguages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryLanguages.swift; sourceTree = "<group>"; };
 		39EB84B78458AE69645F9603 /* Pods-SmartExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartExchange.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartExchange/Pods-SmartExchange.release.xcconfig"; sourceTree = "<group>"; };
+		592F3BB52D3BB0FA0099DBA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		593E3E51294B343300BCEEEB /* CosmeticQuestionTblCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmeticQuestionTblCell.swift; sourceTree = "<group>"; };
 		593E8A912D2C38D6008BAE7A /* ImeiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImeiVC.swift; sourceTree = "<group>"; };
 		59418623282E276200DB2723 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
@@ -228,7 +227,6 @@
 		59986B3C295046C100910ACA /* QuestAnsrTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestAnsrTblCell.swift; sourceTree = "<group>"; };
 		59986B3D295046C100910ACA /* QuestAnsrTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestAnsrTblCell.xib; sourceTree = "<group>"; };
 		59B4365C294C762D00E4F1FB /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
-		59BCFB1B29B9E87A00ACE80A /* GoogleService-Info-NayaPurano.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-NayaPurano.plist"; sourceTree = "<group>"; };
 		59BDBE2F283F396600A7890F /* SmartExchange-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartExchange-Bridging-Header.h"; sourceTree = "<group>"; };
 		59BDBE30283F396700A7890F /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
 		59BDBE31283F396800A7890F /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -627,8 +625,7 @@
 				C39948291E54270600F01384 /* LaunchScreen.storyboard */,
 				C39948271E54270600F01384 /* Assets.xcassets */,
 				C399482C1E54270600F01384 /* Info.plist */,
-				1848448729E92FAB0048EADC /* GoogleService-Info.plist */,
-				59BCFB1B29B9E87A00ACE80A /* GoogleService-Info-NayaPurano.plist */,
+				592F3BB52D3BB0FA0099DBA6 /* GoogleService-Info.plist */,
 				59BDBE2F283F396600A7890F /* SmartExchange-Bridging-Header.h */,
 			);
 			path = SmartExchange;
@@ -833,8 +830,7 @@
 				5941862D282E277900DB2723 /* Poppins-Light.ttf in Resources */,
 				59418631282E277900DB2723 /* Poppins-Regular.ttf in Resources */,
 				59418634282E277900DB2723 /* Poppins-SemiBold.ttf in Resources */,
-				59BCFB1C29B9E87B00ACE80A /* GoogleService-Info-NayaPurano.plist in Resources */,
-				1848448829E92FAB0048EADC /* GoogleService-Info.plist in Resources */,
+				592F3BB62D3BB0FA0099DBA6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1316,7 +1312,7 @@
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Instacash Exchange";
+				INFOPLIST_KEY_CFBundleDisplayName = "InstaCash Exchange";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1354,7 +1350,7 @@
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Instacash Exchange";
+				INFOPLIST_KEY_CFBundleDisplayName = "InstaCash Exchange";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
