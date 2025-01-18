@@ -26,7 +26,14 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     
     @IBOutlet weak var gradientBGView: UIView!
     @IBOutlet weak var shadowBtmView: UIView!
-        
+    @IBOutlet weak var shadowBtmView2: UIView!
+    
+    @IBOutlet weak var qrBaseView: UIView!
+    
+    @IBOutlet weak var noDeviceView: UIView!
+    @IBOutlet weak var lblNoDeviceName: UILabel!
+    @IBOutlet weak var lblNoDeviceIMEI: UILabel!
+    
     //@IBOutlet weak var lblPleaseClick: UILabel!
     @IBOutlet weak var storeTokenEdit: UITextField!
     @IBOutlet weak var submitStoreBtn: UIButton!
@@ -35,17 +42,16 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     @IBOutlet weak var scanQRBtn: UIButton!
     //@IBOutlet weak var previousBtn: UIButton!
     //@IBOutlet weak var findNearByBtn: UIButton!
-    
     //@IBOutlet weak var lblCurrentVersion: UILabel!
-    
-    @IBOutlet weak var storeImage: UIImageView!
-    @IBOutlet weak var imeiLabel: UILabel!
-    
+    //@IBOutlet weak var storeImage: UIImageView!
     //@IBOutlet weak var smartExLoadingImage: UIImageView!
     //@IBOutlet weak var retryBtn: UIButton!
     //@IBOutlet weak var tradeInOnlineBtn: UIButton!
-        
-
+    
+    @IBOutlet weak var currentDeviceImgVW: UIImageView!
+    @IBOutlet weak var lblCurrentDeviceName: UILabel!
+    @IBOutlet weak var imeiLabel: UILabel!
+    
     var productId: String = ""
     var appCodes: String = ""
     var storeToken: String = ""
@@ -62,7 +68,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     var touchGest = UITapGestureRecognizer()
     var floatingItemsArrayIN:[String] = ["Call","Mail","Chat"]
     var floatingImageArrayIN:[UIImage] = [#imageLiteral(resourceName: "callSupport"),#imageLiteral(resourceName: "mailSupport"),#imageLiteral(resourceName: "chatSupport")]
-    
+        
     
     //var endPoint = "https://exchange.getinstacash.in/stores-asia/api/v1/public/"
     //var endPoint = ""
@@ -71,12 +77,17 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.async {
+            self.UISetUp()            
+            self.getProductIdCurrentDeviceWebServiceCall()
+        }
+        
         //self.setStatusBarColor(themeColor: GlobalUtility().AppThemeColor)
-        UISetUp()
+        
         
         //MARK: Commemt on 15/12/22 due to no use
         //self.fetchStoreDataFromFirebase()
-                
+        
         //self.submitStoreBtn.isHidden = true
         //self.storeTokenEdit.isHidden = true
         
@@ -132,14 +143,17 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         imeiLabel.text = "Your IMEI:" + IMEINumber
         imeiLabel.text = "Your IMEI:" + currentIMEI
         
+        imeiLabel.text = currentIMEI
         
-        let boxBoldText = currentIMEI
-        let attrsBox = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)]
-        let boxAttributedString = NSMutableAttributedString(string: boxBoldText, attributes: attrsBox)
-        let boxNormalText = "Your IMEI: "
-        let boxNormalString = NSMutableAttributedString(string: boxNormalText)
-        boxNormalString.append(boxAttributedString)
-        self.imeiLabel.attributedText = boxNormalString
+        /*
+         let boxBoldText = currentIMEI
+         let attrsBox = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)]
+         let boxAttributedString = NSMutableAttributedString(string: boxBoldText, attributes: attrsBox)
+         let boxNormalText = "Your IMEI: "
+         let boxNormalString = NSMutableAttributedString(string: boxNormalText)
+         boxNormalString.append(boxAttributedString)
+         self.imeiLabel.attributedText = boxNormalString
+         */
         
         
         let uuid = UUID().uuidString
@@ -147,33 +161,37 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
         //smartExLoadingImage.isHidden = true
         //floatTableView.register(UINib(nibName: "FloatingItemCell", bundle: nil), forCellReuseIdentifier: "FloatingItemCell")
-                
+        
         
         /*
-        if reachability?.connection.description != "No Connection" {
-            
-            self.fireWebServiceForSupportDetails()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                
-                self.downloadFirebaseRealTimeData()
-                
-            })
-            
-            
-        }else {
-            
-            DispatchQueue.main.async() {
-                self.view.makeToast(self.getLocalizatioStringValue(key: "Please Check Internet connection."), duration: 2.0, position: .bottom)
-            }
-            
-        }
-        */
+         if reachability?.connection.description != "No Connection" {
+         
+         self.fireWebServiceForSupportDetails()
+         
+         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+         
+         self.downloadFirebaseRealTimeData()
+         
+         })
+         
+         
+         }else {
+         
+         DispatchQueue.main.async() {
+         self.view.makeToast(self.getLocalizatioStringValue(key: "Please Check Internet connection."), duration: 2.0, position: .bottom)
+         }
+         
+         }
+         */
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Disable the left swipe gesture to dismiss
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+       
         
         //touchGest = UITapGestureRecognizer(target: self, action: #selector(HomeVC.myviewTapped(_:)))
         //touchGest.numberOfTapsRequired = 1
@@ -184,24 +202,26 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         ////self.changeLanguageOfUI()
     }
     
+    
+    
     func UISetUp() {
         
         self.setStatusBarColor()
         self.navigationController?.navigationBar.isHidden = true
         
         DispatchQueue.main.async(execute: {
-        
+            
             self.gradientBGView.cornerRadius(usingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 50.0, height: 50.0))
             UIView.addShadowOn4side(baseView: self.shadowBtmView)
-            
+            UIView.addShadowOn4side(baseView: self.shadowBtmView2)
         })
-                
+        
         self.hideKeyboardWhenTappedAround()
-                
+        
     }
     
     func changeLanguageOfUI() {
-          
+        
         //self.lblPleaseClick.text = self.getLocalizatioStringValue(key: "Please click ‘Scan QR Code’ to begin Diagnostics. To view previous results, click on ‘Previous Quotation’")
         
         self.storeTokenEdit.placeholder = self.getLocalizatioStringValue(key: "Find Nearby Store to get Store Token")
@@ -215,7 +235,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
         //self.lblCurrentVersion.text = self.getLocalizatioStringValue(key: "Version") + " " + (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")
     }
-        
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -227,48 +247,149 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
     }
     
+    func getProductIdCurrentDeviceWebServiceCall() {
+        
+        self.hud.textLabel.text = ""
+        self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
+        self.hud.show(in: self.view)
+        
+        var request = URLRequest(url: URL(string: "\(AppBaseUrl)/getProductIdCurrentDevice")!)
+        
+        let preferences = UserDefaults.standard
+        preferences.set(AppBaseUrl, forKey: "endpoint")
+        
+        request.httpMethod = "POST"
+        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+        
+        let deviceName = UIDevice.current.moName
+        let modelCapacity = getTotalSize()
+        let IMEI = UserDefaults.standard.string(forKey: "imei_number") ?? IMEINumber
+        let ram =  ProcessInfo.processInfo.physicalMemory
+        
+        var postString = ""
+        
+        // not iPad (iPhone, mac, tv, carPlay, unspecified)
+        postString = "userName=\(AppUserName)&apiKey=\(AppApiKey)&productName=\(deviceName)&memory=\(modelCapacity)&ram=\(ram)"
+        
+        print("url in getProductIdCurrentDevice :", request,"\n Param in getProductIdCurrentDevice:", postString)
+        
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            DispatchQueue.main.async() {
+                self.hud.dismiss()
+            }
+            
+            guard let data = data, error == nil else {
+                DispatchQueue.main.async() {
+                    self.view.makeToast(error?.localizedDescription, duration: 3.0, position: .bottom)
+                }
+                return
+            }
+            
+            do {
+                let json = try JSON(data: data)
+                print("response json in  getProductIdCurrentDevice:","\(json)")
+                
+                if json["status"] == "Success" {
+                    
+                    DispatchQueue.main.async() {
+                        
+                        let currentDeviceData = json["msg"]
+                        
+                        let imgurl = URL(string: currentDeviceData["image"].string ?? "")
+                        self.currentDeviceImgVW.af_setImage(withURL: imgurl ?? URL(fileURLWithPath: ""), placeholderImage: UIImage(named: "smartphone"))
+                        
+                        self.lblCurrentDeviceName.text = currentDeviceData["name"].string ?? ""
+                        self.imeiLabel.text = IMEI
+                        
+                    }
+                    
+                }else{
+                   
+                    DispatchQueue.main.async() {
+                        
+                        self.view.makeToast(self.getLocalizatioStringValue(key: json["msg"].string ?? ""), duration: 2.0, position: .bottom)
+                        
+                        self.noDeviceView.isHidden = false
+                        self.shadowBtmView.isHidden = true
+                        self.qrBaseView.isHidden = true
+                        
+                        UIView.addShadowOn4side(baseView: self.noDeviceView)
+                        
+                        self.lblNoDeviceName.text = "Your Device: " + deviceName
+                        self.lblNoDeviceIMEI.text = "Your IMEI: " + IMEI
+                        
+                    }
+                    
+                }
+            }catch {
+                DispatchQueue.main.async() {
+                    self.view.makeToast(self.getLocalizatioStringValue(key: "Something went wrong!!"), duration: 3.0, position: .bottom)
+                }
+            }
+            
+        }
+        task.resume()
+    }
+    
     //MARK: button action methods
+    @IBAction func imeiChangeBtnClicked(_ sender: UIButton) {
+
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiVC") as! ImeiVC
+        vc.isComeFrom = "ImeiVC"
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func howToFindQRBtnClicked(_ sender: UIButton) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FindQRPopUpVC") as! FindQRPopUpVC
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false)
+        
+    }
     
     @IBAction func onClickCustomSupport(_ sender: UIButton) {
         /*
-        if sender.isSelected {
-            sender.isSelected = !sender.isSelected
-            
-            self.floatTableView.alpha = 1
-            UIView.animate(withDuration: 0.3, animations: {
-                self.floatTableViewHeightConstraint.constant = 0.0
-                self.view.layoutIfNeeded()
-                self.floatTableView.alpha = 0
-                self.FloatBGView.isHidden = true
-            })
-        }else {
-            sender.isSelected = !sender.isSelected
-            
-            self.floatTableView.alpha = 0
-            UIView.animate(withDuration: 0.3, animations: {
-                
-                self.floatTableViewHeightConstraint.constant = 150.0
-                
-                self.view.layoutIfNeeded()
-                self.floatTableView.alpha = 1
-                self.FloatBGView.isHidden = false
-            })
-        }
-        */
+         if sender.isSelected {
+         sender.isSelected = !sender.isSelected
+         
+         self.floatTableView.alpha = 1
+         UIView.animate(withDuration: 0.3, animations: {
+         self.floatTableViewHeightConstraint.constant = 0.0
+         self.view.layoutIfNeeded()
+         self.floatTableView.alpha = 0
+         self.FloatBGView.isHidden = true
+         })
+         }else {
+         sender.isSelected = !sender.isSelected
+         
+         self.floatTableView.alpha = 0
+         UIView.animate(withDuration: 0.3, animations: {
+         
+         self.floatTableViewHeightConstraint.constant = 150.0
+         
+         self.view.layoutIfNeeded()
+         self.floatTableView.alpha = 1
+         self.FloatBGView.isHidden = false
+         })
+         }
+         */
     }
     
     @objc func myviewTapped(_ sender: UITapGestureRecognizer) {
         /*
-        btnFloating.isSelected = !btnFloating.isSelected
-        
-        self.floatTableView.alpha = 1
-        UIView.animate(withDuration: 0.3, animations: {
-            self.floatTableViewHeightConstraint.constant = 0.0
-            self.view.layoutIfNeeded()
-            self.floatTableView.alpha = 0
-            self.FloatBGView.isHidden = true
-        })
-        */
+         btnFloating.isSelected = !btnFloating.isSelected
+         
+         self.floatTableView.alpha = 1
+         UIView.animate(withDuration: 0.3, animations: {
+         self.floatTableViewHeightConstraint.constant = 0.0
+         self.view.layoutIfNeeded()
+         self.floatTableView.alpha = 0
+         self.FloatBGView.isHidden = true
+         })
+         */
     }
     
     func fetchStoreDataFromFirebase() {
@@ -305,7 +426,6 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
     }
     
-    
     var responseData = " "
     
     lazy var reader: QRCodeReader = QRCodeReader()
@@ -321,7 +441,6 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     }()
     
     // MARK: - checkScanPermissions
-    
     private func checkScanPermissions() -> Bool {
         do {
             return try QRCodeReader.supportsMetadataObjectTypes()
@@ -333,7 +452,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                 alert = UIAlertController(title: self.getLocalizatioStringValue(key: "Error"), message: self.getLocalizatioStringValue(key: "This app is not authorized to use Back Camera."), preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: self.getLocalizatioStringValue(key: "Setting"), style: .default, handler: { (_) in
-                   
+                    
                     DispatchQueue.main.async {
                         
                         /*
@@ -431,15 +550,12 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                  }
                  }*/
                 
-                
-                
-                
+                                
                 let preferences = UserDefaults.standard
                 preferences.setValue(AppBaseTnc, forKey: "tncendpoint")
                 
                 preferences.setValue(0, forKey: "storeType")
                 preferences.setValue(0, forKey: "tradeOnline")
-                
                 
                 if reachability?.connection.description != "No Connection" {
                     
@@ -451,7 +567,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         self.view.makeToast(self.getLocalizatioStringValue(key: "Please Check Internet connection."), duration: 2.0, position: .bottom)
                     }
                 }
-                    
+                
                 //MARK: Commemt on 15/12/22 due to no use
                 //UserDefaults.standard.setValue(false, forKey: "Trade_In_Online")
                 
@@ -460,8 +576,8 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                 DispatchQueue.main.async() {
                     self.view.makeToast(self.getLocalizatioStringValue(key: "Please Enter Valid Store Token"), duration: 2.0, position: .bottom)
                 }
+                
             }
-            
             
         }
         
@@ -489,7 +605,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         return
                     }
                     
-                     /*
+                    /*
                      if self.hasScanned {
                      print("self.hasScanned = !self.hasScanned", self.hasScanned)
                      self.hasScanned = !self.hasScanned
@@ -518,10 +634,8 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         
                     }
                     
-                    
                     if self.storeToken.count >= 4 {
                         print("self.storeToken", self.storeToken)
-                        
                         
                         /* //MARK: Commemt on 15/12/22 due to no use
                          let enteredToken = self.storeToken.prefix(4)
@@ -547,9 +661,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                          }
                          }*/
                         
-                        
-                        
-                        
+                                                
                         let preferences = UserDefaults.standard
                         preferences.setValue(AppBaseTnc, forKey: "tncendpoint")
                         
@@ -587,10 +699,10 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     @IBAction func previousQuotationBtnPressed(_ sender: Any) {
         
         /*
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousQuotationsViewController") as! PreviousQuotationsViewController
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true)
-        */
+         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousQuotationsViewController") as! PreviousQuotationsViewController
+         vc.modalPresentationStyle = .overFullScreen
+         self.present(vc, animated: true)
+         */
         
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousQuotePopUp") as! PreviousQuotePopUp
@@ -655,9 +767,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
             // not iPad (iPhone, mac, tv, carPlay, unspecified)
             postString = "IMEINumber=\(IMEI)&device=\(device)&memory=\(modelCapacity)&userName=\(AppUserName)&apiKey=\(AppApiKey)&ram=\(ram)&storeToken=\(self.storeToken)"
         }
-        
-        
-        
+                
         print("url is :",request,"\nParam is :", postString)
         
         request.httpBody = postString.data(using: .utf8)
@@ -716,13 +826,13 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         //MARK: Comment here & create function for diagnostic flow smooth run on 5/8/23
                         
                         DispatchQueue.main.async() {
-                                                        
+                            
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "InstructionVC") as! InstructionVC
                             
                             vc.strIMEI = UserDefaults.standard.string(forKey: "imei_number") ?? self.IMEINumber
                             vc.strDeviceName = productName
                             vc.strDeviceImg = productImage
-                                                        
+                            
                             vc.modalPresentationStyle = .overFullScreen
                             self.present(vc, animated: true, completion: nil)
                             //self.navigationController?.pushViewController(vc, animated: true)
@@ -759,9 +869,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         }
         task.resume()
     }
-    
-    
-    
+        
     func StartDiagnosticFlow() {
         
         //MARK: 5/8/23 Add due to diagnose process start from begning
@@ -904,9 +1012,9 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         self.readerVC.dismiss(animated: true)
         
         /*
-        reader.dismiss(animated: true) {
-            
-        }*/
+         reader.dismiss(animated: true) {
+         
+         }*/
         
         /*
          dismiss(animated: true) { [weak self] in
@@ -929,9 +1037,9 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         self.readerVC.dismiss(animated: true)
         
         /*
-        reader.dismiss(animated: true) {
-            
-        }*/
+         reader.dismiss(animated: true) {
+         
+         }*/
         
         //dismiss(animated: true, completion: nil)
     }
@@ -947,7 +1055,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             DispatchQueue.main.async() {
-                self.storeImage.image = UIImage(data: data)
+                //self.storeImage.image = UIImage(data: data)
             }
         }
     }
@@ -998,7 +1106,6 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
             "apiKey" : AppApiKey,
             "quoteId" : quoteID,
         ]
-        
         
         print("url is :", strUrl, "quote id is  \(quoteID)" , parameters)
         
@@ -1075,7 +1182,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         //preferences.setValue("https://exchange.buyblynk.com/tnc.php", forKey: "tncendpoint") // Blynk
                         
                         preferences.setValue(AppBaseTnc, forKey: "tncendpoint")
-                                                
+                        
                         
                         preferences.setValue(0, forKey: "storeType")
                         preferences.setValue(0, forKey: "tradeOnline")
@@ -1306,38 +1413,38 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                                             
                                             //MARK: Language is not depend on current language of device
                                             /*
-                                            let preferredLanguage = NSLocale.preferredLanguages[0]
-                                            let preferredLanguageCode = preferredLanguage.components(separatedBy: "-").first ?? ""
-                                            let firstCode = preferredLanguage.components(separatedBy: "-")
-                                            print("preferredLanguage",preferredLanguage)
-                                            print("preferredLanguageCode", preferredLanguageCode)
-                                            print("firstCode", firstCode)
-                                            
-                                            
-                                            //MARK: 1. Save Here Language
-                                            for lang in languages {
-                                                
-                                                print("current lang.strLanguageSymbol in first case  \(lang.strLanguageSymbol.lowercased())")
-                                                
-                                                if lang.strLanguageSymbol.lowercased() == preferredLanguageCode.lowercased() {
-                                                    
-                                                    print("current language is \(lang.strLanguageName)")
-                                                    
-                                                    AppUserDefaults.setValue(lang.strLanguageName, forKey: "LanguageName")
-                                                    AppUserDefaults.setValue(lang.strLanguageUrl, forKey: "LanguageUrl")
-                                                    AppUserDefaults.setValue(lang.strLanguageSymbol, forKey: "LanguageSymbol")
-                                                    AppUserDefaults.setValue(lang.strLanguageVersion, forKey: "LanguageVersion")
-                                                    
-                                                    self.downloadSelectedLanguage(lang.strLanguageUrl, lang.strLanguageSymbol)
-                                                    
-                                                    self.isLanguageMatchAtLaunch = true
-                                                    
-                                                    break
-                                                    
-                                                }
-                                                
-                                            }
-                                            */
+                                             let preferredLanguage = NSLocale.preferredLanguages[0]
+                                             let preferredLanguageCode = preferredLanguage.components(separatedBy: "-").first ?? ""
+                                             let firstCode = preferredLanguage.components(separatedBy: "-")
+                                             print("preferredLanguage",preferredLanguage)
+                                             print("preferredLanguageCode", preferredLanguageCode)
+                                             print("firstCode", firstCode)
+                                             
+                                             
+                                             //MARK: 1. Save Here Language
+                                             for lang in languages {
+                                             
+                                             print("current lang.strLanguageSymbol in first case  \(lang.strLanguageSymbol.lowercased())")
+                                             
+                                             if lang.strLanguageSymbol.lowercased() == preferredLanguageCode.lowercased() {
+                                             
+                                             print("current language is \(lang.strLanguageName)")
+                                             
+                                             AppUserDefaults.setValue(lang.strLanguageName, forKey: "LanguageName")
+                                             AppUserDefaults.setValue(lang.strLanguageUrl, forKey: "LanguageUrl")
+                                             AppUserDefaults.setValue(lang.strLanguageSymbol, forKey: "LanguageSymbol")
+                                             AppUserDefaults.setValue(lang.strLanguageVersion, forKey: "LanguageVersion")
+                                             
+                                             self.downloadSelectedLanguage(lang.strLanguageUrl, lang.strLanguageSymbol)
+                                             
+                                             self.isLanguageMatchAtLaunch = true
+                                             
+                                             break
+                                             
+                                             }
+                                             
+                                             }
+                                             */
                                             
                                             
                                             //MARK: 2. Default NP-English
@@ -1356,8 +1463,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                                             }
                                             
                                         }
-                                        
-                                        
+                                                                                
                                     }
                                     else{
                                         
@@ -1433,13 +1539,12 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         if let json = try JSONSerialization.jsonObject(with: data ?? Data(), options: []) as? NSDictionary {
                             
                             print("Download json of language",json)
-                        
+                            
                             DispatchQueue.main.async {
                                 self.saveLocalizationString(json)
                                 //AppUserDefaults.setCountryLanguage(data: json)
                                 
                                 ////self.changeLanguageOfUI()
-                                                                
                             }
                         }
                         
@@ -1466,7 +1571,6 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         }
         
     }
-
     
 }
 
@@ -1511,7 +1615,6 @@ class WebServies: NSObject {
         
     }
     
-    
     func getRequest(urlString: String, paramDict:Dictionary<String, AnyObject>? = nil,
                     completionHandler:@escaping (NSDictionary?, NSError?) -> ()) {
         
@@ -1540,7 +1643,6 @@ class WebServies: NSObject {
     }
     
 }
-
 
 extension HomeVC : UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
@@ -1583,16 +1685,16 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate, MFMailComposeView
         }
         
         /*
-        btnFloating.isSelected = !btnFloating.isSelected
-        
-        self.floatTableView.alpha = 1
-        UIView.animate(withDuration: 0.3, animations: {
-            self.floatTableViewHeightConstraint.constant = 0.0
-            self.view.layoutIfNeeded()
-            self.floatTableView.alpha = 0
-            self.FloatBGView.isHidden = true
-        })
-        */
+         btnFloating.isSelected = !btnFloating.isSelected
+         
+         self.floatTableView.alpha = 1
+         UIView.animate(withDuration: 0.3, animations: {
+         self.floatTableViewHeightConstraint.constant = 0.0
+         self.view.layoutIfNeeded()
+         self.floatTableView.alpha = 0
+         self.FloatBGView.isHidden = true
+         })
+         */
         
     }
     

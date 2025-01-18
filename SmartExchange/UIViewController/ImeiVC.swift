@@ -29,11 +29,19 @@ class ImeiVC: UIViewController {
     //var currentIMEI = String()
     var images:[UIImage] = []
     let hud = JGProgressHUD()
+    var isComeFrom = ""
+    let reachability: Reachability? = Reachability()
+    
+    var baseDict = NPCountryModel(countryDict: [:])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.UISetUp()
+        DispatchQueue.main.async {
+            self.UISetUp()
+            self.getCountriesDataFromFirebase()
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +52,13 @@ class ImeiVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if self.isComeFrom == "ImeiVC" {
+            let edgePanGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePopGesture(_:)))
+            edgePanGestureRecognizer.edges = .left
+            view.addGestureRecognizer(edgePanGestureRecognizer)
+        }
+        
+        
         detectScreenshot = {
             // Start observing for changes
             PhotoLibraryObserver.shared.startObserving()
@@ -52,9 +67,15 @@ class ImeiVC: UIViewController {
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
+    }
+    
+    @objc func handlePopGesture(_ gesture: UIScreenEdgePanGestureRecognizer) {
+        if gesture.state == .recognized {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     //MARK: Custom Method
@@ -71,6 +92,80 @@ class ImeiVC: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
+    }
+    
+    func getCountriesDataFromFirebase() {
+        
+        //MARK: Get country from Firebase
+        if reachability?.connection.description != "No Connection" {
+            
+            self.hud.textLabel.text = ""
+            self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
+            self.hud.show(in: self.view)
+            
+            NPCountryModel.fetchCredentialsFromFireBase(isInterNet: true, getController: self) { (npCountry) in
+                
+                DispatchQueue.main.async() {
+                    self.hud.dismiss()
+                }
+                
+                self.baseDict = npCountry
+                print("self.baseDict.debugUrl", self.baseDict.debugUrl)
+                print("self.baseDict.releaseUrl", self.baseDict.releaseUrl)
+                
+                //MARK: Save Live Credentials in UserDefaults
+                let userDefaults = UserDefaults.standard
+                
+                /*
+                if let mode = userDefaults.value(forKey: "appTestMode") as? String {
+                    if mode == "Release" {
+                        
+                        let dict = self.baseDict.releaseUrl
+                        userDefaults.setValue(dict["apiKey"], forKey: "App_ApiKey")
+                        userDefaults.setValue(dict["userName"], forKey: "App_UserName")
+                        userDefaults.setValue(dict["url"], forKey: "App_BaseURL")
+                        userDefaults.setValue(dict["tnc"], forKey: "App_TncUrl")
+                        
+                        print("Firebase DB dict is :",dict)
+                        
+                    }
+                }else {
+                    */
+                    
+                    #if DEBUG
+                    
+                        let dict = self.baseDict.debugUrl
+                        userDefaults.setValue(dict["apiKey"], forKey: "App_ApiKey")
+                        userDefaults.setValue(dict["userName"], forKey: "App_UserName")
+                        userDefaults.setValue(dict["url"], forKey: "App_BaseURL")
+                        userDefaults.setValue(dict["tnc"], forKey: "App_TncUrl")
+                        
+                        print("Firebase DB dict is :",dict)
+                    
+                    #else
+                    
+                        let dict = self.baseDict.releaseUrl
+                        userDefaults.setValue(dict["apiKey"], forKey: "App_ApiKey")
+                        userDefaults.setValue(dict["userName"], forKey: "App_UserName")
+                        userDefaults.setValue(dict["url"], forKey: "App_BaseURL")
+                        userDefaults.setValue(dict["tnc"], forKey: "App_TncUrl")
+                        
+                        print("Firebase DB dict is :",dict)
+                    
+                    #endif
+                    
+                //}
+                                                
+                
+            }
+        }else {
+            
+            DispatchQueue.main.async() {
+                self.view.makeToast(self.getLocalizatioStringValue(key: "No connection found"), duration: 2.0, position: .bottom)
+            }
+            
+        }
+
     }
     
     func setBoldTextInString() {
@@ -137,6 +232,9 @@ class ImeiVC: UIViewController {
     //MARK: IBActions
     @IBAction func autoDetectBtnPressed(_ sender: UIButton) {
         
+        ShowGlobalPopUp()
+        
+        /*
         DispatchQueue.main.async {
             self.hud.textLabel.text = "fetching screenshot..."
             self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
@@ -144,6 +242,8 @@ class ImeiVC: UIViewController {
             
             self.fetchPhotos()
         }
+        */
+        
     }
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
@@ -286,12 +386,24 @@ class ImeiVC: UIViewController {
                     
                     self.txtFieldIMEI?.text = result2.replacingOccurrences(of: ",", with: "")
                     
+                    if self.txtFieldIMEI != nil {
+                        DispatchQueue.main.async {
+                            self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
+                        }
+                    }
+                    
                 } else {
                     //print("'\(keyword2)' not found in the text.")
                     
                     if currentIMEI != "" {
                         self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                        
+                        DispatchQueue.main.async {
+                            self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
+                        }
+                        
                     }
+                                        
                     
                 }
                 
@@ -306,13 +418,25 @@ class ImeiVC: UIViewController {
                     // Stop observing for changes
                     PhotoLibraryObserver.shared.stopObserving()
                     
+                    if self.txtFieldIMEI != nil {
+                        DispatchQueue.main.async {
+                            self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
+                        }
+                    }
+                    
                 } else {
                     //print("'\(keyword1)' not found in the text.")
                     //print("currentIMEI 1",currentIMEI)
                     
                     if currentIMEI != "" {
                         self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                        
+                        DispatchQueue.main.async {
+                            self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
+                        }
+                        
                     }
+                                        
                     
                 }
                 
@@ -328,7 +452,7 @@ class ImeiVC: UIViewController {
                 try handler.perform([request])
             }
             catch (let err) {
-                //print("err :", err)
+                print("err :", err)
                 
                 DispatchQueue.main.async {
                     self.hud.dismiss()
@@ -354,10 +478,55 @@ class ImeiVC: UIViewController {
         return nil
     }
     
+    func ShowGlobalPopUp() {
+        
+        let popUpVC = self.storyboard?.instantiateViewController(withIdentifier: "GlobalSkipPopUpVC") as! GlobalSkipPopUpVC
+        
+        //popUpVC.strTitle = "To auto-detect your IMEI, please follow these steps:"
+        
+        popUpVC.strTitle = "Allow Insta-Exchange to Detect IMEI"
+        popUpVC.strMessage = "1. Open the phone dialer and type *#06#." + "\n\n" + "2. Take a screenshot of the IMEI displayed on the screen." + "\n\n" + "3. The app will automatically detect and read the IMEI from your latest screenshot." + "\n\n\n" + "Your privacy is our priority. Screenshots are processed locally and are not shared or uploaded."
+        popUpVC.strBtnYesTitle = "Cancel"
+        popUpVC.strBtnNoTitle = "Ok"
+        popUpVC.strBtnRetryTitle = ""
+        popUpVC.isShowThirdBtn = false
+        
+        popUpVC.isComeFrom = "ImeiVC"
+        
+        popUpVC.userConsent = { btnTag in
+            switch btnTag {
+            case 1:
+                
+                print("cancel clicked")
+                
+            case 2:
+                
+                print("ok clicked")
+                
+                DispatchQueue.main.async {
+                    self.hud.textLabel.text = "fetching screenshot..."
+                    self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
+                    self.hud.show(in: self.view)
+                    
+                    self.fetchPhotos()
+                }
+                
+            default:
+                
+                break
+            }
+        }
+        
+        popUpVC.modalPresentationStyle = .overFullScreen
+        self.present(popUpVC, animated: false) { }
+        
+    }
+    
 }
 
 // Register for photo library changes
 class PhotoLibraryObserver: NSObject, PHPhotoLibraryChangeObserver {
+    
     static let shared = PhotoLibraryObserver()
     
     func startObserving() {
@@ -376,4 +545,5 @@ class PhotoLibraryObserver: NSObject, PHPhotoLibraryChangeObserver {
             ImeiVC().fetchPhotos()
         }
     }
+    
 }

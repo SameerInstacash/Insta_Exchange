@@ -447,7 +447,9 @@ extension InstructionVC {
     
     func TestResultScreen(_ testResultJSON : JSON) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ResultsViewController") as! ResultsViewController
+        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ResultsViewController") as! ResultsViewController
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SummaryVC") as! SummaryVC
         vc.modalPresentationStyle = .overFullScreen
         vc.resultJSON = testResultJSON
         

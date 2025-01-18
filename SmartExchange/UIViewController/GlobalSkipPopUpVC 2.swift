@@ -27,6 +27,8 @@ class GlobalSkipPopUpVC: UIViewController {
     var strBtnRetryTitle = ""
     
     var isShowThirdBtn = false
+    
+    var isComeFrom = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,11 @@ class GlobalSkipPopUpVC: UIViewController {
         self.btnYes.tag = 1
         self.btnNo.tag = 2
         self.btnRetry.tag = 3
+        
+        if self.isComeFrom == "ImeiVC" {
+            self.lblTitle.textAlignment = .center
+            self.lblMessage.textAlignment = .left
+        }
         
     }
     

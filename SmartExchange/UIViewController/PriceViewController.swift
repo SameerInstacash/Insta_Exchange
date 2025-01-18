@@ -27,7 +27,7 @@ extension UIView {
 }
 
 class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
-
+    
     let hud = JGProgressHUD()
     
     //@IBOutlet weak var tradeInOnlineView: UIView!
@@ -50,7 +50,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var loaderImage: UIImageView!
-
+    
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         let scale = newWidth / image.size.width
@@ -82,6 +82,9 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //print("self.appPhysicalQuestionCodeStr", self.appPhysicalQuestionCodeStr)
+        //print("self.appCodeStr", self.appCodeStr)
+        
         self.navigationController?.navigationBar.isHidden = true
         self.setStatusBarColor(themeColor: GlobalUtility().AppThemeColor)
         
@@ -98,18 +101,18 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
         /* //MARK: Commemt on 15/12/22 due to no use
-        let isTradeInOnline = UserDefaults.standard.value(forKey: "Trade_In_Online") as? Bool ?? false
-        print("isTradeInOnline value is :", isTradeInOnline)
-        
-        if isTradeInOnline {
-            self.addInfoToTextView()
-            self.tradeInOnlineView.isHidden = false
-            UIView.addShadow(baseView: self.tradeInOnlineView)
-        }else {
-            self.tradeInOnlineMessageTxtView.text = ""
-            self.tradeInOnlineView.isHidden = true
-        }
-        */
+         let isTradeInOnline = UserDefaults.standard.value(forKey: "Trade_In_Online") as? Bool ?? false
+         print("isTradeInOnline value is :", isTradeInOnline)
+         
+         if isTradeInOnline {
+         self.addInfoToTextView()
+         self.tradeInOnlineView.isHidden = false
+         UIView.addShadow(baseView: self.tradeInOnlineView)
+         }else {
+         self.tradeInOnlineMessageTxtView.text = ""
+         self.tradeInOnlineView.isHidden = true
+         }
+         */
         
         
         //DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -128,7 +131,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.loaderImage.image = jeremyGifUp
         self.loaderImage.stopAnimating()
         self.loaderImage.startAnimating()
-                
+        
         
         //let uploadText = "upload_btn_text".localized
         //let scheduleText = "schedule_btn_text".localized
@@ -181,7 +184,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.productName.text = UIDevice.current.moName
                 self.deviceName = UIDevice.current.moName
                 self.productImage.image = UIImage.init(named: "ipad_icon")
-        
+                
                 self.refValueLabel.isHidden = true
                 
             }else {
@@ -189,7 +192,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.deviceName = UserDefaults.standard.string(forKey: "productName") ?? ""
                 let img = URL(string: UserDefaults.standard.string(forKey: "productImage") ?? "")
                 self.downloadImage(url: img ?? URL(fileURLWithPath: ""))
-        
+                
                 self.refValueLabel.isHidden = true
             }
             
@@ -208,7 +211,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func changeLanguageOfUI() {
-                
+        
         //self.lblTitle.text = self.getLocalizatioStringValue(key: "Quotation")
         
         self.offeredPriceInfo.text = self.getLocalizatioStringValue(key: "Offered Price")
@@ -219,7 +222,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //self.buySmartPhoneBtn.setTitle(self.getLocalizatioStringValue(key: "BUY A SMARTPHONE"), for: UIControlState.normal)
         
         //self.lblCheckout.text = self.getLocalizatioStringValue(key: "Checkout our Refurb Phones")
-         
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -246,41 +249,41 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //override func viewWillAppear(_ animated: Bool) {
-        //super.viewWillAppear(animated)
-        
-        //self.myTableView.dataSource = self
-        //self.myTableView.delegate = self
-        
-        //self.view.addSubview(self.myTableView)
-        //DispatchQueue.main.asyncAfter(deadline: .now()) {
-        //self.myTableViewHeightConstraint.constant = self.myTableView.contentSize.height
-        //}
+    //super.viewWillAppear(animated)
+    
+    //self.myTableView.dataSource = self
+    //self.myTableView.delegate = self
+    
+    //self.view.addSubview(self.myTableView)
+    //DispatchQueue.main.asyncAfter(deadline: .now()) {
+    //self.myTableViewHeightConstraint.constant = self.myTableView.contentSize.height
+    //}
     //}
     
     func addInfoToTextView()  {
         
         /*
-        let strMessage = "Your sell back request has been registered with us and we will be calling you shortly to confirm an appointment for pickup.\nor you may call us on \(self.XtraCoverSupportNumber) for more details."
-
-        let attributedString = NSMutableAttributedString(string: strMessage, attributes: [NSAttributedStringKey.font: UIFont(name: "Poppins-Medium", size: 14) ?? UIFont()])
-        let foundRange = attributedString.mutableString.range(of: self.XtraCoverSupportNumber)
-
-        attributedString.addAttribute(NSAttributedString.Key.link, value: self.XtraCoverSupportNumber, range: foundRange)
-        
-        self.tradeInOnlineMessageTxtView.attributedText = attributedString
-        
-        self.tradeInOnlineMessageTxtView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.init(hexString: "#FC5400")]
-        self.tradeInOnlineMessageTxtView.textColor = UIColor.init(hexString: "#101010")
-        self.tradeInOnlineMessageTxtView.textAlignment = .center
-        self.tradeInOnlineMessageTxtView.isEditable = false
-        self.tradeInOnlineMessageTxtView.dataDetectorTypes = UIDataDetectorTypes.all
-        self.tradeInOnlineMessageTxtView.delegate = self
-        */
+         let strMessage = "Your sell back request has been registered with us and we will be calling you shortly to confirm an appointment for pickup.\nor you may call us on \(self.XtraCoverSupportNumber) for more details."
+         
+         let attributedString = NSMutableAttributedString(string: strMessage, attributes: [NSAttributedStringKey.font: UIFont(name: "Poppins-Medium", size: 14) ?? UIFont()])
+         let foundRange = attributedString.mutableString.range(of: self.XtraCoverSupportNumber)
+         
+         attributedString.addAttribute(NSAttributedString.Key.link, value: self.XtraCoverSupportNumber, range: foundRange)
+         
+         self.tradeInOnlineMessageTxtView.attributedText = attributedString
+         
+         self.tradeInOnlineMessageTxtView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.init(hexString: "#FC5400")]
+         self.tradeInOnlineMessageTxtView.textColor = UIColor.init(hexString: "#101010")
+         self.tradeInOnlineMessageTxtView.textAlignment = .center
+         self.tradeInOnlineMessageTxtView.isEditable = false
+         self.tradeInOnlineMessageTxtView.dataDetectorTypes = UIDataDetectorTypes.all
+         self.tradeInOnlineMessageTxtView.delegate = self
+         */
         
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-
+        
         if URL.absoluteString == "Nutzungsbedingungen" {
             print("nutzung")
         }else if URL.absoluteString == "Datenschutzrichtlinien" {
@@ -300,10 +303,10 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.view.makeToast(self.getLocalizatioStringValue(key: "Your device doesn't Support this Feature."), duration: 3.0, position: .bottom)
             }
         }
-
+        
         return true
     }
-
+    
     func callAPI(){
         
         self.hud.textLabel.text = self.getLocalizatioStringValue(key: "Getting Price") + "..."
@@ -333,27 +336,27 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             guard let dataThis = data, error == nil else {
                 
                 /*
-                //SwiftSpinner.hide()
-                
-                DispatchQueue.main.async {
-                    self.hud.dismiss()
-                    // check for fundamental networking error
-                    print("error=\(error.debugDescription)")
-                    self.view.makeToast("Please Check Internet conection.", duration: 2.0, position: .bottom)
-                    
-                    do{
-                        let json = try JSON(data: data ?? Data())
-                        print(" Price Error Response is:", json)
-                        
-                        let msg = json["msg"].string
-                        self.view.makeToast(msg, duration: 3.0, position: .bottom)
-                    }catch {
-                        DispatchQueue.main.async() {
-                            self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
-                        }
-                    }
-                    
-                }*/
+                 //SwiftSpinner.hide()
+                 
+                 DispatchQueue.main.async {
+                 self.hud.dismiss()
+                 // check for fundamental networking error
+                 print("error=\(error.debugDescription)")
+                 self.view.makeToast("Please Check Internet conection.", duration: 2.0, position: .bottom)
+                 
+                 do{
+                 let json = try JSON(data: data ?? Data())
+                 print(" Price Error Response is:", json)
+                 
+                 let msg = json["msg"].string
+                 self.view.makeToast(msg, duration: 3.0, position: .bottom)
+                 }catch {
+                 DispatchQueue.main.async() {
+                 self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
+                 }
+                 }
+                 
+                 }*/
                 
                 DispatchQueue.main.async() {
                     self.view.makeToast(error?.localizedDescription, duration: 3.0, position: .bottom)
@@ -390,13 +393,13 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         }
                         
                         /*
-                        var diagnosisChargeString: Float
-                        if ( UserDefaults.standard.string(forKey: "store_code") == "6307") {
-                            diagnosisChargeString = Float(json["pawn"].intValue)
-                        }else{
-                            diagnosisChargeString = Float(json["diagnosisCharges"].intValue)
-                        }
-                        */
+                         var diagnosisChargeString: Float
+                         if ( UserDefaults.standard.string(forKey: "store_code") == "6307") {
+                         diagnosisChargeString = Float(json["pawn"].intValue)
+                         }else{
+                         diagnosisChargeString = Float(json["diagnosisCharges"].intValue)
+                         }
+                         */
                         
                         
                         var diagnosisChargeString = Float()
@@ -450,13 +453,13 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                 
                             }else{
                                 /*
-                                if (UserDefaults.standard.string(forKey: "store_code") == "6307"){
-                                    self.payableAmount.isHidden = true
-                                    self.payableBtnInfo.isHidden = true
-                                    self.offeredPriceInfo.text = "Trade-In"
-                                    self.diagnosisChargesInfo.text = "Pawn"
-                                }
-                                */
+                                 if (UserDefaults.standard.string(forKey: "store_code") == "6307"){
+                                 self.payableAmount.isHidden = true
+                                 self.payableBtnInfo.isHidden = true
+                                 self.offeredPriceInfo.text = "Trade-In"
+                                 self.diagnosisChargesInfo.text = "Pawn"
+                                 }
+                                 */
                                 
                                 if let type = UserDefaults.standard.value(forKey: "storeType") as? Int {
                                     if type == 0 {
@@ -467,7 +470,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         self.payableBtnInfo.text = self.getLocalizatioStringValue(key: "Trade-In")
                                     }
                                 }
-
+                                
                                 self.payableAmount.text = "\(symbol) \(Int(payable))"
                                 self.diagnosisCharges.text = "\(symbol) \(Int(diagnosisChargeString))"
                                 self.offeredPrice.text = "\(symbol) \(Int(offer))"
@@ -493,164 +496,164 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.view.makeToast(self.getLocalizatioStringValue(key: "Something went wrong!!"), duration: 3.0, position: .bottom)
                 }
             }
-                                
+            
             
             /* SAMEER-14/6/22
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                //
-                //SwiftSpinner.hide()
-                
-                DispatchQueue.main.async {
-                    self.hud.dismiss()
-                }
-                
-                do{
-                    let json = try JSON(data: data ?? Data())
-                    print(" Price Response is:", json)
-                    
-                    let msg = json["msg"].string
-                    self.view.makeToast(msg, duration: 3.0, position: .bottom)
-                }catch {
-                    DispatchQueue.main.async() {
-                        self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
-                    }
-                }
-                
-                //check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response.debugDescription)")
-            } else{
-                print("response = \(response ?? URLResponse())")
-                //SwiftSpinner.hide()
-                
-                DispatchQueue.main.async {
-                    self.hud.dismiss()
-                }
-                
-                do {
-                    let json = try JSON(data: dataThis)
-                    print(" Price Success Response is:", json)
-                    
-                    if  let offerpriceString = json["msg"].string {
-                        
-                        let jsonString = UserDefaults.standard.string(forKey: "currencyJson")
-                        var multiplier:Float = 1.0
-                        var symbol:String = "₹"
-                        var curCode:String = "INR"
-                        let symbolNew = json["currency"].string
-                        
-                        if let dataFromString = jsonString?.data(using: .utf8, allowLossyConversion: false) {
-                            print("currency JSON")
-                            let currencyJson = try JSON(data: dataFromString)
-                            multiplier = Float(currencyJson["Conversion Rate"].string!)!
-                            print("multiplier: \(multiplier)")
-                            symbol = currencyJson["Symbol"].string!
-                            curCode = currencyJson["Code"].string!
-                        }else{
-                            print("No values")
-                        }
-                        
-                        /*
-                        var diagnosisChargeString: Float
-                        if ( UserDefaults.standard.string(forKey: "store_code") == "6307") {
-                            diagnosisChargeString = Float(json["pawn"].intValue)
-                        }else{
-                            diagnosisChargeString = Float(json["diagnosisCharges"].intValue)
-                        }
-                        */
-                        
-                        
-                        var diagnosisChargeString = Float()
-                        DispatchQueue.main.async() {
-                            
-                            if let type = UserDefaults.standard.value(forKey: "storeType") as? Int {
-                                if type == 0 {
-                                    diagnosisChargeString = Float(json["diagnosisCharges"].intValue)
-                                }else {
-                                    diagnosisChargeString = Float(json["pawn"].intValue)
-                                }
-                            }
-                            
-                            
-                            if let online = UserDefaults.standard.value(forKey: "tradeOnline") as? Int {
-                                if online == 0 {
-                                    //self.tradeInBtn.isHidden = true
-                                }else {
-                                    //self.tradeInBtn.isHidden = false
-                                }
-                            }
-                        }
-                        
-                        
-                        if symbol != symbolNew {
-                            diagnosisChargeString = diagnosisChargeString * multiplier
-                        }
-                        
-                        var offer = Float(offerpriceString)!
-                        if curCode != symbolNew {
-                            offer = offer * multiplier
-                        }
-                        
-                        let payable = offer - diagnosisChargeString
-                        print("payable: \(offer - diagnosisChargeString) ")
-                        
-                        //self.saveResult(price: offerpriceString)
-                        DispatchQueue.main.async() {
-                            
-                            self.saveResult(price: offerpriceString)
-                            
-                            if (json["deviceStatusFlag"].exists() && json["deviceStatusFlag"].intValue == 1) {
-                                
-                                self.diagnosisChargesInfo.isHidden = true
-                                self.diagnosisCharges.isHidden = true
-                                self.payableAmount.isHidden = true
-                                self.payableBtnInfo.isHidden = true
-                                
-                                self.offeredPriceInfo.text = "Device Status"
-                                self.offeredPrice.text = json["deviceStatus"].stringValue
-                                
-                            }else{
-                                /*
-                                if (UserDefaults.standard.string(forKey: "store_code") == "6307"){
-                                    self.payableAmount.isHidden = true
-                                    self.payableBtnInfo.isHidden = true
-                                    self.offeredPriceInfo.text = "Trade-In"
-                                    self.diagnosisChargesInfo.text = "Pawn"
-                                }
-                                */
-                                
-                                if let type = UserDefaults.standard.value(forKey: "storeType") as? Int {
-                                    if type == 0 {
-                                        
-                                        
-                                    }else {
-                                        self.diagnosisChargesInfo.text = "Pawn"
-                                        self.payableBtnInfo.text = "Trade-In"
-                                    }
-                                }
-
-                                self.payableAmount.text = "\(symbol) \(Int(payable))"
-                                self.diagnosisCharges.text = "\(symbol) \(Int(diagnosisChargeString))"
-                                self.offeredPrice.text = "\(symbol) \(Int(offer))"
-                                //SwiftSpinner.hide()
-                                self.hud.dismiss()
-                            }
-                        }
-                        
-                    }else{
-                        DispatchQueue.main.async {
-                            self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
-                        }
-                    }
-                    
-                }catch {
-                    DispatchQueue.main.async() {
-                        self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
-                    }
-                    
-                }
-                
-            }*/
+             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+             //
+             //SwiftSpinner.hide()
+             
+             DispatchQueue.main.async {
+             self.hud.dismiss()
+             }
+             
+             do{
+             let json = try JSON(data: data ?? Data())
+             print(" Price Response is:", json)
+             
+             let msg = json["msg"].string
+             self.view.makeToast(msg, duration: 3.0, position: .bottom)
+             }catch {
+             DispatchQueue.main.async() {
+             self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
+             }
+             }
+             
+             //check for http errors
+             print("statusCode should be 200, but is \(httpStatus.statusCode)")
+             print("response = \(response.debugDescription)")
+             } else{
+             print("response = \(response ?? URLResponse())")
+             //SwiftSpinner.hide()
+             
+             DispatchQueue.main.async {
+             self.hud.dismiss()
+             }
+             
+             do {
+             let json = try JSON(data: dataThis)
+             print(" Price Success Response is:", json)
+             
+             if  let offerpriceString = json["msg"].string {
+             
+             let jsonString = UserDefaults.standard.string(forKey: "currencyJson")
+             var multiplier:Float = 1.0
+             var symbol:String = "₹"
+             var curCode:String = "INR"
+             let symbolNew = json["currency"].string
+             
+             if let dataFromString = jsonString?.data(using: .utf8, allowLossyConversion: false) {
+             print("currency JSON")
+             let currencyJson = try JSON(data: dataFromString)
+             multiplier = Float(currencyJson["Conversion Rate"].string!)!
+             print("multiplier: \(multiplier)")
+             symbol = currencyJson["Symbol"].string!
+             curCode = currencyJson["Code"].string!
+             }else{
+             print("No values")
+             }
+             
+             /*
+              var diagnosisChargeString: Float
+              if ( UserDefaults.standard.string(forKey: "store_code") == "6307") {
+              diagnosisChargeString = Float(json["pawn"].intValue)
+              }else{
+              diagnosisChargeString = Float(json["diagnosisCharges"].intValue)
+              }
+              */
+             
+             
+             var diagnosisChargeString = Float()
+             DispatchQueue.main.async() {
+             
+             if let type = UserDefaults.standard.value(forKey: "storeType") as? Int {
+             if type == 0 {
+             diagnosisChargeString = Float(json["diagnosisCharges"].intValue)
+             }else {
+             diagnosisChargeString = Float(json["pawn"].intValue)
+             }
+             }
+             
+             
+             if let online = UserDefaults.standard.value(forKey: "tradeOnline") as? Int {
+             if online == 0 {
+             //self.tradeInBtn.isHidden = true
+             }else {
+             //self.tradeInBtn.isHidden = false
+             }
+             }
+             }
+             
+             
+             if symbol != symbolNew {
+             diagnosisChargeString = diagnosisChargeString * multiplier
+             }
+             
+             var offer = Float(offerpriceString)!
+             if curCode != symbolNew {
+             offer = offer * multiplier
+             }
+             
+             let payable = offer - diagnosisChargeString
+             print("payable: \(offer - diagnosisChargeString) ")
+             
+             //self.saveResult(price: offerpriceString)
+             DispatchQueue.main.async() {
+             
+             self.saveResult(price: offerpriceString)
+             
+             if (json["deviceStatusFlag"].exists() && json["deviceStatusFlag"].intValue == 1) {
+             
+             self.diagnosisChargesInfo.isHidden = true
+             self.diagnosisCharges.isHidden = true
+             self.payableAmount.isHidden = true
+             self.payableBtnInfo.isHidden = true
+             
+             self.offeredPriceInfo.text = "Device Status"
+             self.offeredPrice.text = json["deviceStatus"].stringValue
+             
+             }else{
+             /*
+              if (UserDefaults.standard.string(forKey: "store_code") == "6307"){
+              self.payableAmount.isHidden = true
+              self.payableBtnInfo.isHidden = true
+              self.offeredPriceInfo.text = "Trade-In"
+              self.diagnosisChargesInfo.text = "Pawn"
+              }
+              */
+             
+             if let type = UserDefaults.standard.value(forKey: "storeType") as? Int {
+             if type == 0 {
+             
+             
+             }else {
+             self.diagnosisChargesInfo.text = "Pawn"
+             self.payableBtnInfo.text = "Trade-In"
+             }
+             }
+             
+             self.payableAmount.text = "\(symbol) \(Int(payable))"
+             self.diagnosisCharges.text = "\(symbol) \(Int(diagnosisChargeString))"
+             self.offeredPrice.text = "\(symbol) \(Int(offer))"
+             //SwiftSpinner.hide()
+             self.hud.dismiss()
+             }
+             }
+             
+             }else{
+             DispatchQueue.main.async {
+             self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
+             }
+             }
+             
+             }catch {
+             DispatchQueue.main.async() {
+             self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
+             }
+             
+             }
+             
+             }*/
             
         }
         task.resume()
@@ -685,7 +688,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         metaDetails["Battery Level"].float = Luminous.System.Battery.level
         metaDetails["Battery State"].string = "\(Luminous.System.Battery.state)"
         metaDetails["currentCountry"].string = Luminous.System.Locale.currentCountry
-                
+        
         let customerId = UserDefaults.standard.string(forKey: "customer_id") ?? ""
         let resultCode = ""
         let imei = UserDefaults.standard.string(forKey: "imei_number") ?? ""
@@ -707,25 +710,25 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             guard let dataThis = data, error == nil else {
                 /*
-                DispatchQueue.main.async {
-                    //SwiftSpinner.hide()
-                    self.hud.dismiss()
-                    // check for fundamental networking error
-                    //self.view.makeToast("Please Check Internet conection.", duration: 2.0, position: .bottom)
-                    
-                    do{
-                        let json = try JSON(data: data ?? Data())
-                        print(" savingResult Error Response is:", json)
-                        
-                        let msg = json["msg"].string
-                        self.view.makeToast(msg, duration: 3.0, position: .bottom)
-                    }catch {
-                        DispatchQueue.main.async() {
-                            self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
-                        }
-                    }
-                    
-                }*/
+                 DispatchQueue.main.async {
+                 //SwiftSpinner.hide()
+                 self.hud.dismiss()
+                 // check for fundamental networking error
+                 //self.view.makeToast("Please Check Internet conection.", duration: 2.0, position: .bottom)
+                 
+                 do{
+                 let json = try JSON(data: data ?? Data())
+                 print(" savingResult Error Response is:", json)
+                 
+                 let msg = json["msg"].string
+                 self.view.makeToast(msg, duration: 3.0, position: .bottom)
+                 }catch {
+                 DispatchQueue.main.async() {
+                 self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
+                 }
+                 }
+                 
+                 }*/
                 
                 DispatchQueue.main.async() {
                     self.view.makeToast(error?.localizedDescription, duration: 3.0, position: .bottom)
@@ -773,55 +776,55 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             
             /* SAMEER-14/6/22
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                
-                DispatchQueue.main.async {
-                    //SwiftSpinner.hide()
-                    self.hud.dismiss()
-                }
-                
-                // check for http errors
-                
-                do{
-                    let json = try JSON(data: data ?? Data())
-                    print(" savingResult Error Response is:", json)
-                    
-                    let msg = json["msg"].string
-                    DispatchQueue.main.async() {
-                        self.view.makeToast(msg, duration: 3.0, position: .bottom)
-                    }
-                }catch {
-                    DispatchQueue.main.async() {
-                        self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
-                    }
-                }
-                
-            } else{
-                do{
-                    let json = try JSON(data: dataThis)
-                    print(" savingResult Success Response is:", json)
-                    
-                    let msg = json["msg"]
-                    self.orderId = msg["orderId"].string ?? ""
-                    self.isSynced = true
-                    
-                    DispatchQueue.main.async{
-                        self.loaderImage.isHidden = true
-                        self.uploadIdBtn.isHidden = false
-                        self.refValueLabel.isHidden = false
-                        let refno = "reference_no".localized
-                        self.refValueLabel.text = "\(refno): \(self.orderId)"
-                        
-                        DispatchQueue.main.async {
-                            self.view.makeToast("Details Synced to the server. Please contact Store Executive for further information", duration: 1.0, position: .bottom)
-                        }
-                    }
-                }catch {
-                    DispatchQueue.main.async() {
-                        self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
-                    }
-                }
-            }*/
+             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+             
+             DispatchQueue.main.async {
+             //SwiftSpinner.hide()
+             self.hud.dismiss()
+             }
+             
+             // check for http errors
+             
+             do{
+             let json = try JSON(data: data ?? Data())
+             print(" savingResult Error Response is:", json)
+             
+             let msg = json["msg"].string
+             DispatchQueue.main.async() {
+             self.view.makeToast(msg, duration: 3.0, position: .bottom)
+             }
+             }catch {
+             DispatchQueue.main.async() {
+             self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
+             }
+             }
+             
+             } else{
+             do{
+             let json = try JSON(data: dataThis)
+             print(" savingResult Success Response is:", json)
+             
+             let msg = json["msg"]
+             self.orderId = msg["orderId"].string ?? ""
+             self.isSynced = true
+             
+             DispatchQueue.main.async{
+             self.loaderImage.isHidden = true
+             self.uploadIdBtn.isHidden = false
+             self.refValueLabel.isHidden = false
+             let refno = "reference_no".localized
+             self.refValueLabel.text = "\(refno): \(self.orderId)"
+             
+             DispatchQueue.main.async {
+             self.view.makeToast("Details Synced to the server. Please contact Store Executive for further information", duration: 1.0, position: .bottom)
+             }
+             }
+             }catch {
+             DispatchQueue.main.async() {
+             self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
+             }
+             }
+             }*/
             
             
         }
@@ -833,7 +836,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             completion(data, response, error)
-            }.resume()
+        }.resume()
     }
     
     func downloadImage(url: URL) {
@@ -851,16 +854,16 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     @IBAction func copyBtnTapped(_ sender:UIButton) {
         
@@ -896,7 +899,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
         }
-                
+        
     }
     
     @IBAction func restartTestsBtnClicked(_ sender: UIButton) {
@@ -940,7 +943,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     let imageData:NSData = UIImagePNGRepresentation(result ?? newImage) as! NSData
                     
                     let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-
+                    
                     var request = URLRequest(url: URL(string: "\(AppBaseUrl)/idProof")!)
                     
                     request.httpMethod = "POST"
@@ -956,7 +959,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.hud.textLabel.text = ""
                     self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
                     self.hud.show(in: self.view)
-
+                    
                     request.httpBody = postString.data(using: .utf8)
                     let task = URLSession.shared.dataTask(with: request) { data, response, error in
                         
@@ -974,20 +977,20 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             }
                             
                             /* SAMEER-14/6/22
-                            do{
-                                let json = try JSON(data: data ?? Data())
-                                print(" idProof Error Response is:", json)
-                                
-                                let msg = json["msg"].string
-                                DispatchQueue.main.async() {
-                                    self.view.makeToast(msg, duration: 3.0, position: .bottom)
-                                }
-                            }catch {
-                                DispatchQueue.main.async() {
-                                    self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
-                                }
-                            }*/
-                          
+                             do{
+                             let json = try JSON(data: data ?? Data())
+                             print(" idProof Error Response is:", json)
+                             
+                             let msg = json["msg"].string
+                             DispatchQueue.main.async() {
+                             self.view.makeToast(msg, duration: 3.0, position: .bottom)
+                             }
+                             }catch {
+                             DispatchQueue.main.async() {
+                             self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
+                             }
+                             }*/
+                            
                             return
                         }
                         
@@ -1015,49 +1018,49 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         
                         
                         /* SAMEER-14/6/22
-                        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           //
-                            //SwiftSpinner.hide()
-                            
-                            do{
-                                let json = try JSON(data: data ?? Data())
-                                print(" idProof Error Response is:", json)
-                                
-                                let msg = json["msg"].string
-                                DispatchQueue.main.async() {
-                                    self.view.makeToast(msg, duration: 3.0, position: .bottom)
-                                }
-                            }catch {
-                                DispatchQueue.main.async() {
-                                    self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
-                                }
-                            }
-                            
-                            //DispatchQueue.main.async {
-                                //self.hud.dismiss()
-                                // check for http errors
-                            //}
-
-                        } else{
-                            DispatchQueue.main.async {
-                                //SwiftSpinner.hide()
-                                self.hud.dismiss()
-                                
-                                do {
-                                    let resp = try (JSONSerialization.jsonObject(with: dataThis, options: []) as? [String:Any] ?? [:])
-                                    print(" Form Response is:", resp)
-                                }catch let error as NSError {
-                                    print(error)
-                                    self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
-                                }
-                                
-                                self.view.makeToast("Photo Id uploaded successfully!", duration: 1.0, position: .bottom)
-                                
-                            }
-
-                        }*/
-
+                         if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           //
+                         //SwiftSpinner.hide()
+                         
+                         do{
+                         let json = try JSON(data: data ?? Data())
+                         print(" idProof Error Response is:", json)
+                         
+                         let msg = json["msg"].string
+                         DispatchQueue.main.async() {
+                         self.view.makeToast(msg, duration: 3.0, position: .bottom)
+                         }
+                         }catch {
+                         DispatchQueue.main.async() {
+                         self.view.makeToast("JSON Exception", duration: 3.0, position: .bottom)
+                         }
+                         }
+                         
+                         //DispatchQueue.main.async {
+                         //self.hud.dismiss()
+                         // check for http errors
+                         //}
+                         
+                         } else{
+                         DispatchQueue.main.async {
+                         //SwiftSpinner.hide()
+                         self.hud.dismiss()
+                         
+                         do {
+                         let resp = try (JSONSerialization.jsonObject(with: dataThis, options: []) as? [String:Any] ?? [:])
+                         print(" Form Response is:", resp)
+                         }catch let error as NSError {
+                         print(error)
+                         self.view.makeToast("JSON Exception", duration: 2.0, position: .bottom)
+                         }
+                         
+                         self.view.makeToast("Photo Id uploaded successfully!", duration: 1.0, position: .bottom)
+                         
+                         }
+                         
+                         }*/
+                        
                     }
-
+                    
                     task.resume()
                 }
                 self.present(camera, animated: true, completion: nil)
@@ -1073,17 +1076,22 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             AppQuestionIndex = -1
             AppResultString = ""
             
+            let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDel.navIntoApp()
+            
+            /*
             // Navigate to home page
             let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let centerVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
             appDel.window!.rootViewController = centerVC
             appDel.window!.makeKeyAndVisible()
-           
+            */
+            
         }
         
     }
-
+    
     func ShowRestartPopUp() {
         
         let popUpVC = self.storyboard?.instantiateViewController(withIdentifier: "GlobalSkipPopUpVC") as! GlobalSkipPopUpVC
@@ -1108,13 +1116,18 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 AppResultString = ""
                 
                 let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDel.navIntoApp()
+                
+                /*
                 let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 let centerVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                 appDel.window!.rootViewController = centerVC
                 appDel.window!.makeKeyAndVisible()
-                
-            default:
+                */
                                 
+            default:
+                
                 break
             }
         }
@@ -1148,16 +1161,16 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //return cell
         
         /*
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
-        let lblTitle : UILabel = cell.viewWithTag(10) as! UILabel
-        let lblSubTitle : UILabel = cell.viewWithTag(20) as! UILabel
-        
-        let str = self.myArray[indexPath.row]
-        let arrStr = str.components(separatedBy: ":")
-        
-        lblTitle.text = arrStr[0]
-        lblSubTitle.text = arrStr[1]
-        */
+         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
+         let lblTitle : UILabel = cell.viewWithTag(10) as! UILabel
+         let lblSubTitle : UILabel = cell.viewWithTag(20) as! UILabel
+         
+         let str = self.myArray[indexPath.row]
+         let arrStr = str.components(separatedBy: ":")
+         
+         lblTitle.text = arrStr[0]
+         lblSubTitle.text = arrStr[1]
+         */
         
         
         let QuestAnsrTblCell = tableView.dequeueReusableCell(withIdentifier: "QuestAnsrTblCell", for: indexPath) as! QuestAnsrTblCell
@@ -1184,7 +1197,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func removeDuplicate(list: [[String:Any]]) -> [[String:Any]] {
         var alreadyKnowKeys: [String] = []
         var newArray: [[String:Any]] = []
-
+        
         list.forEach { (item) in
             if let key = item.keys.first {
                 if !alreadyKnowKeys.contains(key) {
@@ -1192,14 +1205,14 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     alreadyKnowKeys.append(key)
                 }
             }
-
+            
         }
-
+        
         return newArray
     }
     
     func createPhysicalDataTableUsingFinalArray() {
-                        
+        
         print("self.arrQuestionAnswerFinalData is : ", self.arrQuestionAnswerFinalData)
         
         for dict in self.arrQuestionAnswerFinalData {
@@ -1213,11 +1226,9 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         
-        
         let arrRemoveDuplicate = self.removeDuplicate(list: self.arrFinalData)
         self.arrFinalData = []
         self.arrFinalData = arrRemoveDuplicate
-        
         
         
         self.myTableView.dataSource = self
@@ -1235,27 +1246,27 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var appCodestring = ""
         
         /*
-        if (!UserDefaults.standard.bool(forKey: "deadPixel") && apps[1] != "SBRK01"){
-            apps[1] = "SPTS03"
-        }
-        
-        if (!UserDefaults.standard.bool(forKey: "screen") && apps[1] != "SBRK01"){
-            apps[1] = "SBRK01"
-        }
-        
-        appCodestr = "\(apps[0]);\(apps[1])"
-        */
+         if (!UserDefaults.standard.bool(forKey: "deadPixel") && apps[1] != "SBRK01"){
+         apps[1] = "SPTS03"
+         }
+         
+         if (!UserDefaults.standard.bool(forKey: "screen") && apps[1] != "SBRK01"){
+         apps[1] = "SBRK01"
+         }
+         
+         appCodestr = "\(apps[0]);\(apps[1])"
+         */
         
         
         /*
-        if (!UserDefaults.standard.bool(forKey: "deadPixel") && apps[1] != "SBRK01"){
-            appCodestring = "\(appCodestring);SPTS03"
-        }
-        
-        if (!UserDefaults.standard.bool(forKey: "screen") && apps[1] != "SBRK01"){
-            appCodestring = "\(appCodestring);SBRK01"
-        }
-        */
+         if (!UserDefaults.standard.bool(forKey: "deadPixel") && apps[1] != "SBRK01"){
+         appCodestring = "\(appCodestring);SPTS03"
+         }
+         
+         if (!UserDefaults.standard.bool(forKey: "screen") && apps[1] != "SBRK01"){
+         appCodestring = "\(appCodestring);SBRK01"
+         }
+         */
         
         if (!UserDefaults.standard.bool(forKey: "screen")) {
             appCodestring = "\(appCodestring);SBRK01"
@@ -1279,14 +1290,14 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         /* MARK: Ajay told to Remove both test on 27/3/23
-        if (!UserDefaults.standard.bool(forKey: "earphone")){
-            appCodestring = "\(appCodestring);CISS11"
-        }
-        
-        if (!UserDefaults.standard.bool(forKey: "charger")){
-            appCodestring = "\(appCodestring);CISS05"
-        }
-        */
+         if (!UserDefaults.standard.bool(forKey: "earphone")){
+         appCodestring = "\(appCodestring);CISS11"
+         }
+         
+         if (!UserDefaults.standard.bool(forKey: "charger")){
+         appCodestring = "\(appCodestring);CISS05"
+         }
+         */
         
         if (!UserDefaults.standard.bool(forKey: "camera")){
             appCodestring = "\(appCodestring);CISS01"
@@ -1321,15 +1332,15 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         /*
-        print(apps[0])
-        for item in apps {
-            print(item)
-            if item != apps[0] && item != apps[1] {
-                appCodestr = "\(appCodestr);\(item)"
-            }
-            print(appCodestr)
-        }
-        */
+         print(apps[0])
+         for item in apps {
+         print(item)
+         if item != apps[0] && item != apps[1] {
+         appCodestr = "\(appCodestr);\(item)"
+         }
+         print(appCodestr)
+         }
+         */
         
         //let  = appCodestr.remove(at: appCodestr.startIndex)
         let testStr = appCodestring.dropFirst()
@@ -1371,8 +1382,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
         }
-        
-        
+                
         var arrSplitString = self.appCodeStr.split(separator: ";")
         //print("arrSplitString", arrSplitString)
         
@@ -1381,8 +1391,6 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.appCodeStr = arrSplitString.joined(separator: ";")
         //print("arrSplitString after imploide", self.appCodeStr)
-    
-        
         //print("Final self.appCodeStr for server :",self.appCodeStr)
         
     }
@@ -1401,7 +1409,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func createTableUsingMyArray() {
-                
+        
         let appCodeS = UserDefaults.standard.string(forKey: "appCodes") ?? ""
         
         var functional = "Functional Issue: "
@@ -1439,7 +1447,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //MARK: 2nd
         //let db = "device_body".localized
         let db = "Device Body"
-    
+        
         var b = UserDefaults.standard.string(forKey: "back") ?? ""
         print("devie body: \(b)")
         
@@ -1463,7 +1471,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //b = "Dented".localized
             b = "Dented"
         }
-                
+        
         let body = "\(db) : \(b)"
         
         
@@ -1491,29 +1499,29 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         /*
-        if (!UserDefaults.standard.bool(forKey: "connection")){
-            //functional = "Wifi_info".localized
+         if (!UserDefaults.standard.bool(forKey: "connection")){
+         //functional = "Wifi_info".localized
          
-            functional = "WIFI: Defective"
-            myarray.append(functional)
-        }
-        */
- 
+         functional = "WIFI: Defective"
+         myarray.append(functional)
+         }
+         */
+        
         /* MARK: Ajay told to Remove both test on 27/3/23
-        if (!UserDefaults.standard.bool(forKey: "earphone")){
-            //functional = "earphone_info".localized
-            
-            functional = "Earphone Jack : Defective"
-            myarray.append(functional)
-        }
-
-        if (!UserDefaults.standard.bool(forKey: "charger")){
-            //functional = "charger_info".localized
-            
-            functional = "Device Charger : Defective"
-            myarray.append(functional)
-        }
-        */
+         if (!UserDefaults.standard.bool(forKey: "earphone")){
+         //functional = "earphone_info".localized
+         
+         functional = "Earphone Jack : Defective"
+         myarray.append(functional)
+         }
+         
+         if (!UserDefaults.standard.bool(forKey: "charger")){
+         //functional = "charger_info".localized
+         
+         functional = "Device Charger : Defective"
+         myarray.append(functional)
+         }
+         */
         
         if (!UserDefaults.standard.bool(forKey: "camera")){
             //functional = "camera_info".localized
@@ -1579,17 +1587,16 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         /*
-        if(!UserDefaults.standard.bool(forKey: "NFC")) {
-            //functional = "nfc_info".localized
+         if(!UserDefaults.standard.bool(forKey: "NFC")) {
+         //functional = "nfc_info".localized
          
          functional = "nfc_info".localized
-            myarray.append(functional)
-        }
-        */
+         myarray.append(functional)
+         }
+         */
         
         self.myArray = myarray
         print("self.myArray is : ", self.myArray)
-        
         
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
@@ -1597,7 +1604,6 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.myTableView.reloadData()
         
     }
-    
     
 }
 

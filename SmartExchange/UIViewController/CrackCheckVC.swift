@@ -26,6 +26,7 @@ class CrackCheckVC: UIViewController {
     
     var strAppCodeInQrStatus = ""
     var arrAppCodeInQrStatus = [String]()
+    var arrAppQuesAns = [[String:Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -352,6 +353,10 @@ class CrackCheckVC: UIViewController {
                     
                     arrAppQuestAnswr = [[String:Any]]()
                     
+                    var selectedDict = ["" : ""]
+                    //self.arrAppCodeInQrStatus.append("SPTS01")
+                    //self.arrAppCodeInQrStatus.append("CPBP01")
+                    
                     for enableQuestion in AppHardwareQuestionsData?.msg?.questions ?? [] {
                         if enableQuestion.isInput == "1" {
                             
@@ -361,11 +366,21 @@ class CrackCheckVC: UIViewController {
                                     print("appCD.appCode in specificationValue" , appCD.appCode ?? "")
                                  
                                     if self.arrAppCodeInQrStatus.contains(appCD.appCode ?? "") {
+                                        
+                                        //MARK: Need to append this Question-answer
+                                        selectedDict = [:]
+                                        selectedDict = [(enableQuestion.specificationName ?? "") : (appCD.value ?? "")]
+                                        //arrAppQuestAnswr?.append(selectedDict)
+                                        //hardwareQuestionsCount += 1
+                                        
+                                        self.arrAppQuesAns.append(selectedDict)
+                                        
                                         break
                                     }
                                     else {
                                         
                                         if enableQuestion.isInput == "1" {
+                                            
                                             arrAppHardwareQuestions?.append(enableQuestion)
                                             hardwareQuestionsCount += 1
                                             
@@ -383,11 +398,21 @@ class CrackCheckVC: UIViewController {
                                     print("appCD.appCode in conditionValue" , appCD.appCode ?? "")
                                     
                                     if self.arrAppCodeInQrStatus.contains(appCD.appCode ?? "") {
+                                        
+                                        //MARK: Need to append this Question-answer
+                                        selectedDict = [:]
+                                        selectedDict = [(enableQuestion.conditionSubHead ?? "") : (appCD.value ?? "")]
+                                        //arrAppQuestAnswr?.append(selectedDict)
+                                        //hardwareQuestionsCount += 1
+                                        
+                                        self.arrAppQuesAns.append(selectedDict)
+                                        
                                         break
                                     }
                                     else {
                                         
                                         if enableQuestion.isInput == "1" {
+                                            
                                             arrAppHardwareQuestions?.append(enableQuestion)
                                             hardwareQuestionsCount += 1
                                             
@@ -462,8 +487,15 @@ class CrackCheckVC: UIViewController {
                     vc.questionAppCodeStr = AppResultString
                     vc.questionAppCodeStr = self.strAppCodeInQrStatus
                     
-                    vc.arrQuestionAnswerData = arrAppQuestAnswr ?? []
-                    print("arrAppQuestAnswr data is:",(arrAppQuestAnswr?.count ?? 0), arrAppQuestAnswr ?? [])
+                    for quesAns in arrAppQuestAnswr ?? [] {
+                        self.arrAppQuesAns.append(quesAns)
+                    }
+                    
+                    //print("self.arrAppQuesAns data is:",(self.arrAppQuesAns.count), self.arrAppQuesAns)
+                    
+                    //vc.arrQuestionAnswerData = arrAppQuestAnswr ?? []
+                    vc.arrQuestionAnswerData = self.arrAppQuesAns
+                    //print("arrAppQuestAnswr data is:",(arrAppQuestAnswr?.count ?? 0), arrAppQuestAnswr ?? [])
                     
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)

@@ -14,7 +14,9 @@ import JGProgressHUD
 
 class ModelCompleteDiagnosticFlow: NSObject {
     var priority = 0
-    var strTestType = ""
+    var strTestName = ""
+    var strTestIconName = ""
+    var bgColor = UIColor()
     var strSucess = ""
 }
 
@@ -98,65 +100,65 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if (!UserDefaults.standard.bool(forKey: "deadPixel")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 1
-            model.strTestType = "Dead Pixels"
+            model.strTestName = "Dead Pixels"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Dead Pixels"
+            model.strTestName = "Dead Pixels"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "screen")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 1
-            model.strTestType = "Screen"
+            model.strTestName = "Screen"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Screen"
+            model.strTestName = "Screen"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "rotation")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 2
-            model.strTestType = "Rotation"
+            model.strTestName = "Rotation"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Rotation"
+            model.strTestName = "Rotation"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "proximity")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 3
-            model.strTestType = "Proximity"
+            model.strTestName = "Proximity"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Proximity"
+            model.strTestName = "Proximity"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "volume")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 4
-            model.strTestType = "Hardware Buttons"
+            model.strTestName = "Hardware Buttons"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Hardware Buttons"
+            model.strTestName = "Hardware Buttons"
             arrFunctionalTest.append(model)
         }
         
@@ -164,26 +166,26 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(!UserDefaults.standard.bool(forKey: "earphone")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 5
-            model.strTestType = "Earphone"
+            model.strTestName = "Earphone"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Earphone"
+            model.strTestName = "Earphone"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "charger")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 6
-            model.strTestType = "Charger"
+            model.strTestName = "Charger"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Charger"
+            model.strTestName = "Charger"
             arrFunctionalTest.append(model)
         }
         */
@@ -191,13 +193,13 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(!UserDefaults.standard.bool(forKey: "camera")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 7
-            model.strTestType = "Camera"
+            model.strTestName = "Camera"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Camera"
+            model.strTestName = "Camera"
             arrFunctionalTest.append(model)
         }
         
@@ -222,8 +224,8 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 //if self.resultJSON["Fingerprint Scanner"].int != -2 {
                     let model = ModelCompleteDiagnosticFlow()
                     model.priority = 8
-                    //model.strTestType = "Fingerprint Scanner"
-                    model.strTestType = biometricTest
+                    //model.strTestName = "Fingerprint Scanner"
+                    model.strTestName = biometricTest
                     arrFailedAndSkipedTest.append(model)
                 //}
             //}
@@ -231,8 +233,8 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            //model.strTestType = "Fingerprint Scanner"
-            model.strTestType = biometricTest
+            //model.strTestName = "Fingerprint Scanner"
+            model.strTestName = biometricTest
             arrFunctionalTest.append(model)
         }
         */
@@ -249,15 +251,15 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             if(!UserDefaults.standard.bool(forKey: "fingerprint")) {
                 let model = ModelCompleteDiagnosticFlow()
                 model.priority = 8
-                //model.strTestType = "Fingerprint Scanner"
-                model.strTestType = biometricTest
+                //model.strTestName = "Fingerprint Scanner"
+                model.strTestName = biometricTest
                 arrFailedAndSkipedTest.append(model)
             }
             else{
                 let model = ModelCompleteDiagnosticFlow()
                 model.priority = 0
-                //model.strTestType = "Fingerprint Scanner"
-                model.strTestType = biometricTest
+                //model.strTestName = "Fingerprint Scanner"
+                model.strTestName = biometricTest
                 arrFunctionalTest.append(model)
             }
             
@@ -268,7 +270,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             biometricTest = "Biometric Authentication"
             
             let model = ModelCompleteDiagnosticFlow()
-            model.strTestType = biometricTest
+            model.strTestName = biometricTest
             self.arrFailedAndSkipedTest.append(model)
         }
         
@@ -276,92 +278,92 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(!UserDefaults.standard.bool(forKey: "WIFI")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 9
-            model.strTestType = "WIFI"
+            model.strTestName = "WIFI"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "WIFI"
+            model.strTestName = "WIFI"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "GPS")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 10
-            model.strTestType = "GPS"
+            model.strTestName = "GPS"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "GPS"
+            model.strTestName = "GPS"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "Bluetooth")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 11
-            model.strTestType = "Bluetooth"
+            model.strTestName = "Bluetooth"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Bluetooth"
+            model.strTestName = "Bluetooth"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "GSM")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 12
-            model.strTestType = "GSM"
+            model.strTestName = "GSM"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "GSM"
+            model.strTestName = "GSM"
             arrFunctionalTest.append(model)
         }
                     
         if(!UserDefaults.standard.bool(forKey: "mic")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 15
-            model.strTestType = "Microphone"
+            model.strTestName = "Microphone"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Microphone"
+            model.strTestName = "Microphone"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "Speakers")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 16
-            model.strTestType = "Speaker"
+            model.strTestName = "Speaker"
             
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Speaker"
+            model.strTestName = "Speaker"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "Vibrator")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 17
-            model.strTestType = "Vibrator"
+            model.strTestName = "Vibrator"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Vibrator"
+            model.strTestName = "Vibrator"
             arrFunctionalTest.append(model)
             
             self.resultJSON["Vibrator"].int = 1
@@ -371,13 +373,13 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(!UserDefaults.standard.bool(forKey: "Torch")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 18
-            model.strTestType = "Torch"
+            model.strTestName = "Torch"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Torch"
+            model.strTestName = "Torch"
             arrFunctionalTest.append(model)
         }
         */
@@ -386,13 +388,13 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(!UserDefaults.standard.bool(forKey: "Autofocus")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 19
-            model.strTestType = "Autofocus"
+            model.strTestName = "Autofocus"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Autofocus"
+            model.strTestName = "Autofocus"
             arrFunctionalTest.append(model)
         }
         */
@@ -400,39 +402,39 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(!UserDefaults.standard.bool(forKey: "GSM")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 20
-            model.strTestType = "SMS Verification"
+            model.strTestName = "SMS Verification"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "SMS Verification"
+            model.strTestName = "SMS Verification"
             arrFunctionalTest.append(model)
         }
         
         if(!UserDefaults.standard.bool(forKey: "Storage")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 21
-            model.strTestType = "Storage"
+            model.strTestName = "Storage"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Storage"
+            model.strTestName = "Storage"
             arrFunctionalTest.append(model)
         }
         
         if (!UserDefaults.standard.bool(forKey: "Battery")) {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 21
-            model.strTestType = "Battery"
+            model.strTestName = "Battery"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Battery"
+            model.strTestName = "Battery"
             arrFunctionalTest.append(model)
         }
         
@@ -548,7 +550,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                     let cellfailed = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
                     cellfailed.imgReTry.image = UIImage(named: "unverified")
-                    cellfailed.lblName.text = self.getLocalizatioStringValue(key: self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType)
+                    cellfailed.lblName.text = self.getLocalizatioStringValue(key: self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName)
                     cellfailed.imgReTry.isHidden = true
                     cellfailed.lblReTry.isHidden = false
                     cellfailed.lblReTry.text = self.getLocalizatioStringValue(key: "ReTry")
@@ -586,7 +588,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                     let cellFunction = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
                     cellFunction.imgReTry.image = UIImage(named: "rightGreen")
-                    cellFunction.lblName.text = self.getLocalizatioStringValue(key: self.arrFunctionalTest[indexPath.row - 1].strTestType)
+                    cellFunction.lblName.text = self.getLocalizatioStringValue(key: self.arrFunctionalTest[indexPath.row - 1].strTestName)
                     cellFunction.imgReTry.isHidden = false
                     cellFunction.lblReTry.isHidden = true
                     
@@ -625,7 +627,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 let cellFunction = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
                 cellFunction.imgReTry.image = UIImage(named: "rightGreen")
-                cellFunction.lblName.text = self.getLocalizatioStringValue(key: self.arrFunctionalTest[indexPath.row - 1].strTestType)
+                cellFunction.lblName.text = self.getLocalizatioStringValue(key: self.arrFunctionalTest[indexPath.row - 1].strTestName)
                 cellFunction.imgReTry.isHidden = false
                 cellFunction.lblReTry.isHidden = true
                 
@@ -665,7 +667,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                 }else {
                     
-                    if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Dead Pixels" {
+                    if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Dead Pixels" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeadPixelVC") as! DeadPixelVC
                         vc.isComingFromTestResult = true
@@ -678,7 +680,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                                            
-                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Screen" {
+                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Screen" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScreenViewController") as! ScreenViewController
                         vc.isComingFromTestResult = true
@@ -692,7 +694,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Rotation" {
+                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Rotation" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AutoRotationVC") as! AutoRotationVC
                         vc.isComingFromTestResult = true
@@ -706,7 +708,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Proximity" {
+                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Proximity" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProximityVC") as! ProximityVC
                         vc.isComingFromTestResult = true
@@ -720,7 +722,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Hardware Buttons" {
+                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Hardware Buttons" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "VolumeRockerVC") as! VolumeRockerVC
                         vc.isComingFromTestResult = true
@@ -735,7 +737,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                     }
                     /* MARK: Ajay told to Remove both test on 27/3/23
-                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Earphone" {
+                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Earphone" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EarphoneJackVC") as! EarphoneJackVC
                         vc.isComingFromTestResult = true
@@ -750,7 +752,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                     }
                     */
-                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Charger" {
+                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Charger" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeviceChargerVC") as! DeviceChargerVC
                         vc.isComingFromTestResult = true
@@ -764,7 +766,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Camera" {
+                    else if  self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Camera" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
                         vc.isComingFromTestResult = true
@@ -778,7 +780,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Fingerprint Scanner" || self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Face-Id Scanner" || self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Biometric Authentication" {
+                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Fingerprint Scanner" || self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Face-Id Scanner" || self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Biometric Authentication" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "FingerprintViewController") as! FingerprintViewController
                         vc.isComingFromTestResult = true
@@ -792,7 +794,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Bluetooth" || arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "GPS" ||  arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "GSM" || arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "SMS Verification" || arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "NFC" || arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Battery" || arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Storage" {
+                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Bluetooth" || arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "GPS" ||  arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "GSM" || arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "SMS Verification" || arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "NFC" || arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Battery" || arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Storage" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "InternalTestsVC") as! InternalTestsVC
                         vc.isComingFromTestResult = true
@@ -806,7 +808,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "WIFI" {
+                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "WIFI" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "WiFiTestVC") as! WiFiTestVC
                         vc.isComingFromTestResult = true
@@ -820,7 +822,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.present(vc, animated: true, completion: nil)
                         
                     }
-                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Microphone" {
+                    else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Microphone" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "MicrophoneVC") as! MicrophoneVC
                         vc.isComingFromTestResult = true
@@ -833,7 +835,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                         
-                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Speaker" {
+                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Speaker" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SpeakerVC") as! SpeakerVC
                         vc.isComingFromTestResult = true
@@ -846,7 +848,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                         
-                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Vibrator" {
+                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Vibrator" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "VibratorVC") as! VibratorVC
                         vc.isComingFromTestResult = true
@@ -859,7 +861,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                         
-                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Torch" {
+                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Torch" {
                         
                         //let vc  = TorchVC()
                         //vc.isComingFromTestResult = true
@@ -867,7 +869,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         //vc.modalPresentationStyle = .fullScreen
                         //self.present(vc, animated: true, completion: nil)
                         
-                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestType == "Autofocus" {
+                    }else if self.arrFailedAndSkipedTest[indexPath.row - 1].strTestName == "Autofocus" {
                         
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
                         vc.isComingFromTestResult = true

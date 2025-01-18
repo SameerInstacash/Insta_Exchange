@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="testTableCollectionVWCell" id="gTV-IL-0wX" customClass="testTableCollectionVWCell" customModule="SellNCash" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51c-mz-QLK">
+                        <rect key="frame" x="20" y="20" width="50" height="50"/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.98823529409999999" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="pED-Od-RyB"/>
+                            <constraint firstAttribute="height" constant="50" id="sjB-au-tnX"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi_icon" translatesAutoresizingMaskIntoConstraints="NO" id="vVr-KB-SAf">
+                        <rect key="frame" x="35" y="35" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="KQj-jk-oZv"/>
+                            <constraint firstAttribute="width" constant="20" id="NkK-LH-DsT"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GSM" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1T-3g-e5v">
+                        <rect key="frame" x="90.000000000000014" y="35.333333333333336" width="244.33333333333337" height="19.666666666666664"/>
+                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                        <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Retry" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iww-o6-vQa">
+                        <rect key="frame" x="349.33333333333331" y="35.333333333333336" width="35.666666666666686" height="19.666666666666664"/>
+                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                        <color key="textColor" systemColor="systemRedColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="51c-mz-QLK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="5Z8-LB-okv"/>
+                <constraint firstItem="Iww-o6-vQa" firstAttribute="leading" secondItem="I1T-3g-e5v" secondAttribute="trailing" constant="15" id="8tb-Dd-4XK"/>
+                <constraint firstItem="vVr-KB-SAf" firstAttribute="centerY" secondItem="51c-mz-QLK" secondAttribute="centerY" id="Anj-bx-cXd"/>
+                <constraint firstItem="vVr-KB-SAf" firstAttribute="centerX" secondItem="51c-mz-QLK" secondAttribute="centerX" id="Bka-d9-vrx"/>
+                <constraint firstItem="51c-mz-QLK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="GXc-2f-jJQ"/>
+                <constraint firstItem="I1T-3g-e5v" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="RyB-Pq-OV5"/>
+                <constraint firstItem="51c-mz-QLK" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Tsl-qs-JWO"/>
+                <constraint firstAttribute="bottom" secondItem="51c-mz-QLK" secondAttribute="bottom" constant="20" id="cr8-r2-1dr"/>
+                <constraint firstItem="Iww-o6-vQa" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ssG-cB-Y37"/>
+                <constraint firstItem="I1T-3g-e5v" firstAttribute="leading" secondItem="51c-mz-QLK" secondAttribute="trailing" constant="20" id="u2j-QC-x7Z"/>
+                <constraint firstAttribute="trailing" secondItem="Iww-o6-vQa" secondAttribute="trailing" constant="15" id="xoH-Qg-gG5"/>
+            </constraints>
+            <size key="customSize" width="400" height="73"/>
+            <connections>
+                <outlet property="lblRetry" destination="Iww-o6-vQa" id="QPQ-5d-Zcu"/>
+                <outlet property="lblTestName" destination="I1T-3g-e5v" id="v3N-7b-7Lf"/>
+                <outlet property="testImgBaseVW" destination="51c-mz-QLK" id="Lbv-f4-rqu"/>
+                <outlet property="testImgVW" destination="vVr-KB-SAf" id="xR3-WL-twG"/>
+            </connections>
+            <point key="canvasLocation" x="381.67938931297709" y="6.3380281690140849"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="wifi_icon" width="209" height="209"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

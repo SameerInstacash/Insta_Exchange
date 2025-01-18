@@ -58,4 +58,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func navIntoApp() {
+        
+        // Create the root view controller
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let rootViewController = mainStoryBoard.instantiateViewController(withIdentifier: "LaunchScreenVC") as! LaunchScreenVC
+        
+        // Embed it in a UINavigationController
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        
+        // Set up the window
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        self.window = window
+        
+    }
+    
 }

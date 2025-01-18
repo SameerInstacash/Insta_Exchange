@@ -15,29 +15,36 @@ class LaunchScreenVC: UIViewController {
         
         self.navigateIntoApp()
         
-        /*
-        #if DEBUG
+         /*
+         #if DEBUG
+         
+         DispatchQueue.main.async {
+         
+         let vc = self.storyboard?.instantiateViewController(withIdentifier: "BuildPopUpVC") as! BuildPopUpVC
+         vc.modalPresentationStyle = .overCurrentContext
+         vc.modalTransitionStyle = .crossDissolve
+         
+         vc.setBaseUrl = {
+         self.navigateIntoApp()
+         }
+         
+         self.present(vc, animated: true, completion: nil)
+         
+         }
+         
+         #else
+         
+         self.navigateIntoApp()
+         
+         #endif
+         */
         
-            DispatchQueue.main.async {
-            
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "BuildPopUpVC") as! BuildPopUpVC
-                vc.modalPresentationStyle = .overCurrentContext
-                vc.modalTransitionStyle = .crossDissolve
-            
-                vc.setBaseUrl = {
-                    self.navigateIntoApp()
-                }
-            
-                self.present(vc, animated: true, completion: nil)
-            
-            }
-        
-        #else
-        
-            self.navigateIntoApp()
-        
-        #endif
-        */
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+     
+        //self.navigateIntoApp()
         
     }
     
@@ -52,20 +59,21 @@ class LaunchScreenVC: UIViewController {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                 vc.IMEINumber = imei
                 
-                //let vc = self.storyboard?.instantiateViewController(withIdentifier: "InstructionVC") as! InstructionVC
+                //let vc = self.storyboard?.instantiateViewController(withIdentifier: "SummaryVC") as! SummaryVC
+                
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }else{
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiVC") as! ImeiVC
+                vc.isComeFrom = ""
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }
-                        
+            
         }
         
     }
-    
     
     // MARK: - Navigation
     
@@ -74,6 +82,5 @@ class LaunchScreenVC: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    
     
 }

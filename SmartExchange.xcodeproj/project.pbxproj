@@ -40,6 +40,8 @@
 		59418634282E277900DB2723 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5941862B282E277900DB2723 /* Poppins-SemiBold.ttf */; };
 		59418639282E2A5600DB2723 /* GlobalUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59418638282E2A5600DB2723 /* GlobalUtility.swift */; };
 		59420D29262EBFA30048B712 /* WiFiTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59420D28262EBFA30048B712 /* WiFiTestVC.swift */; };
+		594C20C72D367D5D006A16AD /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C20C62D367D5D006A16AD /* SummaryVC.swift */; };
+		594C20F22D37983B006A16AD /* internal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 594C20F12D37983B006A16AD /* internal.gif */; };
 		5966EF42261480DB00E91F21 /* TestResultTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EF3E261480D300E91F21 /* TestResultTitleCell.swift */; };
 		5966EF43261480DC00E91F21 /* TestResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5966EF3F261480D600E91F21 /* TestResultCell.xib */; };
 		5966EF44261480DC00E91F21 /* TestResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EF40261480D900E91F21 /* TestResultCell.swift */; };
@@ -61,7 +63,7 @@
 		5966EF632614812C00E91F21 /* five.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5966EF582614812C00E91F21 /* five.wav */; };
 		5977A0662D2D336E00038902 /* final_touch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5977A05A2D2D336E00038902 /* final_touch.gif */; };
 		5977A0672D2D336E00038902 /* earphone_jack.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5977A0592D2D336E00038902 /* earphone_jack.gif */; };
-		5977A0682D2D336E00038902 /* internal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5977A05C2D2D336E00038902 /* internal.gif */; };
+		5977A0682D2D336E00038902 /* internal-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5977A05C2D2D336E00038902 /* internal-1.gif */; };
 		5977A0692D2D336E00038902 /* rotation_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5977A0602D2D336E00038902 /* rotation_gif.gif */; };
 		5977A06A2D2D336E00038902 /* proximity.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5977A05E2D2D336E00038902 /* proximity.gif */; };
 		5977A06B2D2D336E00038902 /* wifi_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5977A0642D2D336E00038902 /* wifi_gif.gif */; };
@@ -97,6 +99,7 @@
 		59DA3432283B8ED3005AC9CA /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DA342D283B8ED3005AC9CA /* Questions.swift */; };
 		59E086D52674A709003FDA1C /* StoreUrlData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E086D32674A709003FDA1C /* StoreUrlData.swift */; };
 		59E086D62674A709003FDA1C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E086D42674A709003FDA1C /* Reachability.swift */; };
+		59F228E32D391FF100692F6C /* FindQRPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F228E22D391FF100692F6C /* FindQRPopUpVC.swift */; };
 		59F8C3C22D31676800FC263F /* PreviousQuotePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8C3C12D31676800FC263F /* PreviousQuotePopUp.swift */; };
 		59F8C3C42D31873500FC263F /* GlobalSkipPopUpVC 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8C3C32D31873400FC263F /* GlobalSkipPopUpVC 2.swift */; };
 		59FA7D2C2D33ABC700BBD83D /* PreviousSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FA7D2B2D33ABC700BBD83D /* PreviousSessionVC.swift */; };
@@ -184,6 +187,8 @@
 		5941862B282E277900DB2723 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		59418638282E2A5600DB2723 /* GlobalUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUtility.swift; sourceTree = "<group>"; };
 		59420D28262EBFA30048B712 /* WiFiTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiTestVC.swift; sourceTree = "<group>"; };
+		594C20C62D367D5D006A16AD /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
+		594C20F12D37983B006A16AD /* internal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = internal.gif; sourceTree = "<group>"; };
 		5963FDFD25F740C500EADBB1 /* Blynk Exchange.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Blynk Exchange.entitlements"; sourceTree = "<group>"; };
 		5966EF3E261480D300E91F21 /* TestResultTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestResultTitleCell.swift; sourceTree = "<group>"; };
 		5966EF3F261480D600E91F21 /* TestResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestResultCell.xib; sourceTree = "<group>"; };
@@ -210,7 +215,7 @@
 		5977A0592D2D336E00038902 /* earphone_jack.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = earphone_jack.gif; sourceTree = "<group>"; };
 		5977A05A2D2D336E00038902 /* final_touch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = final_touch.gif; sourceTree = "<group>"; };
 		5977A05B2D2D336E00038902 /* fingerprint_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fingerprint_gif.gif; sourceTree = "<group>"; };
-		5977A05C2D2D336E00038902 /* internal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = internal.gif; sourceTree = "<group>"; };
+		5977A05C2D2D336E00038902 /* internal-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "internal-1.gif"; sourceTree = "<group>"; };
 		5977A05D2D2D336E00038902 /* location_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = location_gif.gif; sourceTree = "<group>"; };
 		5977A05E2D2D336E00038902 /* proximity.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = proximity.gif; sourceTree = "<group>"; };
 		5977A05F2D2D336E00038902 /* rotation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rotation.gif; sourceTree = "<group>"; };
@@ -247,6 +252,7 @@
 		59DA342D283B8ED3005AC9CA /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		59E086D32674A709003FDA1C /* StoreUrlData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreUrlData.swift; sourceTree = "<group>"; };
 		59E086D42674A709003FDA1C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		59F228E22D391FF100692F6C /* FindQRPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindQRPopUpVC.swift; sourceTree = "<group>"; };
 		59F8C3C12D31676800FC263F /* PreviousQuotePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousQuotePopUp.swift; sourceTree = "<group>"; };
 		59F8C3C32D31873400FC263F /* GlobalSkipPopUpVC 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlobalSkipPopUpVC 2.swift"; sourceTree = "<group>"; };
 		59FA7D2B2D33ABC700BBD83D /* PreviousSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousSessionVC.swift; sourceTree = "<group>"; };
@@ -312,6 +318,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		594C20C82D368A6A006A16AD /* CollectionViewCell */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CollectionViewCell; sourceTree = "<group>"; };
 		59BBF3C42D2E8C41008C6F1E /* Inter Font */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Inter Font"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -393,12 +400,14 @@
 				59420D28262EBFA30048B712 /* WiFiTestVC.swift */,
 				C3E76E691E7D5C5900228428 /* InternalTests.swift */,
 				C393FA88207625C600D43AEB /* ResultsViewController.swift */,
+				594C20C62D367D5D006A16AD /* SummaryVC.swift */,
 				59FA7D2D2D33C48900BBD83D /* CrackCheckVC.swift */,
 				59DA3423283B78FC005AC9CA /* QuestionsVC.swift */,
 				1829BEBB2B08B1F100C2A828 /* ImageInfoPopUpVC.swift */,
 				C363AE48208F270E00D2AC54 /* PriceViewController.swift */,
 				C312E7D522EE201300B4D291 /* UserDetailsViewController.swift */,
 				59F8C3C12D31676800FC263F /* PreviousQuotePopUp.swift */,
+				59F228E22D391FF100692F6C /* FindQRPopUpVC.swift */,
 				59FA7D2B2D33ABC700BBD83D /* PreviousSessionVC.swift */,
 				59FA7D2F2D33E1F400BBD83D /* Not used VC */,
 			);
@@ -466,7 +475,8 @@
 				5977A0592D2D336E00038902 /* earphone_jack.gif */,
 				5977A05A2D2D336E00038902 /* final_touch.gif */,
 				5977A05B2D2D336E00038902 /* fingerprint_gif.gif */,
-				5977A05C2D2D336E00038902 /* internal.gif */,
+				5977A05C2D2D336E00038902 /* internal-1.gif */,
+				594C20F12D37983B006A16AD /* internal.gif */,
 				5977A05D2D2D336E00038902 /* location_gif.gif */,
 				5977A05E2D2D336E00038902 /* proximity.gif */,
 				5977A05F2D2D336E00038902 /* rotation.gif */,
@@ -597,6 +607,7 @@
 		C399481F1E54270600F01384 /* SmartExchange */ = {
 			isa = PBXGroup;
 			children = (
+				594C20C82D368A6A006A16AD /* CollectionViewCell */,
 				59BBF3C42D2E8C41008C6F1E /* Inter Font */,
 				5977A0652D2D336E00038902 /* c2b-Gif */,
 				59CF22662844847200E28F15 /* FormTableCells */,
@@ -662,6 +673,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				594C20C82D368A6A006A16AD /* CollectionViewCell */,
 				59BBF3C42D2E8C41008C6F1E /* Inter Font */,
 			);
 			name = SmartExchange;
@@ -803,7 +815,8 @@
 				5966EF602614812C00E91F21 /* six.wav in Resources */,
 				5977A0662D2D336E00038902 /* final_touch.gif in Resources */,
 				5977A0672D2D336E00038902 /* earphone_jack.gif in Resources */,
-				5977A0682D2D336E00038902 /* internal.gif in Resources */,
+				5977A0682D2D336E00038902 /* internal-1.gif in Resources */,
+				594C20F22D37983B006A16AD /* internal.gif in Resources */,
 				5977A0692D2D336E00038902 /* rotation_gif.gif in Resources */,
 				5977A06A2D2D336E00038902 /* proximity.gif in Resources */,
 				5977A06B2D2D336E00038902 /* wifi_gif.gif in Resources */,
@@ -1051,6 +1064,7 @@
 				5966EF4A2614810500E91F21 /* VibratorVC.swift in Sources */,
 				1829BEBC2B08B1F100C2A828 /* ImageInfoPopUpVC.swift in Sources */,
 				593E8A922D2C38D6008BAE7A /* ImeiVC.swift in Sources */,
+				59F228E32D391FF100692F6C /* FindQRPopUpVC.swift in Sources */,
 				59CF22642844846B00E28F15 /* MobileNumberCell.swift in Sources */,
 				C3E1C2ED1E7FA8760043DB5C /* AutoRotationVC.swift in Sources */,
 				18CC5C052B0E1D1D004471D8 /* CountryLanguages.swift in Sources */,
@@ -1060,6 +1074,7 @@
 				C31CFDED207DE80C003870BE /* ScreenViewController.swift in Sources */,
 				59DA3424283B78FC005AC9CA /* QuestionsVC.swift in Sources */,
 				C39948211E54270600F01384 /* AppDelegate.swift in Sources */,
+				594C20C72D367D5D006A16AD /* SummaryVC.swift in Sources */,
 				59E086D52674A709003FDA1C /* StoreUrlData.swift in Sources */,
 				18C9E2D129DFDF7800270508 /* BuildPopUpVC.swift in Sources */,
 				59BDBE39283F396B00A7890F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -1301,7 +1316,7 @@
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "IC Exchange";
+				INFOPLIST_KEY_CFBundleDisplayName = "Instacash Exchange";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1315,7 +1330,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.instaexchange;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.instacash.insta-exchange";
 				PRODUCT_NAME = SellNCash;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartExchange/SmartExchange-Bridging-Header.h";
@@ -1339,7 +1354,7 @@
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "IC Exchange";
+				INFOPLIST_KEY_CFBundleDisplayName = "Instacash Exchange";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1353,7 +1368,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.instaexchange;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.instacash.insta-exchange";
 				PRODUCT_NAME = SellNCash;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartExchange/SmartExchange-Bridging-Header.h";

@@ -16,14 +16,16 @@ class FingerprintViewController: UIViewController {
     
     var biometricRetryDiagnosis: ((_ testJSON: JSON) -> Void)?
     var biometricTestDiagnosis: ((_ testJSON: JSON) -> Void)?
-
+    
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblSubTitle: UILabel!
+    
     @IBOutlet weak var testProgress: UIProgressView!
     @IBOutlet weak var lblTestNum: UILabel!
-    //@IBOutlet weak var lblTitle: UILabel!
-    //@IBOutlet weak var lblTitleMessage: UILabel!
+    
     @IBOutlet weak var authenticateBtn: UIButton!
     @IBOutlet weak var skipBtn: UIButton!
-    //@IBOutlet weak var biometricImage: UIImageView!
+    @IBOutlet weak var biometricImage: UIImageView!
     
     var isComingFromTestResult = false
     
@@ -35,14 +37,19 @@ class FingerprintViewController: UIViewController {
         self.setStatusBarColor(themeColor: GlobalUtility().AppThemeColor)
         
         if BioMetricAuthenticator.canAuthenticate() {
+            
+            //self.biometricImage.image = UIImage(named: "icon_faceid_red")
+            //self.lblTitle.text = "Checking Face-ID"
+            //self.lblSubTitle.text = "First, please enable Face-ID function. Then you will place your face in front of the screen like you normally would during unlock."
+            
             if BioMetricAuthenticator.shared.faceIDAvailable() {
-                
-                //print("hello faceid available")
-                // device supports face id recognition.
-                //let yourImage: UIImage = UIImage(named: "face-id")!
-                //biometricImage.image = yourImage
+                                                                
+                self.biometricImage.image = UIImage(named: "icon_faceid_red")
+                self.lblTitle.text = "Checking Face-ID"
+                self.lblSubTitle.text = "First, please enable Face-ID function. Then you will place your face in front of the screen like you normally would during unlock."
                 
             }
+            
         }else {
             
             DispatchQueue.main.async {

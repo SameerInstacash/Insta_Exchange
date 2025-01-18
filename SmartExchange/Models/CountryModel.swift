@@ -34,7 +34,7 @@ class NPCountryModel {
     
     static func fetchCredentialsFromFireBase(isInterNet:Bool, getController:UIViewController, completion: @escaping (NPCountryModel) -> Void ) {
         
-        let ref = Database.database().reference(withPath: "ios_c2b2b")
+        let ref = Database.database().reference(withPath: "ios_base_url")
         ref.observeSingleEvent(of: .value, with: { snapshot in
             
             if !snapshot.exists() { return }
