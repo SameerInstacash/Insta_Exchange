@@ -364,9 +364,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 return
             }
-            
-            
-            //* SAMEER-14/6/22
+                                
             do {
                 let json = try JSON(data: dataThis)
                 if json["status"] == "Success" {

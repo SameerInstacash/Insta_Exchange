@@ -10,6 +10,8 @@ import UIKit
 
 class FindQRPopUpVC: UIViewController {
     
+    @IBOutlet weak var lblSubHeading: UILabel!
+    
     @IBOutlet weak var lblVisit: UILabel!
     @IBOutlet weak var lblDeviceSetting: UILabel!
     @IBOutlet weak var lblDeviceBox: UILabel!
@@ -17,12 +19,18 @@ class FindQRPopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setBoldTextInString()
+        //self.setBoldTextInString()
         
-        //setTextInString()
+        self.lblSubHeading.font = UIFont.italicSystemFont(ofSize: 18)
+                
     }
     
     func setBoldTextInString() {
+        
+        //"Visit your nearest Boost Mobile store with an active trade-in program."
+        //"Look for the Token or QR code shared in previous communications including email, WhatsApp, or other messages."
+        //"Once you have the QR code, tap Scan QR to begin your trade-in session."
+        
         
         //1
         let dialboldText = "Visit a Nearby Store"
@@ -62,18 +70,42 @@ class FindQRPopUpVC: UIViewController {
         
     }
     
-    func setTextInString() {
+    func setBoldTextInString_OLD() {
+        
+        //1
+        let dialboldText = "Visit a Nearby Store"
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+        let attributedString1 = NSMutableAttributedString(string: dialboldText, attributes: attrs)
+        let normalText = ": Go to your nearest store."
+        let normalString = NSMutableAttributedString(string: normalText)
+        attributedString1.append(normalString)
         
         if self.lblVisit != nil {
-            self.lblVisit.text = "Open the phone dialer and type *#06#."
+            self.lblVisit.attributedText = attributedString1
         }
+        
+        //2
+        let settingboldText = "Locate the QR Code"
+        let attrs2 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+        let settingattributedString2 = NSMutableAttributedString(string: settingboldText, attributes: attrs2)
+        let normalText2 = ": Look for the QR code displayed at the store counter."
+        let normalString2 = NSMutableAttributedString(string: normalText2)
+        settingattributedString2.append(normalString2)
         
         if self.lblDeviceSetting != nil {
-            self.lblDeviceSetting.text = "Take a screenshot of the IMEI displayed on the screen."
+            self.lblDeviceSetting.attributedText = settingattributedString2
         }
         
+        //3
+        let boxBoldText = "Scan the QR Code"
+        let attrsBox = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+        let boxAttributedString = NSMutableAttributedString(string: boxBoldText, attributes: attrsBox)
+        let boxNormalText = ": Tap the Scan QR button on this screen to scan the code and start the process."
+        let boxNormalString = NSMutableAttributedString(string: boxNormalText)
+        boxAttributedString.append(boxNormalString)
+        
         if self.lblDeviceBox != nil {
-            self.lblDeviceBox.text = "The app will automatically detect and read the IMEI from your latest screenshot."
+            self.lblDeviceBox.attributedText = boxAttributedString
         }
         
     }

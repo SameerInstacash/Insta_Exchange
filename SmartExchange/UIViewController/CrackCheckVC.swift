@@ -23,10 +23,13 @@ class CrackCheckVC: UIViewController {
     let hud = JGProgressHUD()
     let reachability: Reachability? = Reachability()
     var statusTimer: Timer?
+    var loaderTimer: Timer?
     
     var strAppCodeInQrStatus = ""
     var arrAppCodeInQrStatus = [String]()
     var arrAppQuesAns = [[String:Any]]()
+    
+    var strCrackCheckQR = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +63,8 @@ class CrackCheckVC: UIViewController {
         
         strCombine = baseUrl + strImeiCustID
         print("strCombine" , strCombine)
+        
+        strCrackCheckQR = strCombine
         
         self.qrImgView.image = generateQRCode(from: strCombine)
         
@@ -229,6 +234,11 @@ class CrackCheckVC: UIViewController {
                             self.loaderImgView.image = jeremyGifUp
                             self.loaderImgView.stopAnimating()
                             self.loaderImgView.startAnimating()
+                            
+                            DispatchQueue.main.async {
+                                self.loaderTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.runLoaderTimer), userInfo: nil, repeats: true)
+                            }
+                            
                         }
                         
                     }
@@ -265,16 +275,32 @@ class CrackCheckVC: UIViewController {
     }
     
     @objc func runStatusTimer() {
-        
-        print("runStatusTimer called now !")
-        
+                
         DispatchQueue.main.async() {
             self.checkCrackCheckQRStatus()
         }
         
     }
     
+    @objc func runLoaderTimer() {
+                
+        DispatchQueue.main.async() {
+            self.loaderImgView.isHidden = !self.loaderImgView.isHidden
+        }
+        
+    }
+    
     //MARK: IBAction
+    @IBAction func qrLinkCopyBtnTapped(_ sender:UIButton) {
+        
+        UIPasteboard.general.string = self.strCrackCheckQR
+        
+        DispatchQueue.main.async() {
+            self.view.makeToast(self.getLocalizatioStringValue(key: "copied"), duration: 1.0, position: .bottom)
+        }
+        
+    }
+    
     @IBAction func manualProcessBtnTapped(_ sender:UIButton) {
         
         arrAppCodeInQrStatus = []
@@ -343,6 +369,7 @@ class CrackCheckVC: UIViewController {
             do {
                 let json = try JSON(data: data)
                 if json["status"] == "Success" {
+                    
                     print("Question data is:","\(json)")
                     
                     AppHardwareQuestionsData = CosmeticQuestions.init(json: json)
@@ -484,8 +511,8 @@ class CrackCheckVC: UIViewController {
                     
                     vc.resultJOSN = self.resultJSON
                     //vc.appCodeStr = AppResultString
-                    vc.questionAppCodeStr = AppResultString
-                    vc.questionAppCodeStr = self.strAppCodeInQrStatus
+                    //vc.questionAppCodeStr = AppResultString
+                    vc.questionAppCodeStr = self.strAppCodeInQrStatus + ";" + AppResultString
                     
                     for quesAns in arrAppQuestAnswr ?? [] {
                         self.arrAppQuesAns.append(quesAns)

@@ -16,6 +16,7 @@ import Toast_Swift
 import JGProgressHUD
 import FirebaseDatabase
 import MessageUI
+import CoreTelephony
 
 class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     
@@ -583,6 +584,20 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
     }
     
+    func verifyUrl (urlString: String?) -> Bool {
+       if let urlString = urlString {
+           if let url  = URL(string: urlString) {
+               return UIApplication.shared.canOpenURL(url)
+           }
+       }
+       return false
+    }
+    
+    func getQueryStringParameter(url: String, param: String) -> String? {
+      guard let url = URLComponents(string: url) else { return nil }
+      return url.queryItems?.first(where: { $0.name == param })?.value
+    }
+    
     @IBAction func scanQRPressed(_ sender: Any) {
         
         self.hasScanned = !self.hasScanned
@@ -605,6 +620,8 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         return
                     }
                     
+                    self.hasScanned = !self.hasScanned
+                    
                     /*
                      if self.hasScanned {
                      print("self.hasScanned = !self.hasScanned", self.hasScanned)
@@ -615,24 +632,35 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                      return
                      */
                     
-                    self.hasScanned = !self.hasScanned
-                    
-                    let values = completeResult.components(separatedBy: "@@@")
-                    print(values)
-                    
-                    if values.count > 2 {
+                    if self.verifyUrl(urlString: completeResult) {
                         
-                        self.storeToken = String(values[0])
-                        self.productId = values[1]
-                        self.appCodes = values[2]
-                        
-                    }else{
-                        
-                        self.storeToken = String(values[0])
+                        let token = self.getQueryStringParameter(url: completeResult, param: "storeToken")
+                        //print("tokenvaa ...",token ?? "")
+                        self.storeToken = token ?? ""
                         self.productId = ""
                         self.appCodes = ""
+                    }
+                    else {
+                        
+                        let values = completeResult.components(separatedBy: "@@@")
+                        print(values)
+                        
+                        if values.count > 2 {
+                            
+                            self.storeToken = String(values[0])
+                            self.productId = values[1]
+                            self.appCodes = values[2]
+                            
+                        }else{
+                            
+                            self.storeToken = String(values[0])
+                            self.productId = ""
+                            self.appCodes = ""
+                            
+                        }
                         
                     }
+                
                     
                     if self.storeToken.count >= 4 {
                         print("self.storeToken", self.storeToken)
@@ -736,6 +764,26 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
         self.hud.show(in: self.view)
         
+        var typeOfDevice = ""
+        
+        if UIDevice.current.model.hasPrefix("iPad") {
+            
+            let networkInfo = CTTelephonyNetworkInfo()
+            let carrier: CTCarrier? = networkInfo.serviceSubscriberCellularProviders?.first?.value
+            let code: String? = carrier?.isoCountryCode
+            
+            if (code != nil) {
+                typeOfDevice = "gsm"
+            }
+            else {
+                typeOfDevice = "wifi"
+            }
+            
+        }else {
+            typeOfDevice = "gsm"
+        }
+        
+        
         //var request = URLRequest(url: URL(string: "\(self.endPoint)/startSession")!)
         var request = URLRequest(url: URL(string: "\(AppBaseUrl)/startSession")!)
         let preferences = UserDefaults.standard
@@ -760,12 +808,12 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
             // iPad
             //postString = "IMEINumber=\(IMEI ?? "")&device=\("iPhone XR")&memory=\(128)&userName=\(AppUserName)&apiKey=\(AppApiKey)&ram=\(2976153600)&storeToken=\(self.storeToken)"
             
-            postString = "IMEINumber=\(IMEI)&device=\(device)&memory=\(modelCapacity)&userName=\(AppUserName)&apiKey=\(AppApiKey)&ram=\(ram)&storeToken=\(self.storeToken)"
+            postString = "IMEINumber=\(IMEI)&device=\(device)&memory=\(modelCapacity)&userName=\(AppUserName)&apiKey=\(AppApiKey)&ram=\(ram)&storeToken=\(self.storeToken)&deviceType=\(typeOfDevice)"
             
         } else {
             
             // not iPad (iPhone, mac, tv, carPlay, unspecified)
-            postString = "IMEINumber=\(IMEI)&device=\(device)&memory=\(modelCapacity)&userName=\(AppUserName)&apiKey=\(AppApiKey)&ram=\(ram)&storeToken=\(self.storeToken)"
+            postString = "IMEINumber=\(IMEI)&device=\(device)&memory=\(modelCapacity)&userName=\(AppUserName)&apiKey=\(AppApiKey)&ram=\(ram)&storeToken=\(self.storeToken)&deviceType=\(typeOfDevice)"
         }
                 
         print("url is :",request,"\nParam is :", postString)
@@ -784,12 +832,11 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                 
                 return
             }
-            
-            //* SAMEER-14/6/22
+                        
             do {
                 let json = try JSON(data: data)
                 if json["status"] == "Success" {
-                    print("response json is :","\(json)")
+                    //print("response json is :","\(json)")
                     
                     let responseString = String(data: data, encoding: .utf8)
                     self.responseData = responseString!
