@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeDeviceID</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypePhotosorVideos</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypePhoneNumber</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<true/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeEmailAddress</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<true/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeName</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<true/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>nanopb</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>Nanopb is a lightweight and small-footprint implementation of Google’s Protocol Buffers (protobuf) specifically designed for embedded systems.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>leveldb</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>It provides an ordered, persistent key-value store optimized for high performance.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>SwiftyJSON</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>It is a Swift library designed to simplify working with JSON data in iOS and macOS applications.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>GoogleUtilities</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>It provides a collection of utility functions and helpers required to perform common tasks such as logging, networking, user defaults management, and app environment checks.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>GoogleDataTransport</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>It is a library used internally by Firebase and Google SDKs to manage the collection, storage, and delivery of telemetry data.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>FirebaseInstallations</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>FirebaseInstallations is a module in the Firebase SDK responsible for generating and managing unique installation identifiers for each instance of our app.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>FirebaseCrashlytics</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>FirebaseCrashlytics provides detailed crash reports with actionable insights to improve app reliability and user experience.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>FirebaseCoreInternal</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>This module includes lower-level implementation details used to manage Firebase instances, configurations, and communication between different Firebase services.</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>FirebaseCoreDiagnostics</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>It is used to ensure that your Firebase integration is properly configured and functioning as expected</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>FirebaseCore</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>For initializing Firebase in our app and managing the app’s connection to Firebase services</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>FBLPromises</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>Handle asynchronous HTTP requests in a clean and chainable manner</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>Alamofire</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>To manage user sessions</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

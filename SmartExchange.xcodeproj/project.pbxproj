@@ -40,6 +40,7 @@
 		59418634282E277900DB2723 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5941862B282E277900DB2723 /* Poppins-SemiBold.ttf */; };
 		59418639282E2A5600DB2723 /* GlobalUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59418638282E2A5600DB2723 /* GlobalUtility.swift */; };
 		59420D29262EBFA30048B712 /* WiFiTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59420D28262EBFA30048B712 /* WiFiTestVC.swift */; };
+		5945751A2D48B90C0036367C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 594575192D48B90C0036367C /* PrivacyInfo.xcprivacy */; };
 		594C20C72D367D5D006A16AD /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C20C62D367D5D006A16AD /* SummaryVC.swift */; };
 		594C20F22D37983B006A16AD /* internal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 594C20F12D37983B006A16AD /* internal.gif */; };
 		5966EF42261480DB00E91F21 /* TestResultTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EF3E261480D300E91F21 /* TestResultTitleCell.swift */; };
@@ -186,6 +187,7 @@
 		5941862B282E277900DB2723 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		59418638282E2A5600DB2723 /* GlobalUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUtility.swift; sourceTree = "<group>"; };
 		59420D28262EBFA30048B712 /* WiFiTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiTestVC.swift; sourceTree = "<group>"; };
+		594575192D48B90C0036367C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		594C20C62D367D5D006A16AD /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		594C20F12D37983B006A16AD /* internal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = internal.gif; sourceTree = "<group>"; };
 		5963FDFD25F740C500EADBB1 /* Blynk Exchange.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Blynk Exchange.entitlements"; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				C39948241E54270600F01384 /* Main.storyboard */,
 				C39948291E54270600F01384 /* LaunchScreen.storyboard */,
 				C39948271E54270600F01384 /* Assets.xcassets */,
+				594575192D48B90C0036367C /* PrivacyInfo.xcprivacy */,
 				C399482C1E54270600F01384 /* Info.plist */,
 				592F3BB52D3BB0FA0099DBA6 /* GoogleService-Info.plist */,
 				59BDBE2F283F396600A7890F /* SmartExchange-Bridging-Header.h */,
@@ -788,6 +791,7 @@
 				C399482B1E54270600F01384 /* LaunchScreen.storyboard in Resources */,
 				5966EF5C2614812C00E91F21 /* two.wav in Resources */,
 				59418630282E277900DB2723 /* Poppins-Medium.ttf in Resources */,
+				5945751A2D48B90C0036367C /* PrivacyInfo.xcprivacy in Resources */,
 				59B4365D294C762D00E4F1FB /* loader.gif in Resources */,
 				5966EF5D2614812C00E91F21 /* one.wav in Resources */,
 				5966EF43261480DC00E91F21 /* TestResultCell.xib in Resources */,
