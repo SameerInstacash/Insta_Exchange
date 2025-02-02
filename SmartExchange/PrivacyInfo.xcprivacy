@@ -4,6 +4,8 @@
 <dict>
 	<key>NSPrivacyTracking</key>
 	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
 	<key>NSPrivacyCollectedDataTypes</key>
 	<array>
 		<dict>
@@ -71,98 +73,26 @@
 	<array>
 		<dict>
 			<key>NSPrivacyAccessedAPIType</key>
-			<string>nanopb</string>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string>Nanopb is a lightweight and small-footprint implementation of Google’s Protocol Buffers (protobuf) specifically designed for embedded systems.</string>
+				<string>35F9.1</string>
 			</array>
 		</dict>
 		<dict>
 			<key>NSPrivacyAccessedAPIType</key>
-			<string>leveldb</string>
+			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string>It provides an ordered, persistent key-value store optimized for high performance.</string>
+				<string>E174.1</string>
 			</array>
 		</dict>
 		<dict>
 			<key>NSPrivacyAccessedAPIType</key>
-			<string>SwiftyJSON</string>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string>It is a Swift library designed to simplify working with JSON data in iOS and macOS applications.</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>GoogleUtilities</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>It provides a collection of utility functions and helpers required to perform common tasks such as logging, networking, user defaults management, and app environment checks.</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>GoogleDataTransport</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>It is a library used internally by Firebase and Google SDKs to manage the collection, storage, and delivery of telemetry data.</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>FirebaseInstallations</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>FirebaseInstallations is a module in the Firebase SDK responsible for generating and managing unique installation identifiers for each instance of our app.</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>FirebaseCrashlytics</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>FirebaseCrashlytics provides detailed crash reports with actionable insights to improve app reliability and user experience.</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>FirebaseCoreInternal</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>This module includes lower-level implementation details used to manage Firebase instances, configurations, and communication between different Firebase services.</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>FirebaseCoreDiagnostics</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>It is used to ensure that your Firebase integration is properly configured and functioning as expected</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>FirebaseCore</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>For initializing Firebase in our app and managing the app’s connection to Firebase services</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>FBLPromises</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>Handle asynchronous HTTP requests in a clean and chainable manner</string>
-			</array>
-		</dict>
-		<dict>
-			<key>NSPrivacyAccessedAPIType</key>
-			<string>Alamofire</string>
-			<key>NSPrivacyAccessedAPITypeReasons</key>
-			<array>
-				<string>To manage user sessions</string>
+				<string>0A2A.1</string>
 			</array>
 		</dict>
 		<dict>
