@@ -42,7 +42,7 @@
 		59420D29262EBFA30048B712 /* WiFiTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59420D28262EBFA30048B712 /* WiFiTestVC.swift */; };
 		5945751A2D48B90C0036367C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 594575192D48B90C0036367C /* PrivacyInfo.xcprivacy */; };
 		594C20C72D367D5D006A16AD /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C20C62D367D5D006A16AD /* SummaryVC.swift */; };
-		594C20F22D37983B006A16AD /* internal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 594C20F12D37983B006A16AD /* internal.gif */; };
+		594C20F22D37983B006A16AD /* internal-.gif in Resources */ = {isa = PBXBuildFile; fileRef = 594C20F12D37983B006A16AD /* internal-.gif */; };
 		5966EF42261480DB00E91F21 /* TestResultTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EF3E261480D300E91F21 /* TestResultTitleCell.swift */; };
 		5966EF43261480DC00E91F21 /* TestResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5966EF3F261480D600E91F21 /* TestResultCell.xib */; };
 		5966EF44261480DC00E91F21 /* TestResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EF40261480D900E91F21 /* TestResultCell.swift */; };
@@ -80,6 +80,8 @@
 		5977A0762D2D351700038902 /* InstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5977A0752D2D351700038902 /* InstructionVC.swift */; };
 		59986B3E295046C100910ACA /* QuestAnsrTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59986B3C295046C100910ACA /* QuestAnsrTblCell.swift */; };
 		59986B3F295046C100910ACA /* QuestAnsrTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59986B3D295046C100910ACA /* QuestAnsrTblCell.xib */; };
+		59A29E942D4DDEC8000DB017 /* ImeiFetchPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A29E932D4DDEC8000DB017 /* ImeiFetchPopUpVC.swift */; };
+		59A6C87B2D4CE18700C711FC /* internal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 59A6C87A2D4CE18700C711FC /* internal.gif */; };
 		59B4365D294C762D00E4F1FB /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 59B4365C294C762D00E4F1FB /* loader.gif */; };
 		59BDBE38283F396B00A7890F /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59BDBE32283F396800A7890F /* TPKeyboardAvoidingTableView.m */; };
 		59BDBE39283F396B00A7890F /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 59BDBE33283F396800A7890F /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
@@ -189,7 +191,7 @@
 		59420D28262EBFA30048B712 /* WiFiTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiTestVC.swift; sourceTree = "<group>"; };
 		594575192D48B90C0036367C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		594C20C62D367D5D006A16AD /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
-		594C20F12D37983B006A16AD /* internal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = internal.gif; sourceTree = "<group>"; };
+		594C20F12D37983B006A16AD /* internal-.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "internal-.gif"; sourceTree = "<group>"; };
 		5963FDFD25F740C500EADBB1 /* Blynk Exchange.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Blynk Exchange.entitlements"; sourceTree = "<group>"; };
 		5966EF3E261480D300E91F21 /* TestResultTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestResultTitleCell.swift; sourceTree = "<group>"; };
 		5966EF3F261480D600E91F21 /* TestResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestResultCell.xib; sourceTree = "<group>"; };
@@ -228,6 +230,8 @@
 		5977A0752D2D351700038902 /* InstructionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionVC.swift; sourceTree = "<group>"; };
 		59986B3C295046C100910ACA /* QuestAnsrTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestAnsrTblCell.swift; sourceTree = "<group>"; };
 		59986B3D295046C100910ACA /* QuestAnsrTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestAnsrTblCell.xib; sourceTree = "<group>"; };
+		59A29E932D4DDEC8000DB017 /* ImeiFetchPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImeiFetchPopUpVC.swift; sourceTree = "<group>"; };
+		59A6C87A2D4CE18700C711FC /* internal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = internal.gif; sourceTree = "<group>"; };
 		59B4365C294C762D00E4F1FB /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = "<group>"; };
 		59BDBE2F283F396600A7890F /* SmartExchange-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartExchange-Bridging-Header.h"; sourceTree = "<group>"; };
 		59BDBE30283F396700A7890F /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
@@ -408,6 +412,7 @@
 				C312E7D522EE201300B4D291 /* UserDetailsViewController.swift */,
 				59F8C3C12D31676800FC263F /* PreviousQuotePopUp.swift */,
 				59F228E22D391FF100692F6C /* FindQRPopUpVC.swift */,
+				59A29E932D4DDEC8000DB017 /* ImeiFetchPopUpVC.swift */,
 				59FA7D2B2D33ABC700BBD83D /* PreviousSessionVC.swift */,
 				59FA7D2F2D33E1F400BBD83D /* Not used VC */,
 			);
@@ -475,8 +480,9 @@
 				5977A0592D2D336E00038902 /* earphone_jack.gif */,
 				5977A05A2D2D336E00038902 /* final_touch.gif */,
 				5977A05B2D2D336E00038902 /* fingerprint_gif.gif */,
+				59A6C87A2D4CE18700C711FC /* internal.gif */,
 				5977A05C2D2D336E00038902 /* internal-1.gif */,
-				594C20F12D37983B006A16AD /* internal.gif */,
+				594C20F12D37983B006A16AD /* internal-.gif */,
 				5977A05D2D2D336E00038902 /* location_gif.gif */,
 				5977A05E2D2D336E00038902 /* proximity.gif */,
 				5977A05F2D2D336E00038902 /* rotation.gif */,
@@ -816,8 +822,9 @@
 				5966EF602614812C00E91F21 /* six.wav in Resources */,
 				5977A0662D2D336E00038902 /* final_touch.gif in Resources */,
 				5977A0672D2D336E00038902 /* earphone_jack.gif in Resources */,
+				59A6C87B2D4CE18700C711FC /* internal.gif in Resources */,
 				5977A0682D2D336E00038902 /* internal-1.gif in Resources */,
-				594C20F22D37983B006A16AD /* internal.gif in Resources */,
+				594C20F22D37983B006A16AD /* internal-.gif in Resources */,
 				5977A0692D2D336E00038902 /* rotation_gif.gif in Resources */,
 				5977A06A2D2D336E00038902 /* proximity.gif in Resources */,
 				5977A06B2D2D336E00038902 /* wifi_gif.gif in Resources */,
@@ -1056,6 +1063,7 @@
 				180D6D592A4ADD640027CD80 /* CameraLayerVC.swift in Sources */,
 				C3DED6BF207C83B800324995 /* Answer.swift in Sources */,
 				59DA342E283B8ED3005AC9CA /* Msg.swift in Sources */,
+				59A29E942D4DDEC8000DB017 /* ImeiFetchPopUpVC.swift in Sources */,
 				C393FA89207625C600D43AEB /* ResultsViewController.swift in Sources */,
 				C3798EDD1E7EF8B100D95BA1 /* ProximityVC.swift in Sources */,
 				183634552A8DED8300F56BB7 /* FloatingItemCell.swift in Sources */,
@@ -1311,7 +1319,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SmartExchange/Blynk Exchange.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
@@ -1328,7 +1336,7 @@
 					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.instacash.insta-exchange";
 				PRODUCT_NAME = SellNCash;
@@ -1350,7 +1358,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SmartExchange/Blynk Exchange.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = SmartExchange/Info.plist;
@@ -1366,7 +1374,7 @@
 					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.instacash.insta-exchange";
 				PRODUCT_NAME = SellNCash;

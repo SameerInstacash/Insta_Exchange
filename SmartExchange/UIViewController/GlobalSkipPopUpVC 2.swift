@@ -26,6 +26,8 @@ class GlobalSkipPopUpVC: UIViewController {
     var strBtnNoTitle = ""
     var strBtnRetryTitle = ""
     
+    var isShowFirstBtn = true
+    var isShowSecondBtn = true
     var isShowThirdBtn = false
     
     var isComeFrom = ""
@@ -40,6 +42,8 @@ class GlobalSkipPopUpVC: UIViewController {
         self.btnNo.setTitle(self.strBtnNoTitle, for: .normal)
         self.btnRetry.setTitle(self.strBtnRetryTitle, for: .normal)
 
+        self.btnYes.isHidden = !self.isShowFirstBtn
+        self.btnNo.isHidden = !self.isShowSecondBtn
         self.btnRetry.isHidden = !self.isShowThirdBtn
         
         self.btnYes.tag = 1

@@ -28,9 +28,10 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var continueBtn: UIButton!
     //@IBOutlet weak var loaderImg: UIImageView!
     @IBOutlet weak var tnc: UILabel!
-    @IBOutlet weak var checkBox: BEMCheckBox!
+    //@IBOutlet weak var checkBox: BEMCheckBox!
     
     @IBOutlet weak var gradientBGView: UIView!
+    var isCheckBoxSelect = false
     
     //var email = ""
     //var mob = ""
@@ -125,6 +126,40 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
         
     }*/
     
+    @IBAction func tncBtnClicked(_ sender: UIButton) {
+        
+        let tncendpoint = (UserDefaults.standard.string(forKey: "App_TncUrl") ?? AppBaseTnc)
+
+        
+        guard let url = URL(string: tncendpoint) else {
+            return //be safe
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    @IBAction func checkBoxBtnClicked(_ sender: UIButton) {
+        
+        if sender.isSelected {
+            sender.isSelected = !sender.isSelected
+            
+            self.isCheckBoxSelect = false
+            
+            sender.setImage(UIImage(named: "check_unselect"), for: .normal)
+        }
+        else {
+            sender.isSelected = !sender.isSelected
+            
+            self.isCheckBoxSelect = true
+            
+            sender.setImage(UIImage(named: "check_select"), for: .normal)
+        }
+        
+    }
     
     @IBAction func continueBtnClicked(_ sender: UIButton) {
         if self.validation() {
@@ -207,7 +242,8 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
         }
         */
         
-        else if !checkBox.on {
+        //else if !checkBox.on {
+        else if !isCheckBoxSelect {
             
             DispatchQueue.main.async {
                 self.view.makeToast(self.getLocalizatioStringValue(key: "Please Accept terms to continue"), duration: 2.0, position: .bottom)

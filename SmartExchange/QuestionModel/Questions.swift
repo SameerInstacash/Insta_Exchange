@@ -38,6 +38,7 @@ public class Questions: NSCoding {
   public var type: String?
   public var isInput: String?
   public var conditionName: String?
+    
     //public var appCodes: [String]?
     
 

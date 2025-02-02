@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Boost _ Mobile@1x.png",
+      "filename" : "logo-green.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Boost _ Mobile@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Boost _ Mobile@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

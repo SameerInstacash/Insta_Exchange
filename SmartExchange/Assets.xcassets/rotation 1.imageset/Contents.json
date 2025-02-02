@@ -1,11 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "device rotation.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "devicerotation.png",
+      "filename" : "device rotation@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

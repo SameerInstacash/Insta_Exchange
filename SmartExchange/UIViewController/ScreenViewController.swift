@@ -36,13 +36,16 @@ class ScreenViewController: UIViewController {
     var startTest = false
     var resultJSON = JSON()
     
+    var touchDownTimer: Timer!
+    var touchTimeCount = 0
+    
     var recordingSession: AVAudioSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setStatusBarColor(themeColor: GlobalUtility().AppThemeColor)
-                
+        
         //self.screenImageView.setImageColor(color: #colorLiteral(red: 0.9882352941, green: 0.3294117647, blue: 0, alpha: 1))
         
         //MARK: SAMEER 27/6/23
@@ -125,6 +128,8 @@ class ScreenViewController: UIViewController {
         startTest = true
         startTimer()
         
+        //MARK: Add on 1/2/25
+        startTouchTimer()
     }
     
     func checkMicrophone() {
@@ -162,7 +167,6 @@ class ScreenViewController: UIViewController {
         }
     }
     
-    
     /*
      // MARK: - Navigation
      
@@ -173,8 +177,22 @@ class ScreenViewController: UIViewController {
      }
      */
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.touchDownTimer.invalidate()
+        self.touchTimeCount = 0
+        
+        startTouchTimer()
+        
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         testTouches(touches: touches)
+        
+        
+        self.touchDownTimer.invalidate()
+        self.touchTimeCount = 0
+        
         
         //        if let layer = self.view.layer.hitTest(point!) as? CAShapeLayer { // If you hit a layer and if its a Shapelayer
         //            if CGPathContainsPoint(layer.path, nil, point, false) { // Optional, if you are inside its content path
@@ -185,6 +203,9 @@ class ScreenViewController: UIViewController {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent!) {
         testTouches(touches: touches)
+        
+        self.touchDownTimer.invalidate()
+        self.touchTimeCount = 0
     }
     
     func testTouches(touches: Set<UITouch>) {
@@ -208,11 +229,13 @@ class ScreenViewController: UIViewController {
                                                cornerRadius: 0).cgPath
                 
                 //levelLayer.fillColor = UIColor.init(hexString: "#ED1C24").cgColor
-                
                 //levelLayer.fillColor = UIColor.init(hexString: "#6A1B9A").cgColor
                 //levelLayer.fillColor = UIColor.init(hexString: "#65FF00").cgColor
+                //levelLayer.fillColor = UIColor.init(hexString: "#FC5400").cgColor
                 
-                levelLayer.fillColor = UIColor.init(hexString: "#FC5400").cgColor
+                levelLayer.fillColor = UIColor.init(hexString: "#52A68E").cgColor
+                //28B03D
+                
                 //FFC4A7
                 obstacleView.layer.addSublayer(levelLayer)
                 
@@ -222,6 +245,12 @@ class ScreenViewController: UIViewController {
         
         if finalFlag && startTest{
             endTimer(type: 1)
+        }
+    }
+    
+    func startTouchTimer() {
+        DispatchQueue.main.async {
+            self.touchDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTouchTime), userInfo: nil, repeats: true)
         }
     }
     
@@ -237,13 +266,29 @@ class ScreenViewController: UIViewController {
         }
     }
     
+    @objc func updateTouchTime() {
+        touchTimeCount += 1
+        
+        if touchTimeCount == 5 {
+            self.ShowTouchPopUp()
+        }
+        else {
+            
+        }
+        
+    }
+    
     func endTimer(type: Int) {
+        
+        self.touchDownTimer.invalidate()
+        self.touchTimeCount = 0
+        
         countdownTimer.invalidate()
         if type == 1 {
             UserDefaults.standard.set(true, forKey: "screen")
             resultJSON["Screen"].int = 1
             
-            /*
+             /*
              if self.isComingFromTestResult {
              
              let vc = self.storyboard?.instantiateViewController(withIdentifier: "ResultsViewController") as! ResultsViewController
@@ -391,6 +436,12 @@ class ScreenViewController: UIViewController {
                 self.startTest = true
                 self.startTimer()
                 
+                
+                self.touchDownTimer.invalidate()
+                self.touchTimeCount = 0
+                self.startTouchTimer()
+                
+                
                 /*
                  self.startScreenBtn.isHidden = false
                  
@@ -413,6 +464,9 @@ class ScreenViewController: UIViewController {
                 
                 UserDefaults.standard.set(false, forKey: "screen")
                 self.resultJSON["Screen"].int = 0
+                
+                self.touchDownTimer.invalidate()
+                self.touchTimeCount = 0
                 
                 if self.isComingFromTestResult {
                     
@@ -442,6 +496,10 @@ class ScreenViewController: UIViewController {
     
     @IBAction func skipbuttonPressed(_ sender: UIButton) {
         
+        self.touchDownTimer.invalidate()
+        self.touchTimeCount = 0
+        
+        
         let popUpVC = self.storyboard?.instantiateViewController(withIdentifier: "GlobalSkipPopUpVC") as! GlobalSkipPopUpVC
         
         popUpVC.strTitle = "Are you sure?"
@@ -460,6 +518,9 @@ class ScreenViewController: UIViewController {
                 self.resultJSON["Screen"].int = -1
                 UserDefaults.standard.set(false, forKey: "screen")
                 
+                self.touchDownTimer.invalidate()
+                self.touchTimeCount = 0
+                
                 if self.isComingFromTestResult {
                     
                     guard let didFinishRetryDiagnosis = self.screenRetryDiagnosis else { return }
@@ -477,12 +538,54 @@ class ScreenViewController: UIViewController {
                 
             case 2:
                 
+                self.startTouchTimer()
+                
                 break
                 
             default:
                 
                 break
                 
+            }
+        }
+        
+        popUpVC.modalPresentationStyle = .overFullScreen
+        self.present(popUpVC, animated: false) { }
+        
+    }
+    
+    func ShowTouchPopUp() {
+        
+        let popUpVC = self.storyboard?.instantiateViewController(withIdentifier: "GlobalSkipPopUpVC") as! GlobalSkipPopUpVC
+        
+        popUpVC.strTitle = "Are you there?"
+        popUpVC.strMessage = "You've been inactive for a while."
+        popUpVC.strBtnYesTitle = "Cancel"
+        popUpVC.strBtnNoTitle = "Ok"
+        popUpVC.strBtnRetryTitle = ""
+        popUpVC.isShowFirstBtn = false
+        popUpVC.isShowSecondBtn = true
+        popUpVC.isShowThirdBtn = false
+        
+        popUpVC.userConsent = { btnTag in
+            switch btnTag {
+            case 1:
+                
+                print("cancel clicked")
+                
+            case 2:
+                
+                print("ok clicked")
+                
+                DispatchQueue.main.async {
+                    self.touchDownTimer.invalidate()
+                    self.touchTimeCount = 0
+                    self.startTouchTimer()
+                }
+                
+            default:
+                
+                break
             }
         }
         

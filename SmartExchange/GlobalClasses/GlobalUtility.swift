@@ -20,7 +20,10 @@ class GlobalUtility: NSObject {
     //var AppThemeColor : UIColor = UIColor().HexToColor(hexString: "#1E8A2F", alpha: 1.0)
     
     //var AppThemeColor : UIColor = UIColor().HexToColor(hexString: "#FFC4A7", alpha: 1.0)
-    var AppThemeColor : UIColor = UIColor().HexToColor(hexString: "#FFF1EA", alpha: 1.0)
+    
+    //var AppThemeColor : UIColor = UIColor().HexToColor(hexString: "#FFF1EA", alpha: 1.0)
+    
+    var AppThemeColor : UIColor = UIColor().HexToColor(hexString: "#E6F2EE", alpha: 1.0)
     
 }
 
@@ -454,13 +457,13 @@ extension UIColor
     func gradientGreenFirstColor() -> UIColor
     {
         //return UIColor().HexToColor(hexString:"34C850")
-        return UIColor().HexToColor(hexString:"FFC4A7")
+        return UIColor().HexToColor(hexString:"52A68E")
     }
     
     func gradientGreenSecondColor() -> UIColor
     {
         //return UIColor().HexToColor(hexString:"1E8A2F")
-        return UIColor().HexToColor(hexString:"FFF1EA")
+        return UIColor().HexToColor(hexString:"E6F2EE")
     }
     
     func gradientGreenThirdColor() -> UIColor
@@ -561,15 +564,15 @@ extension UIView {
     
     //to add 4 side Shadow and Radius On desired UIView
     static func addShadowOn4side(baseView: UIView) {
-        let shadowSize : CGFloat = 3.0
+        let shadowSize : CGFloat = 2.0
         let shadowPath = UIBezierPath(rect: CGRect(x: -shadowSize / 2,y: -shadowSize / 2,width: baseView.frame.size.width + shadowSize,height: baseView.frame.size.height + shadowSize))
         baseView.layer.masksToBounds = false
         baseView.layer.shadowColor = UIColor.darkGray.cgColor
         baseView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        baseView.layer.shadowOpacity = 0.5
+        baseView.layer.shadowOpacity = 0.3
         baseView.layer.shadowPath = shadowPath.cgPath
         
-        baseView.layer.cornerRadius = 5
+        baseView.layer.cornerRadius = 10
     }
     
     //to add 4 side Shadow and Radius On Users screen's Views

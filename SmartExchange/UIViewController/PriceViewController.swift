@@ -272,7 +272,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
          
          self.tradeInOnlineMessageTxtView.attributedText = attributedString
          
-         self.tradeInOnlineMessageTxtView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.init(hexString: "#FC5400")]
+         self.tradeInOnlineMessageTxtView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.init(hexString: "#52A68E")]
          self.tradeInOnlineMessageTxtView.textColor = UIColor.init(hexString: "#101010")
          self.tradeInOnlineMessageTxtView.textAlignment = .center
          self.tradeInOnlineMessageTxtView.isEditable = false
@@ -749,7 +749,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     
                     DispatchQueue.main.async{
                         self.loaderImage.isHidden = true
-                        self.uploadIdBtn.isHidden = false
+                        //self.uploadIdBtn.isHidden = false
                         self.refValueLabel.isHidden = false
                         //let refno = self.getLocalizatioStringValue(key: "Reference No")
                         let refno = self.getLocalizatioStringValue(key: "Ref# ")

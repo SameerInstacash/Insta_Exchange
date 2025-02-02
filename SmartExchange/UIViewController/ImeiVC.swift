@@ -12,6 +12,7 @@ import JGProgressHUD
 
 var detectScreenshot : (() -> Void)?
 var currentIMEI = String()
+var fetchIMEI : (() -> Void)?
 
 class ImeiVC: UIViewController {
     
@@ -201,7 +202,7 @@ class ImeiVC: UIViewController {
         let boxBoldText = "Device Box:"
         let attrsBox = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
         let boxAttributedString = NSMutableAttributedString(string: boxBoldText, attributes: attrsBox)
-        let boxNormalText = " Device Box: Check the original packaging box of your device for the IMEl number."
+        let boxNormalText = " Check the original packaging box of your device for the IMEl number."
         let boxNormalString = NSMutableAttributedString(string: boxNormalText)
         boxAttributedString.append(boxNormalString)
         
@@ -232,7 +233,27 @@ class ImeiVC: UIViewController {
     //MARK: IBActions
     @IBAction func autoDetectBtnPressed(_ sender: UIButton) {
         
-        ShowGlobalPopUp()
+        fetchIMEI = {
+            
+            DispatchQueue.main.async {
+                
+                fetchIMEI = nil
+                
+                self.hud.textLabel.text = "fetching screenshot..."
+                self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
+                self.hud.show(in: self.view)
+                
+                self.fetchPhotos()
+            }
+            
+        }
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiFetchPopUpVC") as! ImeiFetchPopUpVC
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false)
+        
+        
+        //ShowGlobalPopUp()
         
         /*
         DispatchQueue.main.async {
@@ -243,7 +264,7 @@ class ImeiVC: UIViewController {
             self.fetchPhotos()
         }
         */
-        
+                        
     }
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
@@ -291,6 +312,7 @@ class ImeiVC: UIViewController {
     }
     
     func fetchPhotos () {
+        
         // Sort the images by descending creation date and fetch the first 3
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
@@ -388,6 +410,12 @@ class ImeiVC: UIViewController {
                     
                     if self.txtFieldIMEI != nil {
                         DispatchQueue.main.async {
+                            
+                            self.txtFieldIMEI?.layer.borderColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
+                            self.txtFieldIMEI?.layer.borderWidth = 1.0
+                            self.txtFieldIMEI?.layer.cornerRadius = 5.0
+                            self.vibrateTextFieldWhenIMEIDetect()
+                            
                             self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
                         }
                     }
@@ -399,6 +427,12 @@ class ImeiVC: UIViewController {
                         self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
                         
                         DispatchQueue.main.async {
+                            
+                            self.txtFieldIMEI?.layer.borderColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
+                            self.txtFieldIMEI?.layer.borderWidth = 1.0
+                            self.txtFieldIMEI?.layer.cornerRadius = 5.0
+                            self.vibrateTextFieldWhenIMEIDetect()
+                            
                             self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
                         }
                         
@@ -420,6 +454,12 @@ class ImeiVC: UIViewController {
                     
                     if self.txtFieldIMEI != nil {
                         DispatchQueue.main.async {
+                            
+                            self.txtFieldIMEI?.layer.borderColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
+                            self.txtFieldIMEI?.layer.borderWidth = 1.0
+                            self.txtFieldIMEI?.layer.cornerRadius = 5.0
+                            self.vibrateTextFieldWhenIMEIDetect()
+                            
                             self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
                         }
                     }
@@ -432,6 +472,12 @@ class ImeiVC: UIViewController {
                         self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
                         
                         DispatchQueue.main.async {
+                            
+                            self.txtFieldIMEI?.layer.borderColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
+                            self.txtFieldIMEI?.layer.borderWidth = 1.0
+                            self.txtFieldIMEI?.layer.cornerRadius = 5.0
+                            self.vibrateTextFieldWhenIMEIDetect()
+                            
                             self.view.makeToast(self.getLocalizatioStringValue(key: "IMEI has been fetched"), duration: 2.0, position: .bottom)
                         }
                         
@@ -467,6 +513,17 @@ class ImeiVC: UIViewController {
             
         }
         
+    }
+    
+    func vibrateTextFieldWhenIMEIDetect() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: (self.txtFieldIMEI?.center.x ?? 0) - 10, y: self.txtFieldIMEI?.center.y ?? 0))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: (self.txtFieldIMEI?.center.x ?? 0) + 10, y: self.txtFieldIMEI?.center.y ?? 0))
+
+        self.txtFieldIMEI?.layer.add(animation, forKey: "position")
     }
     
     func getNextWord(after text: String, in string: String) -> String? {

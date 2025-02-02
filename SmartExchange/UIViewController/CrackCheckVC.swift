@@ -18,6 +18,10 @@ class CrackCheckVC: UIViewController {
     @IBOutlet weak var btnManualProcess: UIButton!
     @IBOutlet weak var loaderImgView: UIImageView!
     
+    @IBOutlet weak var lblClean: UILabel!
+    @IBOutlet weak var lblRemove: UILabel!
+    @IBOutlet weak var lblDonotClose: UILabel!
+    
     var resultJSON = JSON()    
     var appCodeStr = ""
     let hud = JGProgressHUD()
@@ -33,6 +37,8 @@ class CrackCheckVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setBoldTextInString()
         
         setQrCodeWithBase64()
       
@@ -180,9 +186,9 @@ class CrackCheckVC: UIViewController {
             customerId = cId
         }
         
-        self.hud.textLabel.text = ""
-        self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
-        self.hud.show(in: self.view)
+        //self.hud.textLabel.text = ""
+        //self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
+        //self.hud.show(in: self.view)
               
         var request = URLRequest(url: URL(string: "https://exchange.getinstacash.com.my/us/api/v1/public/checkCrackQRStatus")!)
         
@@ -198,7 +204,7 @@ class CrackCheckVC: UIViewController {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
             DispatchQueue.main.async() {
-                self.hud.dismiss()
+                //self.hud.dismiss()
             }
             
             guard let data = data, error == nil else {
@@ -235,9 +241,9 @@ class CrackCheckVC: UIViewController {
                             self.loaderImgView.stopAnimating()
                             self.loaderImgView.startAnimating()
                             
-                            DispatchQueue.main.async {
-                                self.loaderTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.runLoaderTimer), userInfo: nil, repeats: true)
-                            }
+                            //DispatchQueue.main.async {
+                                //self.loaderTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.runLoaderTimer), userInfo: nil, repeats: true)
+                            //}
                             
                         }
                         
@@ -381,14 +387,18 @@ class CrackCheckVC: UIViewController {
                     arrAppQuestAnswr = [[String:Any]]()
                     
                     var selectedDict = ["" : ""]
-                    //self.arrAppCodeInQrStatus.append("SPTS01")
-                    //self.arrAppCodeInQrStatus.append("CPBP01")
+                    
+                    //self.arrAppCodeInQrStatus.append("SPTS03")
+                    //self.arrAppCodeInQrStatus.append("CPBP02")
                     
                     for enableQuestion in AppHardwareQuestionsData?.msg?.questions ?? [] {
                         if enableQuestion.isInput == "1" {
                             
-                            
+                            //MARK: 1st Condition to check for specificationValue
                             if let val = enableQuestion.specificationValue {
+                                
+                                var isSpecificationValueAppCodeFound = false
+                                
                                 for appCD in val {
                                     print("appCD.appCode in specificationValue" , appCD.appCode ?? "")
                                  
@@ -402,25 +412,39 @@ class CrackCheckVC: UIViewController {
                                         
                                         self.arrAppQuesAns.append(selectedDict)
                                         
-                                        break
+                                        isSpecificationValueAppCodeFound = true
+                                                                                
+                                        //break
                                     }
+                                    /*
                                     else {
-                                        
                                         if enableQuestion.isInput == "1" {
-                                            
                                             arrAppHardwareQuestions?.append(enableQuestion)
                                             hardwareQuestionsCount += 1
-                                            
                                             break
                                         }
-                                        
                                     }
+                                    */
                                     
                                 }
+                                
+                                if !isSpecificationValueAppCodeFound {
+                                                                        
+                                    arrAppHardwareQuestions?.append(enableQuestion)
+                                    hardwareQuestionsCount += 1
+                                    
+                                    isSpecificationValueAppCodeFound = true
+                                }
+                                
                             }
                             
                             
+                            //MARK: 2nd Condition to check for conditionValue
+                            
                             if let val = enableQuestion.conditionValue {
+                                
+                                var isConditionValueAppCodeFound = false
+                                
                                 for appCD in val {
                                     print("appCD.appCode in conditionValue" , appCD.appCode ?? "")
                                     
@@ -434,8 +458,11 @@ class CrackCheckVC: UIViewController {
                                         
                                         self.arrAppQuesAns.append(selectedDict)
                                         
-                                        break
+                                        isConditionValueAppCodeFound = true
+                                                                                
+                                        //break
                                     }
+                                    /*
                                     else {
                                         
                                         if enableQuestion.isInput == "1" {
@@ -447,9 +474,20 @@ class CrackCheckVC: UIViewController {
                                         }
                                         
                                     }
-                                    
+                                    */
+                                                                        
                                 }
+                                
+                                if !isConditionValueAppCodeFound {
+                                                                        
+                                    arrAppHardwareQuestions?.append(enableQuestion)
+                                    hardwareQuestionsCount += 1
+                                    
+                                    isConditionValueAppCodeFound = true
+                                }
+                                
                             }
+                            
                             
 
                         }
@@ -539,6 +577,46 @@ class CrackCheckVC: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }else {
             self.CosmeticHardwareQuestions()
+        }
+        
+    }
+    
+    func setBoldTextInString() {
+        
+        //1
+        let dialboldText = "Clean the device camera"
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let attributedString1 = NSMutableAttributedString(string: dialboldText, attributes: attrs)
+        let normalText = " to ensure clarity."
+        let normalString = NSMutableAttributedString(string: normalText)
+        attributedString1.append(normalString)
+        
+        if self.lblClean != nil {
+            self.lblClean.attributedText = attributedString1
+        }
+        
+        //2
+        let settingboldText = "Remove the back cover of the device:"
+        let attrs2 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let settingattributedString2 = NSMutableAttributedString(string: settingboldText, attributes: attrs2)
+        let normalText2 = " This allows us to capture the back side of the device and provide a more accurate grading."
+        let normalString2 = NSMutableAttributedString(string: normalText2)
+        settingattributedString2.append(normalString2)
+        
+        if self.lblRemove != nil {
+            self.lblRemove.attributedText = settingattributedString2
+        }
+        
+        //3
+        let boxBoldText = "Do not close the app"
+        let attrsBox = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let boxAttributedString = NSMutableAttributedString(string: boxBoldText, attributes: attrsBox)
+        let boxNormalText = " during the process to avoid interruptions."
+        let boxNormalString = NSMutableAttributedString(string: boxNormalText)
+        boxAttributedString.append(boxNormalString)
+        
+        if self.lblDonotClose != nil {
+            self.lblDonotClose.attributedText = boxAttributedString
         }
         
     }

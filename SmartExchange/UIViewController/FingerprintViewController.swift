@@ -38,13 +38,13 @@ class FingerprintViewController: UIViewController {
         
         if BioMetricAuthenticator.canAuthenticate() {
             
-            //self.biometricImage.image = UIImage(named: "icon_faceid_red")
+            //self.biometricImage.image = UIImage(named: "icon_faceid_green")
             //self.lblTitle.text = "Checking Face-ID"
             //self.lblSubTitle.text = "First, please enable Face-ID function. Then you will place your face in front of the screen like you normally would during unlock."
             
             if BioMetricAuthenticator.shared.faceIDAvailable() {
                                                                 
-                self.biometricImage.image = UIImage(named: "icon_faceid_red")
+                self.biometricImage.image = UIImage(named: "icon_faceid_green")
                 self.lblTitle.text = "Checking Face-ID"
                 self.lblSubTitle.text = "First, please enable Face-ID function. Then you will place your face in front of the screen like you normally would during unlock."
                 

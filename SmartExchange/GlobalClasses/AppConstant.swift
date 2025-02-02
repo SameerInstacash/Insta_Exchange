@@ -9,7 +9,8 @@ import UIKit
 import SwiftyJSON
 
 //let themeColor = #colorLiteral(red: 0.1176470588, green: 0.5411764706, blue: 0.1843137255, alpha: 1)
-let themeColor = #colorLiteral(red: 1, green: 0.9564185739, blue: 0.9339895844, alpha: 1)
+//let themeColor = #colorLiteral(red: 1, green: 0.9564185739, blue: 0.9339895844, alpha: 1)
+let themeColor = #colorLiteral(red: 0.9019607843, green: 0.9490196078, blue: 0.9333333333, alpha: 1)
 //let themeColor = #colorLiteral(red: 1, green: 0.768627451, blue: 0.6549019608, alpha: 1)
 
 var performDiagnostics: (() -> Void)?

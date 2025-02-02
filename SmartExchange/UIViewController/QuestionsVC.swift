@@ -378,7 +378,11 @@ class QuestionsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             
             if self.arrSelectedCellIndex.contains(indexPath.row) {
                 
-                CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#FC5400")
+                //CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#FC5400")
+                //CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#52A68E")
+                CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#28B03D")
+                
+                
                 CosmeticQuestionTblCell.lblIconName.textColor = .white
                 
             }else {
@@ -391,7 +395,11 @@ class QuestionsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             
             if self.selectedCellIndex == indexPath.row {
                 
-                CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#FC5400")
+                //CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#FC5400")
+                //CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#52A68E")
+                CosmeticQuestionTblCell.baseContentView.backgroundColor = UIColor.init(hexString: "#28B03D")
+                
+                
                 CosmeticQuestionTblCell.lblIconName.textColor = .white
                 
             }else {
