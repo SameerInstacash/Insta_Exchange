@@ -14,7 +14,7 @@ var detectScreenshot : (() -> Void)?
 var currentIMEI = String()
 var fetchIMEI : (() -> Void)?
 
-class ImeiVC: UIViewController {
+class ImeiFetchVC: UIViewController {
     
     @IBOutlet weak var gradientBGView: UIView?
     @IBOutlet weak var shadowBtmView: UIView?
@@ -53,7 +53,7 @@ class ImeiVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if self.isComeFrom == "ImeiVC" {
+        if self.isComeFrom == "ImeiFetchVC" {
             let edgePanGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePopGesture(_:)))
             edgePanGestureRecognizer.edges = .left
             view.addGestureRecognizer(edgePanGestureRecognizer)
@@ -63,7 +63,7 @@ class ImeiVC: UIViewController {
         detectScreenshot = {
             // Start observing for changes
             PhotoLibraryObserver.shared.startObserving()
-            ImeiVC().fetchPhotos()
+            ImeiFetchVC().fetchPhotos()
         }
         
     }
@@ -548,7 +548,7 @@ class ImeiVC: UIViewController {
         popUpVC.strBtnRetryTitle = ""
         popUpVC.isShowThirdBtn = false
         
-        popUpVC.isComeFrom = "ImeiVC"
+        popUpVC.isComeFrom = "ImeiFetchVC"
         
         popUpVC.userConsent = { btnTag in
             switch btnTag {
@@ -599,7 +599,7 @@ class PhotoLibraryObserver: NSObject, PHPhotoLibraryChangeObserver {
         DispatchQueue.main.async {
             //fetchMostRecentScreenshot()
             
-            ImeiVC().fetchPhotos()
+            ImeiFetchVC().fetchPhotos()
         }
     }
     
