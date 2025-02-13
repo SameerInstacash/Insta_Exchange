@@ -60,7 +60,6 @@ class InstructionVC: UIViewController, UICollectionViewDataSource, UICollectionV
         performDiagnostics = nil
         //self.performTestsInSDK()
         
-        
         //MARK: Assign List of Tests to be performed in App
         //arrTestsInSDK = CustomUserDefault.getArrDiagnosisTest()
         
@@ -125,7 +124,6 @@ class InstructionVC: UIViewController, UICollectionViewDataSource, UICollectionV
         let imgurl = URL(string: self.strDeviceImg)
         self.deviceImgView.af_setImage(withURL: imgurl ?? URL(fileURLWithPath: ""), placeholderImage: UIImage(named: "smartphone")) //set image automatically when download compelete.
 
-        
     }
     
     func loadGifFiles() {

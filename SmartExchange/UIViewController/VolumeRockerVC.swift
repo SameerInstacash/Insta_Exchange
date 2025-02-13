@@ -331,7 +331,7 @@ class VolumeRockerVC: UIViewController {
         //let audioSession = AVAudioSession.sharedInstance()
         
         do {
-            try self.audioSession?.setActive(true, with: [])
+            try self.audioSession?.setActive(true, options: [])
             self.audioSession?.addObserver(self, forKeyPath: "outputVolume",
                                      options: NSKeyValueObservingOptions.new, context: nil)
             self.audioLevel = (self.audioSession?.outputVolume ?? 0.0)

@@ -50,7 +50,7 @@ class GlobalSkipPopUpVC: UIViewController {
         self.btnNo.tag = 2
         self.btnRetry.tag = 3
         
-        if self.isComeFrom == "ImeiVC" {
+        if self.isComeFrom == "ImeiFetchVC" {
             self.lblTitle.textAlignment = .center
             self.lblMessage.textAlignment = .left
         }

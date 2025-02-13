@@ -63,8 +63,8 @@ class PreviousQuotationsViewController: UIViewController {
         self.lblPreferredTime.text = self.getLocalizatioStringValue(key: "Preferred Time")
         self.referenceNumText.placeholder = self.getLocalizatioStringValue(key: "Reference Number")
         
-        self.submitBtnPrev.setTitle(self.getLocalizatioStringValue(key: "Submit"), for: UIControlState.normal)
-        self.homeBtn.setTitle(self.getLocalizatioStringValue(key: "Home"), for: UIControlState.normal)
+        self.submitBtnPrev.setTitle(self.getLocalizatioStringValue(key: "Submit"), for: UIControl.State.normal)
+        self.homeBtn.setTitle(self.getLocalizatioStringValue(key: "Home"), for: UIControl.State.normal)
          
     }
     

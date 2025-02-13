@@ -98,7 +98,7 @@ class UserDetailsVC: UIViewController, UITextFieldDelegate, UITableViewDataSourc
         
         self.lblTnc.text = self.getLocalizatioStringValue(key: "I accept the Terms and Conditions")
 
-        self.btnContinue.setTitle(self.getLocalizatioStringValue(key: "Continue"), for: UIControlState.normal)
+        self.btnContinue.setTitle(self.getLocalizatioStringValue(key: "Continue"), for: UIControl.State.normal)
          
     }
     
@@ -1119,7 +1119,7 @@ class UserDetailsVC: UIViewController, UITextFieldDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

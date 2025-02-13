@@ -83,17 +83,17 @@ class SpeakerVC: UIViewController, UITextFieldDelegate {
         
         self.txtFieldNum.placeholder = self.getLocalizatioStringValue(key: "Type Number")
         
-        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "START"), for: UIControlState.normal)
-        self.btnSkip.setTitle(self.getLocalizatioStringValue(key: "SKIP"), for: UIControlState.normal)
+        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "START"), for: UIControl.State.normal)
+        self.btnSkip.setTitle(self.getLocalizatioStringValue(key: "SKIP"), for: UIControl.State.normal)
     }
     
     func configureAudioSessionCategory() {
         print("Configuring audio session")
         do {
             //try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setCategory(AVAudioSession.Category.playAndRecord)
             try audioSession.setActive(true)
-            try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+            try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
             print("AVAudio Session out options: ", audioSession.currentRoute)
             print("Successfully configured audio session.")
         } catch (let error) {

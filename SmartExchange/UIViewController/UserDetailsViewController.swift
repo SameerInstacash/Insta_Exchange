@@ -51,7 +51,9 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         //UISetUp()
-        self.gradientBGView.cornerRadius(usingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 50.0, height: 50.0))
+        DispatchQueue.main.async(execute: {
+            self.gradientBGView.cornerRadius(usingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 50.0, height: 50.0))
+        })
         
         //Bank Account Details
         self.setStatusBarColor(themeColor: GlobalUtility().AppThemeColor)
@@ -444,7 +446,12 @@ class UserDetailsViewController: UIViewController, UITextFieldDelegate {
                 if json["status"] == "Success" {
                     
                     DispatchQueue.main.async() {
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PriceViewController") as! PriceViewController
+                        
+                        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "PriceViewController") as! PriceViewController
+                        
+                        //MARK: due to design change : 8/2/25
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FinalQuotationVC") as! FinalQuotationVC
+                        vc.isComeFromVC = "UserDetailsViewController"
                         
                         if self.questionAppCodeStr != "" {
                             

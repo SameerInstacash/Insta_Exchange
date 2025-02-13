@@ -142,8 +142,8 @@ class CameraLayerVC: UIViewController, AVCapturePhotoCaptureDelegate {
         
         
         // Bring the camera button to front
-        view.bringSubview(toFront: overlayView)
-        view.bringSubview(toFront: closeButton)
+        view.bringSubviewToFront(overlayView)
+        view.bringSubviewToFront(closeButton)
         
         DispatchQueue.global(qos: .background).async {
             // Perform any necessary setup before starting the capture session
@@ -221,8 +221,8 @@ class CameraLayerVC: UIViewController, AVCapturePhotoCaptureDelegate {
         
         
         // Bring the camera button to front
-        view.bringSubview(toFront: overlayView)
-        view.bringSubview(toFront: closeButton)
+        view.bringSubviewToFront(overlayView)
+        view.bringSubviewToFront(closeButton)
         
         DispatchQueue.global(qos: .background).async {
             // Perform any necessary setup before starting the capture session

@@ -412,7 +412,7 @@ public struct Luminous {
                     let route = AVAudioSession.sharedInstance().currentRoute
                     
                     for desc in route.outputs {
-                        if desc.portType == AVAudioSessionPortHeadphones {
+                        if desc.portType == AVAudioSession.Port.headphones {
                             return true
                         }
                     }

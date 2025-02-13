@@ -26,21 +26,37 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     var IMEINumber = String()
     
     @IBOutlet weak var gradientBGView: UIView!
-    @IBOutlet weak var shadowBtmView: UIView!
-    @IBOutlet weak var shadowBtmView2: UIView!
     
-    @IBOutlet weak var qrBaseView: UIView!
+    @IBOutlet weak var shadowBtmView: UIView!
+    @IBOutlet weak var deviceMismatchView: UIView!
+    @IBOutlet weak var deviceMismatchViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lblMismatch: UILabel!
     
     @IBOutlet weak var noDeviceView: UIView!
+    @IBOutlet weak var noDeviceImgVW: UIImageView!
     @IBOutlet weak var lblNoDeviceName: UILabel!
     @IBOutlet weak var lblNoDeviceIMEI: UILabel!
     
-    //@IBOutlet weak var lblPleaseClick: UILabel!
+    @IBOutlet weak var deviceNotBuyView: UIView!
+    @IBOutlet weak var deviceNotBuyViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lbldeviceNotBuy: UILabel!
+    
+    @IBOutlet weak var notifyView: UIView!
+    @IBOutlet weak var txtFieldEmailToNotify: UITextField!
+    
+    @IBOutlet weak var qrBaseView: UIView!
+    @IBOutlet weak var shadowBtmView2: UIView!
+        
     @IBOutlet weak var storeTokenEdit: UITextField!
     @IBOutlet weak var submitStoreBtn: UIButton!
-    //@IBOutlet weak var lblImeiSerial: UILabel!
-    
     @IBOutlet weak var scanQRBtn: UIButton!
+    
+    @IBOutlet weak var currentDeviceImgVW: UIImageView!
+    @IBOutlet weak var lblCurrentDeviceName: UILabel!
+    @IBOutlet weak var imeiLabel: UILabel!
+    
+    //@IBOutlet weak var lblPleaseClick: UILabel!
+    //@IBOutlet weak var lblImeiSerial: UILabel!
     //@IBOutlet weak var previousBtn: UIButton!
     //@IBOutlet weak var findNearByBtn: UIButton!
     //@IBOutlet weak var lblCurrentVersion: UILabel!
@@ -49,9 +65,6 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     //@IBOutlet weak var retryBtn: UIButton!
     //@IBOutlet weak var tradeInOnlineBtn: UIButton!
     
-    @IBOutlet weak var currentDeviceImgVW: UIImageView!
-    @IBOutlet weak var lblCurrentDeviceName: UILabel!
-    @IBOutlet weak var imeiLabel: UILabel!
     
     var productId: String = ""
     var appCodes: String = ""
@@ -250,6 +263,14 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
     
     func getProductIdCurrentDeviceWebServiceCall() {
         
+        //IMEINumber parameter add
+        
+        //isMatch = 1 to thik h
+        //if 0 aata h & data bhi aata h mismatch wala popop
+        //if 0 & no data then we're not buying
+        //if -1 aata h & data aata h to no thing to do/ no pop
+        //if -1 aata h & data nahi aata h to not buying wala popup
+        
         self.hud.textLabel.text = ""
         self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
         self.hud.show(in: self.view)
@@ -270,7 +291,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         var postString = ""
         
         // not iPad (iPhone, mac, tv, carPlay, unspecified)
-        postString = "userName=\(AppUserName)&apiKey=\(AppApiKey)&productName=\(deviceName)&memory=\(modelCapacity)&ram=\(ram)"
+        postString = "userName=\(AppUserName)&apiKey=\(AppApiKey)&productName=\(deviceName)&memory=\(modelCapacity)&ram=\(ram)&IMEINumber=\(IMEI)"
         
         print("url in getProductIdCurrentDevice :", request,"\n Param in getProductIdCurrentDevice:", postString)
         
@@ -292,6 +313,164 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                 let json = try JSON(data: data)
                 print("response json in  getProductIdCurrentDevice:","\(json)")
                 
+                if json["status"] == "Success" {
+                    
+                    DispatchQueue.main.async() {
+                        
+                        var currentDeviceData = json["msg"].dictionary
+                        var isIMEIMatch = json["isIMEIMatch"].int
+                        
+                        //isIMEIMatch = -1
+                        //currentDeviceData = nil
+                                                
+                        let imgurl = URL(string: currentDeviceData?["image"]?.string ?? "")
+                        self.currentDeviceImgVW.af_setImage(withURL: imgurl ?? URL(fileURLWithPath: ""), placeholderImage: UIImage(named: "phone_Placeholder"))
+                        
+                        self.lblCurrentDeviceName.text = currentDeviceData?["name"]?.string ?? ""
+                        self.imeiLabel.text = IMEI
+                        
+                        self.noDeviceImgVW.af_setImage(withURL: imgurl ?? URL(fileURLWithPath: ""), placeholderImage: UIImage(named: "phone_Placeholder"))
+                        
+                        
+                        if let matchValue = isIMEIMatch {
+                            
+                            if matchValue == 1 {
+                                
+                                //Nothing to do here
+                                
+                            }
+                            else if matchValue == 0 {
+                                
+                                if currentDeviceData != nil {
+                                    //if 0 aata h & data bhi aata h mismatch wala popop
+                                    
+                                    UIView.animate(withDuration: 0.2) {
+                                        self.deviceMismatchViewHeightConstraint.constant = 30
+                                        self.lblMismatch.text = "Device Mismatch Found"
+                                    } completion: { _ in
+                                            
+                                        DispatchQueue.main.async {
+                                            self.deviceMismatchView.cornerRadius(usingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10.0, height: 10.0))
+                                            self.shadowBtmView.layer.shadowPath = UIBezierPath(rect: self.shadowBtmView.bounds).cgPath
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                else {
+                                    //if 0 & no data then we're not buying
+                                    
+                                    DispatchQueue.main.async() {
+                                        
+                                        self.noDeviceView.isHidden = false
+                                        self.notifyView.isHidden = false
+                                        self.shadowBtmView.isHidden = true
+                                        self.qrBaseView.isHidden = true
+                                        
+                                        UIView.addShadowOn4side(baseView: self.noDeviceView)
+                                        UIView.addShadowOn4side(baseView: self.notifyView)
+                                        
+                                        self.lblNoDeviceName.text = deviceName
+                                        self.lblNoDeviceIMEI.text = String(IMEI.suffix(4))
+                                        
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                            
+                                            UIView.animate(withDuration: 0.2) {
+                                                self.deviceNotBuyViewHeightConstraint.constant = 30
+                                                self.lbldeviceNotBuy.text = "We're Not Buying This Device Yet"
+                                            } completion: { _ in
+                                                
+                                                DispatchQueue.main.async {
+                                                    self.deviceNotBuyView.cornerRadius(usingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10.0, height: 10.0))
+                                                    self.noDeviceView.layer.shadowPath = UIBezierPath(rect: self.noDeviceView.bounds).cgPath
+                                                }
+                                                
+                                            }
+                                            
+                                        })
+                                        
+                                    }
+                                    
+                                                                        
+                                }
+                                
+                            }
+                            else if matchValue == -1 {
+                                
+                                if currentDeviceData != nil {
+                                    
+                                    //if -1 aata h & data aata h to no thing to do/ no pop
+                                    
+                                }
+                                else {
+                                    //if -1 aata h & data nahi aata h to not buying wala popup
+                                    
+                                    DispatchQueue.main.async() {
+                                        
+                                        self.noDeviceView.isHidden = false
+                                        self.notifyView.isHidden = false
+                                        self.shadowBtmView.isHidden = true
+                                        self.qrBaseView.isHidden = true
+                                        
+                                        UIView.addShadowOn4side(baseView: self.noDeviceView)
+                                        UIView.addShadowOn4side(baseView: self.notifyView)
+                                        
+                                        self.lblNoDeviceName.text = deviceName
+                                        self.lblNoDeviceIMEI.text = String(IMEI.suffix(4))
+
+                                    }
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                        
+                                        UIView.animate(withDuration: 0.2) {
+                                            self.deviceNotBuyViewHeightConstraint.constant = 30
+                                            self.lbldeviceNotBuy.text = "We're Not Buying This Device Yet"
+                                        } completion: { _ in
+                                                
+                                            DispatchQueue.main.async {
+                                                self.deviceNotBuyView.cornerRadius(usingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10.0, height: 10.0))
+                                                self.noDeviceView.layer.shadowPath = UIBezierPath(rect: self.noDeviceView.bounds).cgPath
+                                            }
+                                            
+                                        }
+                                        
+                                    })
+                                                                        
+                                    
+                                }
+                                
+                            }
+                            else {
+                                
+                            }
+                            
+                        }
+                                                                                                    
+                        
+                    }
+                    
+                }else{
+                   
+                    DispatchQueue.main.async() {
+                        
+                        self.view.makeToast(self.getLocalizatioStringValue(key: json["msg"].string ?? ""), duration: 2.0, position: .bottom)
+                        
+                        self.noDeviceView.isHidden = false
+                        self.shadowBtmView.isHidden = true
+                        self.qrBaseView.isHidden = true
+                        
+                        UIView.addShadowOn4side(baseView: self.noDeviceView)
+                        
+                        self.lblNoDeviceName.text = "Your Device: " + deviceName
+                        self.lblNoDeviceIMEI.text = "Your IMEI: " + IMEI
+                        
+                    }
+                    
+                }
+                
+                
+                /* To hide on 6/2/25 as after discuss with Ajay on call
                 if json["status"] == "Success" {
                     
                     DispatchQueue.main.async() {
@@ -324,6 +503,8 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                     }
                     
                 }
+                */
+                
             }catch {
                 DispatchQueue.main.async() {
                     self.view.makeToast(self.getLocalizatioStringValue(key: "Something went wrong!!"), duration: 3.0, position: .bottom)
@@ -334,12 +515,143 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         task.resume()
     }
     
-    //MARK: button action methods
-    @IBAction func imeiChangeBtnClicked(_ sender: UIButton) {
+    func emailSubscribeForNewModelApiCall() {
+        
+        self.hud.textLabel.text = ""
+        self.hud.backgroundColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 0.4)
+        self.hud.show(in: self.view)
+                        
+        let preferences = UserDefaults.standard
+        preferences.set(AppBaseUrl, forKey: "endpoint")
+        
+        var request = URLRequest(url: URL(string: "\(AppBaseUrl)/emailSubscribeForNewModel")!)
+        request.httpMethod = "POST"
+        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+                
+        let IMEI = UserDefaults.standard.string(forKey: "imei_number") ?? IMEINumber
+        let notiEmail = self.txtFieldEmailToNotify.text ?? ""
+        
+        var postString = ""
+        
+        // not iPad (iPhone, mac, tv, carPlay, unspecified)
+        postString = "userName=\(AppUserName)&apiKey=\(AppApiKey)&email=\(notiEmail)&IMEINumber=\(IMEI)"
+        
+        print("url in emailSubscribeForNewModel :", request,"\n Param in emailSubscribeForNewModel:", postString)
+        
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            DispatchQueue.main.async() {
+                self.hud.dismiss()
+            }
+            
+            guard let data = data, error == nil else {
+                DispatchQueue.main.async() {
+                    self.view.makeToast(error?.localizedDescription, duration: 3.0, position: .bottom)
+                }
+                return
+            }
+            
+            do {
+                let json = try JSON(data: data)
+                print("response json in  emailSubscribeForNewModel:","\(json)")
+                
+                if json["status"] == "Success" {
+                    
+                    DispatchQueue.main.async() {
+                        self.view.makeToast(self.getLocalizatioStringValue(key: json["msg"].string ?? ""), duration: 2.0, position: .bottom)
+                    }
+                    
+                }else{
+                   
+                    DispatchQueue.main.async() {
+                        self.view.makeToast(self.getLocalizatioStringValue(key: json["msg"].string ?? ""), duration: 2.0, position: .bottom)
+                    }
+                    
+                }
+                             
+            }catch {
+                DispatchQueue.main.async() {
+                    self.view.makeToast(self.getLocalizatioStringValue(key: "Something went wrong!!"), duration: 3.0, position: .bottom)
+                }
+            }
+            
+        }
+        task.resume()
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{0,64}"
 
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiVC") as! ImeiVC
-        vc.isComeFrom = "ImeiVC"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    //MARK: button action methods
+    @IBAction func notifyBtnClicked(_ sender: UIButton) {
+        
+        if self.txtFieldEmailToNotify.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? false {
+            
+            DispatchQueue.main.async {
+                self.view.makeToast(self.getLocalizatioStringValue(key: "Please Enter a email Id"), duration: 2.0, position: .bottom)
+            }
+            
+        }
+        else if !self.isValidEmail(self.txtFieldEmailToNotify.text!.trimmingCharacters(in: .whitespacesAndNewlines)) {
+            
+            DispatchQueue.main.async {
+                self.view.makeToast(self.getLocalizatioStringValue(key: "Please Enter a valid email Id"), duration: 2.0, position: .bottom)
+            }
+            
+        }
+        else {
+            
+            self.emailSubscribeForNewModelApiCall()
+            
+        }
+        
+    }
+    
+    @IBAction func imeiChangeBtnClicked(_ sender: UIButton) {
+        
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiFetchVC") as! ImeiFetchVC
+        vc.isComeFrom = "ImeiFetchVC"
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+
+        /*
+        if sender.isSelected {
+            sender.isSelected = !sender.isSelected
+            
+            UIView.animate(withDuration: 0.2) {
+                self.deviceMismatchViewHeightConstraint.constant = 0
+            } completion: { _ in
+                
+                DispatchQueue.main.async {
+                    self.shadowBtmView.layer.shadowPath = UIBezierPath(rect: self.shadowBtmView.bounds).cgPath
+                }
+                
+            }
+                       
+        }
+        else {
+            sender.isSelected = !sender.isSelected
+            
+            UIView.animate(withDuration: 0.2) {
+                self.deviceMismatchViewHeightConstraint.constant = 30
+            } completion: { _ in
+                    
+                DispatchQueue.main.async {
+                    self.deviceMismatchView.cornerRadius(usingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10.0, height: 10.0))
+                    self.shadowBtmView.layer.shadowPath = UIBezierPath(rect: self.shadowBtmView.bounds).cgPath
+                }
+                
+            }
+                       
+        }
+        */
         
     }
     
@@ -461,7 +773,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                          UIApplication.shared.openURL(settingsURL)
                          }*/
                         
-                        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                             return
                         }
                         
@@ -734,9 +1046,19 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousQuotePopUp") as! PreviousQuotePopUp
-        
+                
+        /*
         vc.popupDismiss = { productDict in
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreviousSessionVC") as! PreviousSessionVC
+            vc.sessionDict = productDict
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        */
+        
+        vc.popupDismiss = { productDict in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FinalQuotationVC") as! FinalQuotationVC
+            vc.isComeFromVC = "HomeVC"
             vc.sessionDict = productDict
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true, completion: nil)
@@ -836,7 +1158,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
             do {
                 let json = try JSON(data: data)
                 if json["status"] == "Success" {
-                    //print("response json is :","\(json)")
+                    print("response json is :","\(json)")
                     
                     let responseString = String(data: data, encoding: .utf8)
                     self.responseData = responseString!
@@ -868,13 +1190,21 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         let priceData = json["priceData"]
                         let uptoPrice = priceData["msg"].string ?? ""
                         print("uptoPrice", uptoPrice)
-                        
-                        
+                                                
                         //MARK: Comment here & create function for diagnostic flow smooth run on 5/8/23
                         
                         DispatchQueue.main.async() {
                             
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "InstructionVC") as! InstructionVC
+                            appDelegate_Obj.appStoreName = serverData["storeName"].string ?? ""
+                            appDelegate_Obj.appStoreAddress = serverData["storeAddress"].string ?? ""
+                            appDelegate_Obj.appStoreContactNumber = serverData["storeMobileNumber"].string ?? ""
+                            let storeGeoCordinate = serverData["geoCoordinates"].string ?? ""
+                            let arrStoreGeoCordinate = storeGeoCordinate.components(separatedBy: ",")
+                            appDelegate_Obj.appStoreLatitude = arrStoreGeoCordinate[0]
+                            appDelegate_Obj.appStoreLongitude = arrStoreGeoCordinate[1]
+                            
+                            
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewInstructionVC") as! NewInstructionVC
                             
                             vc.strIMEI = UserDefaults.standard.string(forKey: "imei_number") ?? self.IMEINumber
                             vc.strDeviceName = productName
@@ -882,6 +1212,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                             
                             vc.modalPresentationStyle = .overFullScreen
                             self.present(vc, animated: true, completion: nil)
+                            
                             //self.navigationController?.pushViewController(vc, animated: true)
                             
                         }

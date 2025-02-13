@@ -18,9 +18,16 @@ class CrackCheckVC: UIViewController {
     @IBOutlet weak var btnManualProcess: UIButton!
     @IBOutlet weak var loaderImgView: UIImageView!
     
+    @IBOutlet weak var lblPrepare: UILabel!
     @IBOutlet weak var lblClean: UILabel!
     @IBOutlet weak var lblRemove: UILabel!
     @IBOutlet weak var lblDonotClose: UILabel!
+    @IBOutlet weak var lblAvoid: UILabel!
+    
+    @IBOutlet weak var lblHelper: UILabel!
+    @IBOutlet weak var lblEnsure: UILabel!
+    @IBOutlet weak var lblMaintain: UILabel!
+    @IBOutlet weak var lblKeep: UILabel!
     
     var resultJSON = JSON()    
     var appCodeStr = ""
@@ -524,13 +531,18 @@ class CrackCheckVC: UIViewController {
         vc.TestDiagnosisForward = {
             DispatchQueue.main.async() {
                 
+                
                 if hardwareQuestionsCount > 0 {
-                    self.CosmeticHardwareQuestions()
+                    
+                    DispatchQueue.main.async() {
+                        self.CosmeticHardwareQuestions()
+                    }
+                    
                 }else {
                     
                     for appCode in arrAppQuestionsAppCodes ?? [] {
                         AppResultString = AppResultString + appCode + ";"
-                        print("AppResultString is :", AppResultString)
+                        //print("AppResultString is :", AppResultString)
                     }
                     
                     
@@ -544,8 +556,8 @@ class CrackCheckVC: UIViewController {
                         
                     }
                     
-                    print("Result JSON: \(self.resultJSON)")
-                    print("AppResultString is After: ", AppResultString)
+                    //print("Result JSON: \(self.resultJSON)")
+                    //print("AppResultString is After: ", AppResultString)
                     
                     vc.resultJOSN = self.resultJSON
                     //vc.appCodeStr = AppResultString
@@ -565,6 +577,7 @@ class CrackCheckVC: UIViewController {
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                     
+                    
                 }
                 
             }
@@ -576,7 +589,11 @@ class CrackCheckVC: UIViewController {
             vc.arrQuestionAnswer = arrAppHardwareQuestions?[AppQuestionIndex]
             self.present(vc, animated: true, completion: nil)
         }else {
-            self.CosmeticHardwareQuestions()
+            
+            DispatchQueue.main.async() {
+                self.CosmeticHardwareQuestions()
+            }
+            
         }
         
     }
@@ -584,10 +601,25 @@ class CrackCheckVC: UIViewController {
     func setBoldTextInString() {
         
         //1
-        let dialboldText = "Clean the device camera"
+        let prepareboldText = "(to be sold)"
+        let prepareattrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let prepareattributedString1 = NSMutableAttributedString(string: prepareboldText, attributes: prepareattrs)
+        
+        let preparenormalText = "Prepare Your Device "
+        let preparenormalString = NSMutableAttributedString(string: preparenormalText)
+        //prepareattributedString1.append(preparenormalString)
+        preparenormalString.append(prepareattributedString1)
+        
+        if self.lblPrepare != nil {
+            self.lblPrepare.attributedText = preparenormalString
+        }
+        
+        
+        //2
+        let dialboldText = "Clean your screen"
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
         let attributedString1 = NSMutableAttributedString(string: dialboldText, attributes: attrs)
-        let normalText = " to ensure clarity."
+        let normalText = " to ensure clear image capture."
         let normalString = NSMutableAttributedString(string: normalText)
         attributedString1.append(normalString)
         
@@ -595,11 +627,11 @@ class CrackCheckVC: UIViewController {
             self.lblClean.attributedText = attributedString1
         }
         
-        //2
-        let settingboldText = "Remove the back cover of the device:"
+        //3
+        let settingboldText = "Remove the back cover,"
         let attrs2 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
         let settingattributedString2 = NSMutableAttributedString(string: settingboldText, attributes: attrs2)
-        let normalText2 = " This allows us to capture the back side of the device and provide a more accurate grading."
+        let normalText2 = " case, or accessories that may obstruct the device's back and edges."
         let normalString2 = NSMutableAttributedString(string: normalText2)
         settingattributedString2.append(normalString2)
         
@@ -607,16 +639,99 @@ class CrackCheckVC: UIViewController {
             self.lblRemove.attributedText = settingattributedString2
         }
         
-        //3
-        let boxBoldText = "Do not close the app"
+        
+        //4
+        let boxBoldText = "Do not close"
         let attrsBox = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
         let boxAttributedString = NSMutableAttributedString(string: boxBoldText, attributes: attrsBox)
-        let boxNormalText = " during the process to avoid interruptions."
+        let boxNormalText = " or minimize the app while the process is ongoing."
         let boxNormalString = NSMutableAttributedString(string: boxNormalText)
         boxAttributedString.append(boxNormalString)
         
         if self.lblDonotClose != nil {
             self.lblDonotClose.attributedText = boxAttributedString
+        }
+        
+        
+        //5
+        let AvoidBoldText = "Avoid any direct reflections "
+        let AvoidAttrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let AvoidAttributedString = NSMutableAttributedString(string: AvoidBoldText, attributes: AvoidAttrs)
+        
+        let AvoidNormalText = " on the device while capturing the image."
+        let AvoidNormalString = NSMutableAttributedString(string: AvoidNormalText)
+        AvoidAttributedString.append(AvoidNormalString)
+        
+        if self.lblAvoid != nil {
+            self.lblAvoid.attributedText = AvoidAttributedString
+        }
+        
+        
+        //6
+        let helperBoldText = "(2nd Device for Scanning)"
+        let helperAttrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let helperAttributedString = NSMutableAttributedString(string: helperBoldText, attributes: helperAttrs)
+        
+        let helperNormalText = "Helper Device "
+        let helperNormalString = NSMutableAttributedString(string: helperNormalText)
+        helperNormalString.append(helperAttributedString)
+        
+        if self.lblHelper != nil {
+            self.lblHelper.attributedText = helperNormalString
+        }
+        
+        
+        //7
+        let ensureBoldText = "Camera lens is clean"
+        let ensureArattrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let ensureAttributedString = NSMutableAttributedString(string: ensureBoldText, attributes: ensureArattrs)
+        
+        let ensureNormalText1 = "Ensure the "
+        let ensureNormalText2 = " for accurate scanning."
+        let ensureNormalString1 = NSMutableAttributedString(string: ensureNormalText1)
+        let ensureNormalString2 = NSMutableAttributedString(string: ensureNormalText2)
+        
+        ensureNormalString1.append(ensureAttributedString)
+        ensureNormalString1.append(ensureNormalString2)
+        
+        if self.lblEnsure != nil {
+            self.lblEnsure.attributedText = ensureNormalString1
+        }
+        
+        
+        //8
+        let maintainBoldText = "stable hand"
+        let maintainArattrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let maintainAttributedString = NSMutableAttributedString(string: maintainBoldText, attributes: maintainArattrs)
+        
+        let maintainNormalText1 = "Maintain a "
+        let maintainNormalText2 = " while scanning to avoid blurry captures."
+        let maintainNormalString1 = NSMutableAttributedString(string: maintainNormalText1)
+        let maintainNormalString2 = NSMutableAttributedString(string: maintainNormalText2)
+        
+        maintainNormalString1.append(maintainAttributedString)
+        maintainNormalString1.append(maintainNormalString2)
+        
+        if self.lblMaintain != nil {
+            self.lblMaintain.attributedText = maintainNormalString1
+        }
+        
+        
+        //9
+        let keepBoldText = "vertical position"
+        let keepArattrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let keepAttributedString = NSMutableAttributedString(string: keepBoldText, attributes: keepArattrs)
+        
+        let keepNormalText1 = "Keep the device in a "
+        let keepNormalText2 = " for the best scanning accuracy."
+        let keepNormalString1 = NSMutableAttributedString(string: keepNormalText1)
+        let keepNormalString2 = NSMutableAttributedString(string: keepNormalText2)
+        
+        keepNormalString1.append(keepAttributedString)
+        keepNormalString1.append(keepNormalString2)
+        
+        if self.lblKeep != nil {
+            self.lblKeep.attributedText = keepNormalString1
         }
         
     }

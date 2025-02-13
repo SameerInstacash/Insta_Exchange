@@ -130,9 +130,9 @@ class DeadPixelVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDeleg
         //print("Configuring audio session")
         do {
             
-            try audioSession?.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession?.setCategory(AVAudioSession.Category.playAndRecord)
             try audioSession?.setActive(true)
-            try audioSession?.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+            try audioSession?.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
             //print("AVAudio Session out options: ", audioSession?.currentRoute ?? 0)
             //print("Successfully configured audio session.")
             
@@ -621,7 +621,7 @@ class DeadPixelVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDeleg
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setCategory(AVAudioSession.Category.playAndRecord)
             try recordingSession.setActive(true)
             
             recordingSession.requestRecordPermission() { [weak self] allowed in
@@ -705,7 +705,7 @@ class DeadPixelVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDeleg
             
             do {
                 
-                try audioSession?.setCategory(AVAudioSessionCategoryPlayAndRecord)
+                try audioSession?.setCategory(AVAudioSession.Category.playAndRecord)
                 try audioSession?.setActive(true)
                 try audioSession?.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
                 //print("AVAudio Session out options: ", audioSession?.currentRoute ?? 0)

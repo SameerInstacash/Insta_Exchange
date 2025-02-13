@@ -218,7 +218,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.diagnosisChargesInfo.text = self.getLocalizatioStringValue(key: "Diagnosis Charges")
         self.payableBtnInfo.text = self.getLocalizatioStringValue(key: "Estimated Amount")
         
-        self.uploadIdBtn.setTitle(self.getLocalizatioStringValue(key: "Scan Identity Card (IC) to proceed"), for: UIControlState.normal)
+        self.uploadIdBtn.setTitle(self.getLocalizatioStringValue(key: "Scan Identity Card (IC) to proceed"), for: UIControl.State.normal)
         //self.buySmartPhoneBtn.setTitle(self.getLocalizatioStringValue(key: "BUY A SMARTPHONE"), for: UIControlState.normal)
         
         //self.lblCheckout.text = self.getLocalizatioStringValue(key: "Checkout our Refurb Phones")
@@ -927,18 +927,17 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.dismiss(animated: true, completion: nil)
                     let newImage = self.resizeImage(image: image ?? UIImage(), newWidth: 800)
                     
-                    
                     let backgroundImage = newImage
                     let watermarkImage = #imageLiteral(resourceName: "watermark")
                     UIGraphicsBeginImageContextWithOptions(backgroundImage.size, false, 0.0)
                     backgroundImage.draw(in: CGRect(x: 0.0, y: 0.0, width: backgroundImage.size.width, height: backgroundImage.size.height))
                     watermarkImage.draw(in: CGRect(x: 0, y: 0, width: watermarkImage.size.width, height: backgroundImage.size.height))
                     
-                    
                     let result = UIGraphicsGetImageFromCurrentImageContext()
                     UIGraphicsEndImageContext()
                     
-                    let imageData:NSData = UIImagePNGRepresentation(result ?? newImage) as! NSData
+                    //let imageData:NSData = UIImagePNGRepresentation(result ?? newImage) as! NSData
+                    let imageData:NSData = (result ?? newImage).pngData() as! NSData
                     
                     let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
                     
@@ -1189,7 +1188,7 @@ class PriceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     func removeDuplicate(list: [[String:Any]]) -> [[String:Any]] {

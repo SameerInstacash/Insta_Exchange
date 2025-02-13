@@ -162,7 +162,7 @@ final public class QRCodeReaderView: UIView, QRCodeReaderDisplayable {
   // MARK: - Convenience Methods
 
   private func addComponents() {
-      NotificationCenter.default.addObserver(self, selector: #selector(QRCodeReaderView.orientationDidChange), name: .UIDeviceOrientationDidChange, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(QRCodeReaderView.orientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
 
     addSubview(cameraView)
 

@@ -79,7 +79,7 @@ class AutoRotationVC: UIViewController {
         
         self.hasStarted = true
                     
-        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         /*
         if self.hasStarted {
@@ -204,7 +204,7 @@ class AutoRotationVC: UIViewController {
                 UserDefaults.standard.set(false, forKey: "rotation")
                 self.resultJSON["Rotation"].int = -1
                 
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+                NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
                 
                 if self.isComingFromTestResult {
                     
@@ -238,7 +238,7 @@ class AutoRotationVC: UIViewController {
     
     @objc func rotated()
     {
-        if (UIDeviceOrientationIsLandscape(UIDevice.current.orientation))
+        if (UIDevice.current.orientation.isLandscape)
         {
             print("LandScape")
             //self.lblAutoRotationDetail.text = self.getLocalizatioStringValue(key: "Now rotate your device back to Portrait view.")
@@ -247,7 +247,7 @@ class AutoRotationVC: UIViewController {
             self.rotationImgVW.image = UIImage(named: "ic_portrait")
         }
         
-        if (UIDeviceOrientationIsPortrait(UIDevice.current.orientation))
+        if (UIDevice.current.orientation.isPortrait)
         {
             self.rotationImgVW.image = UIImage(named: "ic_landscape")
             
@@ -255,7 +255,7 @@ class AutoRotationVC: UIViewController {
             UserDefaults.standard.set(true, forKey: "rotation")
             self.resultJSON["Rotation"].int = 1
             
-            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+            NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
             
             if self.isComingFromTestResult {
                 

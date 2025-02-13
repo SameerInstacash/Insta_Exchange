@@ -73,8 +73,8 @@ class VibratorVC: UIViewController {
         
         self.txtFieldNum.placeholder = self.getLocalizatioStringValue(key: "Type Number")
         
-        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "Start"), for: UIControlState.normal)
-        self.btnSkip.setTitle(self.getLocalizatioStringValue(key: "Skip"), for: UIControlState.normal)
+        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "Start"), for: UIControl.State.normal)
+        self.btnSkip.setTitle(self.getLocalizatioStringValue(key: "Skip"), for: UIControl.State.normal)
     }
     
     //MARK: button action methods

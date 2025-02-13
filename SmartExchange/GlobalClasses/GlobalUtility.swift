@@ -551,6 +551,7 @@ extension UIView {
         self.layer.cornerRadius = 0.0
         self.layer.shadowRadius = 0.0
         self.layer.shadowOpacity = 0.0
+        
     }
     
     //to add Shadow and Radius On desired UIView
@@ -562,7 +563,7 @@ extension UIView {
         baseView.layer.masksToBounds = false
     }
     
-    //to add 4 side Shadow and Radius On desired UIView
+    //to add 4 side Shadow and Radius On desired UIView    
     static func addShadowOn4side(baseView: UIView) {
         let shadowSize : CGFloat = 2.0
         let shadowPath = UIBezierPath(rect: CGRect(x: -shadowSize / 2,y: -shadowSize / 2,width: baseView.frame.size.width + shadowSize,height: baseView.frame.size.height + shadowSize))

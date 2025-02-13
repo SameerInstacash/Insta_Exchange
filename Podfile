@@ -47,6 +47,8 @@ target 'SmartExchange' do
   pod 'JGProgressHUD'
   pod 'DropDown'
 
+  pod 'FloatingPanel'
+
   # Pods for SmartExchange
 
   target 'SmartExchangeTests' do

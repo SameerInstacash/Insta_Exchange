@@ -86,7 +86,7 @@ class InternalTestsVC: UIViewController,CBCentralManagerDelegate {
         //self.lblTitle.text = self.getLocalizatioStringValue(key: "Connections")
          self.lblPlease.text = self.getLocalizatioStringValue(key: "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests.")
 
-        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "Begin Tests"), for: UIControlState.normal)
+        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "Begin Tests"), for: UIControl.State.normal)
          
     }
     

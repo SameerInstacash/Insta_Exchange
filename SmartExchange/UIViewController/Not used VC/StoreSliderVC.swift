@@ -51,7 +51,7 @@ class StoreSliderVC: UIViewController, UICollectionViewDataSource, UICollectionV
     
     func changeLanguageOfUI() {
                 
-        self.btnSkip.setTitle(self.getLocalizatioStringValue(key: "Skip"), for: UIControlState.normal)
+        self.btnSkip.setTitle(self.getLocalizatioStringValue(key: "Skip"), for: UIControl.State.normal)
          
     }
     
@@ -72,7 +72,7 @@ class StoreSliderVC: UIViewController, UICollectionViewDataSource, UICollectionV
         }else {
             
             DispatchQueue.main.async {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "IMEIVC") as! IMEIViewController
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiFetchVC") as! IMEIViewController
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             

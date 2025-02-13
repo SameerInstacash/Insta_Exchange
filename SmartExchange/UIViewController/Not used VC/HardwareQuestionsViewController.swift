@@ -254,7 +254,7 @@ extension HardwareQuestionsViewController: EZSwipeControllerDataSource {
         
         let navigationBar = UINavigationBar()
         navigationBar.barStyle = UIBarStyle.default
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         let navigationItem = UINavigationItem(title: title)
         navigationItem.hidesBackButton = true
@@ -262,13 +262,13 @@ extension HardwareQuestionsViewController: EZSwipeControllerDataSource {
         if index == 0 {
             navigationItem.leftBarButtonItem = nil
         }else{
-            let leftButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "a")
+            let leftButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: "a")
             
             navigationItem.leftBarButtonItem = leftButtonItem
         }
         if index == questionsArray.count-1 {
             if questionsArray[index].questionViewType == "checkbox"{
-                let rightButtonItem = UIBarButtonItem(title: "Get Price", style: UIBarButtonItemStyle.plain, target: self, action: "a")
+                let rightButtonItem = UIBarButtonItem(title: "Get Price", style: UIBarButtonItem.Style.plain, target: self, action: "a")
                 navigationItem.rightBarButtonItem = rightButtonItem
             }else{
                 navigationItem.rightBarButtonItem = nil
@@ -276,7 +276,7 @@ extension HardwareQuestionsViewController: EZSwipeControllerDataSource {
         } else{
             
             if questionsArray[index].questionViewType == "checkbox" {
-                let rightButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: "a")
+                let rightButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItem.Style.plain, target: self, action: "a")
                 navigationItem.rightBarButtonItem = rightButtonItem
             }else{
                 navigationItem.rightBarButtonItem = nil

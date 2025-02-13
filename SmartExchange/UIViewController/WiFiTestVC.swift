@@ -59,7 +59,7 @@ class WiFiTestVC: UIViewController {
         //self.lblTitle.text = self.getLocalizatioStringValue(key: "WiFi")
          self.lblTestWiFi.text = self.getLocalizatioStringValue(key: "Testing WiFi")
          self.lblDesc.text = self.getLocalizatioStringValue(key: "To test WIFI, turn WIFI on and connect to your preferred network then Press “START“")
-        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "Start"), for: UIControlState.normal)
+        self.btnStart.setTitle(self.getLocalizatioStringValue(key: "Start"), for: UIControl.State.normal)
          
     }
     

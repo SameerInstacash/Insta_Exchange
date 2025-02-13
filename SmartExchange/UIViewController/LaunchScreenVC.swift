@@ -65,7 +65,7 @@ class LaunchScreenVC: UIViewController {
                 
             }else{
                 
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiVC") as! ImeiVC
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ImeiFetchVC") as! ImeiFetchVC
                 vc.isComeFrom = ""
                 self.navigationController?.pushViewController(vc, animated: true)
                 

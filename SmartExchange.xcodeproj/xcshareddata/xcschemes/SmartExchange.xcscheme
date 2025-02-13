@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C399481C1E54270600F01384"
-               BuildableName = "SellNCash.app"
+               BuildableName = "InstaCash Exchange.app"
                BlueprintName = "SmartExchange"
                ReferencedContainer = "container:SmartExchange.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C399481C1E54270600F01384"
-            BuildableName = "SellNCash.app"
+            BuildableName = "InstaCash Exchange.app"
             BlueprintName = "SmartExchange"
             ReferencedContainer = "container:SmartExchange.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C399481C1E54270600F01384"
-            BuildableName = "SellNCash.app"
+            BuildableName = "InstaCash Exchange.app"
             BlueprintName = "SmartExchange"
             ReferencedContainer = "container:SmartExchange.xcodeproj">
          </BuildableReference>

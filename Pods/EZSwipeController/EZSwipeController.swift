@@ -148,9 +148,9 @@ open class EZSwipeController: UIViewController {
             if !navigationBarShouldBeOnBottom && !navigationBarShouldNotExist {
                 viewController.view.frame.origin.y += Constants.navigationBarHeight
             }
-            pageViewController.addChildViewController(viewController)
+            pageViewController.addChild(viewController)
             pageViewController.view.addSubview(viewController.view)
-            viewController.didMove(toParentViewController: pageViewController)
+            viewController.didMove(toParent: pageViewController)
             if !stackNavBars.isEmpty {
                 pageViewController.view.addSubview(stackNavBars[index])
             }
@@ -176,10 +176,10 @@ open class EZSwipeController: UIViewController {
         }
         pageViewController.view.frame = CGRect(x: 0, y: pageViewControllerY, width: Constants.ScreenWidth, height: pageViewControllerH)
         pageViewController.view.backgroundColor = UIColor.clear
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         view.addSubview(pageViewController.view)
         self.setFrameForCurrentOrientation()
-        pageViewController.didMove(toParentViewController: self)
+        pageViewController.didMove(toParent: self)
     }
 
     open func setupView() {

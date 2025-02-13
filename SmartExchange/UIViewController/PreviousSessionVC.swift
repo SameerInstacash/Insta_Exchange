@@ -152,8 +152,9 @@ class PreviousSessionVC: UIViewController, UITableViewDelegate, UITableViewDataS
             
             let result = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            
-            let imageData:NSData = UIImagePNGRepresentation(result ?? newImage) as! NSData
+                        
+            //let imageData:NSData = UIImagePNGRepresentation(result ?? newImage) as! NSData
+            let imageData:NSData = (result ?? newImage).pngData() as! NSData
             
             let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
             
@@ -261,7 +262,7 @@ class PreviousSessionVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     func removeDuplicate(list: [[String:Any]]) -> [[String:Any]] {

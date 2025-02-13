@@ -328,7 +328,11 @@ class ImeiFetchVC: UIViewController {
         // proceed with the image request
         if fetchResult.count > 0 {
             let totalImageCountNeeded = 1 // <-- The number of images to fetch
-            fetchPhotoAtIndex(0, totalImageCountNeeded, fetchResult)
+            
+            DispatchQueue.main.async {
+                self.fetchPhotoAtIndex(0, totalImageCountNeeded, fetchResult)
+            }
+            
         }
         else {
             
@@ -352,6 +356,7 @@ class ImeiFetchVC: UIViewController {
         
         // Perform the image request
         PHImageManager.default().requestImage(for: fetchResult.object(at: index) as PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.aspectFill, options: requestOptions, resultHandler: { (image, _) in
+            
             if let image = image {
                 // Add the returned image to your array
                 
@@ -363,12 +368,21 @@ class ImeiFetchVC: UIViewController {
             // perform the fetch request again with an
             // incremented index
             if index + 1 < fetchResult.count && self.images.count < totalImageCountNeeded {
-                self.fetchPhotoAtIndex(index + 1, totalImageCountNeeded, fetchResult)
+                
+                DispatchQueue.main.async {
+                    self.fetchPhotoAtIndex(index + 1, totalImageCountNeeded, fetchResult)
+                }
+                
             } else {
                 // Else you have completed creating your array
                 print("Completed array: \(self.images)")
                 
-                self.fetchedImage(img: self.images[0])
+                DispatchQueue.global(qos: .userInitiated).async {
+                    // Process image
+                    self.fetchedImage(img: self.images[0])
+                }
+                
+                
             }
         })
     }
@@ -404,9 +418,10 @@ class ImeiFetchVC: UIViewController {
                 if let result2 = self.getNextWord(after: keyword2, in: text) {
                     //print("Next word after '\(keyword2)': \(result2)")
                     
-                    currentIMEI = result2
-                    
-                    self.txtFieldIMEI?.text = result2.replacingOccurrences(of: ",", with: "")
+                    DispatchQueue.main.async {
+                        currentIMEI = result2
+                        self.txtFieldIMEI?.text = result2.replacingOccurrences(of: ",", with: "")
+                    }
                     
                     if self.txtFieldIMEI != nil {
                         DispatchQueue.main.async {
@@ -424,7 +439,10 @@ class ImeiFetchVC: UIViewController {
                     //print("'\(keyword2)' not found in the text.")
                     
                     if currentIMEI != "" {
-                        self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                        
+                        DispatchQueue.main.async {
+                            self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                        }
                         
                         DispatchQueue.main.async {
                             
@@ -444,13 +462,13 @@ class ImeiFetchVC: UIViewController {
                 if let result1 = self.getNextWord(after: keyword1, in: text) {
                     //print("Next word after '\(keyword1)': \(result1)")
                     
-                    currentIMEI = result1
-                    //print("currentIMEI 1",currentIMEI)
-                    
-                    self.txtFieldIMEI?.text = result1.replacingOccurrences(of: ",", with: "")
-                    
-                    // Stop observing for changes
-                    PhotoLibraryObserver.shared.stopObserving()
+                    DispatchQueue.main.async {
+                        currentIMEI = result1
+                        self.txtFieldIMEI?.text = result1.replacingOccurrences(of: ",", with: "")
+                        
+                        // Stop observing for changes
+                        PhotoLibraryObserver.shared.stopObserving()
+                    }
                     
                     if self.txtFieldIMEI != nil {
                         DispatchQueue.main.async {
@@ -469,7 +487,10 @@ class ImeiFetchVC: UIViewController {
                     //print("currentIMEI 1",currentIMEI)
                     
                     if currentIMEI != "" {
-                        self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                        
+                        DispatchQueue.main.async {
+                            self.txtFieldIMEI?.text = currentIMEI.replacingOccurrences(of: ",", with: "")
+                        }
                         
                         DispatchQueue.main.async {
                             

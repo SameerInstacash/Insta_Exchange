@@ -60,7 +60,7 @@ class MicrophoneVC: UIViewController, AVAudioRecorderDelegate, RecorderDelegate 
         recordingSession = AVAudioSession.sharedInstance()
 
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setCategory(AVAudioSession.Category.playAndRecord)
             try recordingSession.setActive(true)
             
             recordingSession.requestRecordPermission() { [weak self] allowed in

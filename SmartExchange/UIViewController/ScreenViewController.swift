@@ -138,7 +138,7 @@ class ScreenViewController: UIViewController {
         recordingSession = AVAudioSession.sharedInstance()
         
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setCategory(AVAudioSession.Category.playAndRecord)
             try recordingSession.setActive(true)
             
             recordingSession.requestRecordPermission() { [unowned self] allowed in
@@ -179,19 +179,29 @@ class ScreenViewController: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        self.touchDownTimer.invalidate()
-        self.touchTimeCount = 0
-        
-        startTouchTimer()
+        DispatchQueue.main.async {
+            self.touchDownTimer.invalidate()
+            self.touchTimeCount = 0
+            
+            self.startTouchTimer()
+        }
         
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        testTouches(touches: touches)
         
+        guard let touch = touches.first else {
+                print("No touch detected")
+                return
+            }
         
-        self.touchDownTimer.invalidate()
-        self.touchTimeCount = 0
+        DispatchQueue.main.async {
+            self.testTouches(touches: touches)
+            
+            
+            self.touchDownTimer.invalidate()
+            self.touchTimeCount = 0
+        }
         
         
         //        if let layer = self.view.layer.hitTest(point!) as? CAShapeLayer { // If you hit a layer and if its a Shapelayer
@@ -202,10 +212,15 @@ class ScreenViewController: UIViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent!) {
-        testTouches(touches: touches)
         
-        self.touchDownTimer.invalidate()
-        self.touchTimeCount = 0
+        DispatchQueue.main.async {
+            self.testTouches(touches: touches)
+            
+            self.touchDownTimer.invalidate()
+            self.touchTimeCount = 0
+            
+        }
+        
     }
     
     func testTouches(touches: Set<UITouch>) {

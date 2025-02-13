@@ -61,8 +61,8 @@ class QuestionsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func changeLanguageOfUI() {
                 
-        self.btnNext.setTitle(self.getLocalizatioStringValue(key: "NEXT"), for: UIControlState.normal)
-        self.btnPrevious.setTitle(self.getLocalizatioStringValue(key: "BACK"), for: UIControlState.normal)
+        self.btnNext.setTitle(self.getLocalizatioStringValue(key: "NEXT"), for: UIControl.State.normal)
+        self.btnPrevious.setTitle(self.getLocalizatioStringValue(key: "BACK"), for: UIControl.State.normal)
          
     }
     
@@ -604,7 +604,7 @@ class QuestionsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 
     // MARK: - Navigation

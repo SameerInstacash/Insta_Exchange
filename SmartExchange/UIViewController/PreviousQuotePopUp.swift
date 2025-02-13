@@ -14,6 +14,11 @@ class PreviousQuotePopUp: UIViewController {
     
     var popupDismiss : ((_ dict : [String:Any]) -> Void)?
     
+    @IBOutlet weak var lblInOrder: UILabel!
+    @IBOutlet weak var lblCheckEmail: UILabel!
+    @IBOutlet weak var lblIfYou: UILabel!
+    @IBOutlet weak var lblHavingTrouble: UILabel!
+    
     @IBOutlet weak var txtFieldRefNum: UITextField!
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var cornerView: UIView!
@@ -29,6 +34,8 @@ class PreviousQuotePopUp: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         UIView.addShadow(baseView: self.cornerView)
+        
+        setBoldTextInString()
     }
     
     //MARK: IBActions
@@ -117,6 +124,16 @@ class PreviousQuotePopUp: UIViewController {
                         dataDict["productImage"] = productImage
                         dataDict["productPrice"] = productPrice
                         dataDict["productRefNum"] = productRefNum
+                        
+                        
+                        dataDict["storeName"] = msg["storeName"].string ?? ""
+                        dataDict["storeAddress"] = msg["storeAddress"].string ?? ""
+                        dataDict["storeMobileNumber"] = msg["storeMobileNumber"].string ?? ""
+                        
+                        let storeGeoCordinate = msg["geoCoordinates"].string ?? ""
+                        let arrStoreGeoCordinate = storeGeoCordinate.components(separatedBy: ",")
+                        dataDict["storeLatitude"] = arrStoreGeoCordinate[0]
+                        dataDict["storeLongitude"] = arrStoreGeoCordinate[1]
                         
                         
                         //guard let isDismiss = self.popupDismiss else { return }
@@ -244,5 +261,73 @@ class PreviousQuotePopUp: UIViewController {
         // Pass the selected object to the new view controller.
     }
 
+    func setBoldTextInString() {
+     
+        //1
+        let dialboldText = " previously completed diagnostic & evaluation session, "
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let attributedString1 = NSMutableAttributedString(string: dialboldText, attributes: attrs)
+        
+        let normalText1 = "In order to retrieve information of a"
+        let normalText2 = "please enter your reference number below."
+        let normalString1 = NSMutableAttributedString(string: normalText1)
+        let normalString2 = NSMutableAttributedString(string: normalText2)
+        
+        normalString1.append(attributedString1)
+        normalString1.append(normalString2)
+        
+        if self.lblInOrder != nil {
+            self.lblInOrder.attributedText = normalString1
+        }
+        
+        
+        //2
+        let settingboldText = "Check Your Email"
+        let attrs2 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let settingattributedString2 = NSMutableAttributedString(string: settingboldText, attributes: attrs2)
+        
+        let normalText3 = " – We’ve sent it to your registered email for easy access."
+        let normalString3 = NSMutableAttributedString(string: normalText3)
+        settingattributedString2.append(normalString3)
+        
+        if self.lblCheckEmail != nil {
+            self.lblCheckEmail.attributedText = settingattributedString2
+        }
+        
+        
+        //3
+        let boxBoldText1 = "If You Copied It Earlier "
+        let attrsBox1 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let boxAttributedString1 = NSMutableAttributedString(string: boxBoldText1, attributes: attrsBox1)
+        
+        let boxBoldText2 = "final screen of the diagnostic evaluation."
+        let attrsBox2 = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let boxAttributedString2 = NSMutableAttributedString(string: boxBoldText2, attributes: attrsBox2)
+                
+        let boxNormalText = " – Paste it here if you copied it from the "
+        let boxNormalString = NSMutableAttributedString(string: boxNormalText)
+        
+        boxAttributedString1.append(boxNormalString)
+        boxAttributedString1.append(boxAttributedString2)
+        
+        if self.lblIfYou != nil {
+            self.lblIfYou.attributedText = boxAttributedString1
+        }
+        
+        
+        //4
+        let havingboldText = "🔍 Having trouble?"
+        let havingattrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let havingattributedString = NSMutableAttributedString(string: havingboldText, attributes: havingattrs)
+        
+        let havingnormalText = " If you can’t find your reference number, please visit the store where you started your trade in for assistance."
+        let havingnormalString = NSMutableAttributedString(string: havingnormalText)
+        havingattributedString.append(havingnormalString)
+        
+        if self.lblHavingTrouble != nil {
+            self.lblHavingTrouble.attributedText = havingattributedString
+        }
+        
+    }
 
 }

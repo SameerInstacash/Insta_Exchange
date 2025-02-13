@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1600"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9DC7B31A8DB7D01099A2BC67AF7FA9C"
-               BuildableName = "NewRelicAgent"
-               BlueprintName = "NewRelicAgent"
+               BlueprintIdentifier = "4874E7E655CEB4C01E4572AD903AEA21"
+               BuildableName = "FloatingPanel.framework"
+               BlueprintName = "FloatingPanel"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

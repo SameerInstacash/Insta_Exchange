@@ -99,11 +99,11 @@ class FindStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 
         self.lblTitle.text = self.getLocalizatioStringValue(key: "Find Store")
         
-        self.backBtn.setTitle(self.getLocalizatioStringValue(key: "BACK"), for: UIControlState.normal)
-        self.okBtn.setTitle(self.getLocalizatioStringValue(key: "OK"), for: UIControlState.normal)
+        self.backBtn.setTitle(self.getLocalizatioStringValue(key: "BACK"), for: UIControl.State.normal)
+        self.okBtn.setTitle(self.getLocalizatioStringValue(key: "OK"), for: UIControl.State.normal)
         
-        self.backBtnPopUP.setTitle(self.getLocalizatioStringValue(key: "BACK"), for: UIControlState.normal)
-        self.okBtnPopUP.setTitle(self.getLocalizatioStringValue(key: "OK"), for: UIControlState.normal)
+        self.backBtnPopUP.setTitle(self.getLocalizatioStringValue(key: "BACK"), for: UIControl.State.normal)
+        self.okBtnPopUP.setTitle(self.getLocalizatioStringValue(key: "OK"), for: UIControl.State.normal)
          
     }
     
@@ -568,7 +568,7 @@ class FindStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -49,7 +49,7 @@ class EarphoneJackVC: UIViewController {
         let currentRoute = self.session.currentRoute
         if currentRoute.outputs.count != 0 {
             for description in currentRoute.outputs {
-                if description.portType == AVAudioSessionPortHeadphones {
+                if description.portType == AVAudioSession.Port.headphones {
                     print("headphone plugged in")
                 } else {
                     print("headphone pulled out")
@@ -62,7 +62,7 @@ class EarphoneJackVC: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.audioRouteChangeListener),
-            name: NSNotification.Name.AVAudioSessionRouteChange,
+            name: AVAudioSession.routeChangeNotification,
             object: nil)
         
     }
@@ -172,7 +172,7 @@ class EarphoneJackVC: UIViewController {
             let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
             
             switch audioRouteChangeReason {
-            case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+            case AVAudioSession.RouteChangeReason.newDeviceAvailable.rawValue:
                 print("headphone plugged in")
                 UserDefaults.standard.set(true, forKey: "earphone")
                 self.resultJSON["Earphone"].int = 1
@@ -191,7 +191,7 @@ class EarphoneJackVC: UIViewController {
                     
                 }
                 break
-            case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+            case AVAudioSession.RouteChangeReason.oldDeviceUnavailable.rawValue:
                 print("headphone pulled out")
                 UserDefaults.standard.set(true, forKey: "earphone")
                 self.resultJSON["Earphone"].int = 1

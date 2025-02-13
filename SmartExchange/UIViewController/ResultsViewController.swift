@@ -62,7 +62,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
         self.lblTitleTests.text = self.getLocalizatioStringValue(key: "Summary of Test Results")
 
-        self.btnContinue.setTitle(self.getLocalizatioStringValue(key: "Continue"), for: UIControlState.normal)
+        self.btnContinue.setTitle(self.getLocalizatioStringValue(key: "Continue"), for: UIControl.State.normal)
          
     }
     
@@ -654,7 +654,7 @@ class ResultsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
