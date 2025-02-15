@@ -567,7 +567,7 @@
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPhone XR 3GB / 128GB" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crn-li-x5E">
                                                                 <rect key="frame" x="0.0" y="0.0" width="225" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                                <color key="textColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.035294117649999998" green="0.50196078430000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <variation key="heightClass=regular-widthClass=regular">
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -646,7 +646,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9s-bx-qMf">
                                                                 <rect key="frame" x="0.0" y="100" width="300" height="53"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure the details above match your device. If incorrect, Click &quot;Restart Process&quot; go back and enter the correct IMEl." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ2-T6-EbI">
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure the details above match your device. If incorrect, go back and enter the correct IMEl." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ2-T6-EbI">
                                                                         <rect key="frame" x="25" y="5" width="265" height="43"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <color key="textColor" systemColor="darkTextColor"/>
@@ -7913,7 +7913,7 @@ voice for 4 seconds to check your microphone is working or not</string>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P42-VL-I04">
                                         <rect key="frame" x="15" y="394.66666666666663" width="300" height="0.0"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLa-4q-LcY">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLa-4q-LcY">
                                                 <rect key="frame" x="5" y="5" width="290" height="38.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you'd rather do it manually, here are three simple ways to find your IMEI." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0R7-wt-2hL">
@@ -7931,7 +7931,7 @@ voice for 4 seconds to check your microphone is working or not</string>
                                                     <constraint firstItem="0R7-wt-2hL" firstAttribute="leading" secondItem="ZLa-4q-LcY" secondAttribute="leading" constant="10" id="tQb-cr-6Qu"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-Zd-1l9">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-Zd-1l9">
                                                 <rect key="frame" x="5" y="43.666666666666629" width="290" height="24.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dial *#06#." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC2-NQ-4Pe">
@@ -7943,7 +7943,7 @@ voice for 4 seconds to check your microphone is working or not</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         </variation>
                                                     </label>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-Jr-SuQ" customClass="cornerView" customModule="InstaCash_Exchange" customModuleProvider="target">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-Jr-SuQ" customClass="cornerView" customModule="InstaCash_Exchange" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="7" width="10" height="10"/>
                                                         <color key="backgroundColor" red="0.035294117649999998" green="0.50196078430000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -9180,7 +9180,7 @@ voice for 4 seconds to check your microphone is working or not</string>
         <image name="back" width="64" height="64"/>
         <image name="bluetooth_gif.gif" width="107" height="95"/>
         <image name="business_icon" width="20" height="16"/>
-        <image name="call" width="20" height="20"/>
+        <image name="call" width="30" height="30"/>
         <image name="cameras" width="209" height="209"/>
         <image name="capture_photo" width="80" height="80"/>
         <image name="changeLanguage_icon" width="136" height="136"/>
@@ -9202,7 +9202,7 @@ voice for 4 seconds to check your microphone is working or not</string>
         <image name="loader.gif" width="136" height="122"/>
         <image name="location_gif.gif" width="107" height="95"/>
         <image name="mail" width="12" height="12"/>
-        <image name="map_icon" width="20" height="18"/>
+        <image name="map_icon" width="30" height="30"/>
         <image name="mic 1" width="238" height="238"/>
         <image name="phone_Placeholder" width="30" height="59"/>
         <image name="pin_maps" width="12" height="12"/>

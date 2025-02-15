@@ -125,6 +125,7 @@ class PreviousQuotePopUp: UIViewController {
                         dataDict["productPrice"] = productPrice
                         dataDict["productRefNum"] = productRefNum
                         
+                        dataDict["currencyCode"] = msg["currencyCode"].string ?? ""
                         
                         dataDict["storeName"] = msg["storeName"].string ?? ""
                         dataDict["storeAddress"] = msg["storeAddress"].string ?? ""

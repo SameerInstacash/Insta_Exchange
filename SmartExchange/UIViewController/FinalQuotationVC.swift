@@ -64,12 +64,10 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
     
     //MARK: For previouseSession
     var sessionDict = [String:Any]()
-    var currentViewWidht = CGFloat()
+    var strProductSummary = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //self.currentViewWidht = self.view.bounds.width * 2
         
         //MARK: Common things for both VC
         self.setStatusBarColor()
@@ -77,8 +75,7 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
         
         self.setBoldTextInString()
         
-        self.addBottomSheet()
-        
+        //self.addBottomSheet()
         
         if self.isComeFromVC == "UserDetailsViewController" {
              
@@ -92,9 +89,6 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
             }
             
             DispatchQueue.main.async {
-                
-                //let imgDEf = URL(string: "https://instacash.blob.core.windows.net/static/img/products/default.png")
-                //print("productName: \(self.deviceName), productImage: \(img ?? imgDEf)")
                 
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     
@@ -124,6 +118,8 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
         }
         else {
             
+            self.addBottomSheet()
+            
             self.isSynced = true
             self.restartTestBtnView.isHidden = true
             self.homeBtnView.isHidden = false
@@ -132,7 +128,9 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
             self.downloadImage(url: img ?? URL(fileURLWithPath: ""))
             
             self.lblDeviceName.text = self.sessionDict["productName"] as? String ?? ""
-            self.lblUSDPrice.text = "$ " + (self.sessionDict["productPrice"] as? String ?? "")
+            
+            //let price = CGFloat(Int(self.sessionDict["productPrice"] as? String ?? "") ?? 0)
+            self.lblUSDPrice.text = (self.sessionDict["currencyCode"] as? String ?? "") + " " + (self.sessionDict["productPrice"] as? String ?? "")
             
             let imgurl = URL(string: self.sessionDict["productImage"] as? String ?? "")
             self.currentDeviceImgVW.af_setImage(withURL: imgurl ?? URL(fileURLWithPath: ""), placeholderImage: UIImage(named: "smartphone"))
@@ -176,12 +174,14 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
         fpc.surfaceView.appearance.cornerRadius = (self.view.frame.height / 4.5)
         
         
-        
         bottomSheetVC = storyboard?.instantiateViewController(withIdentifier: "BottomSheetVC") as? BottomSheetVC
         
         bottomSheetVC.isComeForVC = self.isComeFromVC
         if self.isComeFromVC == "UserDetailsViewController" {
-            bottomSheetVC.arrQuestionAnswerFinalData = self.arrQuestionAnswerFinalData
+            //bottomSheetVC.arrQuestionAnswerFinalData = self.arrQuestionAnswerFinalData
+            
+            bottomSheetVC.strProductDesc = self.strProductSummary
+            
         }
         else {
             bottomSheetVC.sessionDict = self.sessionDict
@@ -357,6 +357,19 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
                     
                     print("Price Success Response is:", json)
                     
+                    
+                    DispatchQueue.main.async {
+                        let productCurrency = json["currency"].string ?? ""
+                        let productPrice = json["msg"].string ?? ""
+                        let productDescription = json["productDescription"].string ?? ""
+                        self.strProductSummary = productDescription
+                        
+                        self.lblUSDPrice.text = "\(productCurrency) \(productPrice)"
+                        
+                        self.addBottomSheet()
+                    }
+                    
+                    
                     if  let offerpriceString = json["msg"].string {
                         
                         let jsonString = UserDefaults.standard.string(forKey: "currencyJson")
@@ -442,7 +455,9 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
                                 //SwiftSpinner.hide()
                                 self.hud.dismiss()
                                 
-                                self.lblUSDPrice.text = "\(symbol) \(Int(offer))"
+                                //self.lblUSDPrice.text = "\(symbol) \(Int(offer))"
+                                
+                                
                                 
                             }
                         }
@@ -542,7 +557,7 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
                         //self.refValueLabel.isHidden = false
                         //let refno = self.getLocalizatioStringValue(key: "Reference No")
                         let refno = self.getLocalizatioStringValue(key: "Ref #")
-                        self.lblCurrentRefNum.text = "\(refno): \(self.orderId)"
+                        self.lblCurrentRefNum.text = "\(refno) \(self.orderId)"
                         
                         DispatchQueue.main.async {
                             self.view.makeToast(self.getLocalizatioStringValue(key: "Details Synced to the server. Please contact Store Executive for further information"), duration: 1.0, position: .bottom)

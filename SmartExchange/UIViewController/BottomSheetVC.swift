@@ -19,11 +19,12 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var lblSlide: UILabel!
     @IBOutlet weak var btnSlide: UIButton!
     
+    var strProductDesc = ""
     var arrQuestionAnswerFinalData = [[String:Any]]()
     var arrFinalData = [[String:Any]]()
     var isComeForVC = ""
     
-    var sessionDict = [String:Any]()    
+    var sessionDict = [String:Any]()
     var arrKey = [String]()
     var arrValue = [String]()
     
@@ -36,7 +37,8 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             //self.setStatusBarColor(themeColor: .clear)
             
             if self.isComeForVC == "UserDetailsViewController" {
-                self.createPhysicalDataTableUsingFinalArray()
+                //self.createPhysicalDataTableUsingFinalArray()
+                self.createPhysicalDataTableForPriceQuote()
             }
             else {
                 self.createPhysicalDataTableForPreviousSession()
@@ -57,7 +59,7 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             
         }
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +94,75 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
     }
     
+    func createPhysicalDataTableForPriceQuote() {
+        
+        let str1 = self.strProductDesc
+        print("str1",str1)
+        
+        let str2 = str1.dropFirst()
+        print("str2",str2)
+        
+        let str3 = str2.dropLast()
+        print("str3",str3)
+        
+        //let finalSummaryText = self.strProductDesc
+        let finalSummaryText = str3
+        
+        let arrSummaryString : [String?] = finalSummaryText.components(separatedBy: ";")
+        var arrItem = [""]
+        self.arrKey = []
+        self.arrValue = []
+        
+        for item in arrSummaryString {
+            arrItem = item?.components(separatedBy: "->") ?? []
+            
+            if arrItem.count > 1 {
+                self.arrKey.append(arrItem[0])
+                self.arrValue.append(arrItem[1])
+            }else {
+                let pre = self.arrValue.last
+                //let val = (pre ?? "") + " & " + arrItem[0]
+                
+                var val = ""
+                
+                if !arrItem[0].isEmpty {
+                    val = (pre ?? "") + " & " + arrItem[0]
+                }else {
+                    val = (pre ?? "")
+                }
+                
+                
+                
+                /*
+                var val = ""
+                if arrItem[0] != "" {
+                    val = (pre ?? "")
+                    
+                    if arrItem[0] != " " {
+                        val = (pre ?? "")
+                        
+                        if arrItem[0] != "'" {
+                            val = (pre ?? "") + " & " + arrItem[0]
+                        }
+                        
+                    }
+                }*/
+                
+                let key = self.arrKey.last
+                
+                self.arrKey.removeLast()
+                self.arrValue.removeLast()
+                
+                self.arrKey.append(key ?? "")
+                self.arrValue.append(val)
+            }
+        }
+        
+        self.myTableView.dataSource = self
+        self.myTableView.delegate = self
+        self.myTableView.reloadData()
+    }
+    
     func createPhysicalDataTableForPreviousSession() {
         
         let finalSummaryText = self.sessionDict["productDescription"] as? String ?? ""
@@ -108,7 +179,17 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 self.arrValue.append(arrItem[1])
             }else {
                 let pre = self.arrValue.last
-                let val = (pre ?? "") + " & " + arrItem[0]
+                //let val = (pre ?? "") + " & " + arrItem[0]
+                
+                var val = ""
+                
+                if !arrItem[0].isEmpty {
+                    val = (pre ?? "") + " & " + arrItem[0]
+                }else {
+                    val = (pre ?? "")
+                }
+                
+                               
                 let key = self.arrKey.last
                 
                 self.arrKey.removeLast()
@@ -157,7 +238,9 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.isComeForVC == "UserDetailsViewController" ? self.arrFinalData.count : self.arrKey.count
+        //return self.isComeForVC == "UserDetailsViewController" ? self.arrFinalData.count : self.arrKey.count
+        
+        return self.arrKey.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -166,16 +249,21 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         if self.isComeForVC == "UserDetailsViewController" {
             
-            let finalDict = self.arrFinalData[indexPath.row]
+            /*
+             let finalDict = self.arrFinalData[indexPath.row]
+             
+             QuestAnsrTblCell.lblQuestion.text = self.getLocalizatioStringValue(key: finalDict.keys.first ?? "")
+             QuestAnsrTblCell.lblAnswer.text = self.getLocalizatioStringValue(key: finalDict.values.first as? String ?? "")
+             
+             if (indexPath.row == self.arrFinalData.count - 1) {
+             QuestAnsrTblCell.lblSeperator.isHidden = true
+             }else {
+             QuestAnsrTblCell.lblSeperator.isHidden = false
+             }
+             */
             
-            QuestAnsrTblCell.lblQuestion.text = self.getLocalizatioStringValue(key: finalDict.keys.first ?? "")
-            QuestAnsrTblCell.lblAnswer.text = self.getLocalizatioStringValue(key: finalDict.values.first as? String ?? "")
-            
-            if (indexPath.row == self.arrFinalData.count - 1) {
-                QuestAnsrTblCell.lblSeperator.isHidden = true
-            }else {
-                QuestAnsrTblCell.lblSeperator.isHidden = false
-            }
+            QuestAnsrTblCell.lblQuestion.text = self.arrKey[indexPath.row]
+            QuestAnsrTblCell.lblAnswer.text = self.arrValue[indexPath.row]
             
         }
         else {
@@ -183,7 +271,7 @@ class BottomSheetVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             QuestAnsrTblCell.lblQuestion.text = self.arrKey[indexPath.row]
             QuestAnsrTblCell.lblAnswer.text = self.arrValue[indexPath.row]
             
-        }                
+        }
         
         return QuestAnsrTblCell
     }
