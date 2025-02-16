@@ -579,6 +579,18 @@
 		58A2FA44637F11F621021E4560C3A8F5 /* GPUImageGrayscaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 456D8B01645EE528B24C0A2031D33CD1 /* GPUImageGrayscaleFilter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		58E39DA1EC1227F1CEB17F285ED98FC9 /* FIRCLSSerializeSymbolicatedFramesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD7DB1AD948E77F82D958CD1A5D43B8 /* FIRCLSSerializeSymbolicatedFramesOperation.m */; };
 		590968DA274BBEEAC19F624A112EED97 /* FIRCLSManagerData.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3B526B73F6960CB0C75DA50141D8F2 /* FIRCLSManagerData.m */; };
+		596AA3E92D61E4A9001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3E82D61E4A9001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3EB2D61E51F001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3EA2D61E51F001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3ED2D61E55E001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3EC2D61E55E001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3EF2D61E587001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3EE2D61E587001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3F12D61E5AE001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3F02D61E5AE001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3F32D61E5DE001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3F22D61E5DE001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3F52D61E60C001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3F42D61E60C001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3F72D61E63A001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3F62D61E63A001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3F92D61E665001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3F82D61E665001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3FB2D61E693001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3FA2D61E693001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3FD2D61E6BD001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3FC2D61E6BD001E72A0 /* PrivacyInfo.xcprivacy */; };
+		596AA3FF2D61E6E5001E72A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 596AA3FE2D61E6E5001E72A0 /* PrivacyInfo.xcprivacy */; };
 		59847C9F13CDA2A188DE326EFC6412AF /* TrainingBackground_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7E9E9F052F9F1A59FC31AF48BB202 /* TrainingBackground_2.png */; };
 		599750E0E3994232502178E7A984D015 /* FPruneForest.m in Sources */ = {isa = PBXBuildFile; fileRef = DED8EA17C0E23BD1DE2C316C069E4C82 /* FPruneForest.m */; };
 		59BBBD187C58455B884714FC1310E03A /* GPUImageMedianFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A8445A9096D95E8EB4244A3CA6DF93B4 /* GPUImageMedianFilter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -2708,6 +2720,18 @@
 		592C1B9E6C8CADBB79186957758F51C0 /* GPUImageBulgeDistortionFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPUImageBulgeDistortionFilter.h; path = framework/Source/GPUImageBulgeDistortionFilter.h; sourceTree = "<group>"; };
 		59375B2951E89DCBC870826D04E63359 /* GPUImageStillCamera.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPUImageStillCamera.h; path = framework/Source/GPUImageStillCamera.h; sourceTree = "<group>"; };
 		594AA0B547A89E164520152E9A0C99BB /* GDTCORUploadCoordinator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORUploadCoordinator.h; path = GoogleDataTransport/GDTCORLibrary/Private/GDTCORUploadCoordinator.h; sourceTree = "<group>"; };
+		596AA3E82D61E4A9001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3EA2D61E51F001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3EC2D61E55E001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3EE2D61E587001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3F02D61E5AE001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3F22D61E5DE001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3F42D61E60C001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3F62D61E63A001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3F82D61E665001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3FA2D61E693001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3FC2D61E6BD001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		596AA3FE2D61E6E5001E72A0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		59A0651055A8135EEC8702E3A89F6DEB /* GPUImageThresholdSketchFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPUImageThresholdSketchFilter.m; path = framework/Source/GPUImageThresholdSketchFilter.m; sourceTree = "<group>"; };
 		59B1A57F6E29F10498CC63FEE7CFB545 /* table_builder.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = table_builder.cc; path = table/table_builder.cc; sourceTree = "<group>"; };
 		5A28BE5D56C06EE1B0E5F974E5C62044 /* FValueEventRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FValueEventRegistration.h; path = FirebaseDatabase/Sources/Core/View/FValueEventRegistration.h; sourceTree = "<group>"; };
@@ -4184,6 +4208,7 @@
 				DDECCC79C9694CFF93725B0826DF8355 /* FirebaseCoreInternal-umbrella.h */,
 				CAE8561BF7B0FC589A6B5853CD312D93 /* FirebaseCoreInternal.debug.xcconfig */,
 				FD4CEC1FECE7AE08485988B55CAE12BB /* FirebaseCoreInternal.release.xcconfig */,
+				596AA3F02D61E5AE001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseCoreInternal";
@@ -4568,6 +4593,7 @@
 				00544BC5EC20CB7A1F6BF60A3152954F /* FirebaseCore-umbrella.h */,
 				F61E8433C2765A9B76D4A711F5FAD1E3 /* FirebaseCore.debug.xcconfig */,
 				1AC8A1AD9630E7777D0BADD9E199C12C /* FirebaseCore.release.xcconfig */,
+				596AA3EC2D61E55E001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseCore";
@@ -5137,6 +5163,7 @@
 				938354CCEE748D46E017F733D0807C18 /* SwiftyJSON-umbrella.h */,
 				5C5161E5FD5BCDF700C52F6C3CBF0C7C /* SwiftyJSON.debug.xcconfig */,
 				2E4851E60D0C555A37EBF2D50BE64263 /* SwiftyJSON.release.xcconfig */,
+				596AA3FA2D61E693001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftyJSON";
@@ -5214,6 +5241,7 @@
 				8C18241D284866940263C55BF71822CA /* leveldb-library-umbrella.h */,
 				C2F6FE5F1494D3E42980399B3A01134F /* leveldb-library.debug.xcconfig */,
 				2D7C028AD106D391921EB8AE0016373F /* leveldb-library.release.xcconfig */,
+				596AA3FC2D61E6BD001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/leveldb-library";
@@ -5228,6 +5256,7 @@
 				3B0A2B969CB1F0269F651C1CDEF3A2A6 /* GoogleDataTransport-umbrella.h */,
 				A814FD5EA4D40B048BE79EBD39FBB8B4 /* GoogleDataTransport.debug.xcconfig */,
 				76B2EAD8D10BD7DD450FDF06596AFA2D /* GoogleDataTransport.release.xcconfig */,
+				596AA3F62D61E63A001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/GoogleDataTransport";
@@ -5308,6 +5337,7 @@
 				DA5BAAB40694026A61E425E6BFEF12A8 /* GoogleUtilities-umbrella.h */,
 				4CE72AF6436C4F003D362930AEE2188A /* GoogleUtilities.debug.xcconfig */,
 				340782A8FDD076071C5FF34F63636DC4 /* GoogleUtilities.release.xcconfig */,
+				596AA3F82D61E665001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/GoogleUtilities";
@@ -5529,6 +5559,7 @@
 				C0637C150BD6F184E308FACC2E57CA68 /* FirebaseInstallations-umbrella.h */,
 				AF1B7EC4A50DE496E1901EE86D0A74BA /* FirebaseInstallations.debug.xcconfig */,
 				67899B276C27BCF3D461430EEA399EE1 /* FirebaseInstallations.release.xcconfig */,
+				596AA3F42D61E60C001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseInstallations";
@@ -5643,6 +5674,7 @@
 				829E3197EAA2F263A58643E475815961 /* Alamofire-umbrella.h */,
 				B880C43A1A8D12D14B63F2D59225DCF1 /* Alamofire.debug.xcconfig */,
 				9AA8A53770AFF86622C36F9F7BF3C163 /* Alamofire.release.xcconfig */,
+				596AA3E82D61E4A9001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Alamofire";
@@ -5688,6 +5720,7 @@
 				5CE504F83440456DC34E2F878AD16C69 /* PromisesObjC-umbrella.h */,
 				73219F13950440BECBD54856BFBDA6B6 /* PromisesObjC.debug.xcconfig */,
 				66283E8AB5526B0F597DBE02B7755D95 /* PromisesObjC.release.xcconfig */,
+				596AA3EA2D61E51F001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/PromisesObjC";
@@ -6009,6 +6042,7 @@
 				FC68E9D4065E787C0A3BDFCAF6C66FEC /* FirebaseCoreDiagnostics-umbrella.h */,
 				A68E36D5818D9A064EBE07157677ED0F /* FirebaseCoreDiagnostics.debug.xcconfig */,
 				1DB6369F4C08A91F93DFD2E3B1B58781 /* FirebaseCoreDiagnostics.release.xcconfig */,
+				596AA3EE2D61E587001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseCoreDiagnostics";
@@ -6363,6 +6397,7 @@
 				9C0B92C00124E2B6412C6C6DF16C1260 /* nanopb-umbrella.h */,
 				818ED2E1F571BA83BD90A47253238A03 /* nanopb.debug.xcconfig */,
 				B55BCF6FB49D549A6F592785F17C127C /* nanopb.release.xcconfig */,
+				596AA3FE2D61E6E5001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/nanopb";
@@ -6686,6 +6721,7 @@
 				729E0D2B4EE22422BEE1D6E4DEFCC9C1 /* FirebaseCrashlytics-umbrella.h */,
 				C51002C53EFDBBF1BB458EFEBE25448F /* FirebaseCrashlytics.debug.xcconfig */,
 				A7A96B180486EC74E4ABA95DA7C0EAD5 /* FirebaseCrashlytics.release.xcconfig */,
+				596AA3F22D61E5DE001E72A0 /* PrivacyInfo.xcprivacy */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseCrashlytics";
@@ -8647,6 +8683,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3E92D61E4A9001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8675,6 +8712,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3FF2D61E6E5001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8730,6 +8768,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3ED2D61E55E001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8737,6 +8776,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3F92D61E665001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8758,6 +8798,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3F72D61E63A001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8806,6 +8847,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3FB2D61E693001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8820,6 +8862,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3F32D61E5DE001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8848,6 +8891,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3F12D61E5AE001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8862,6 +8906,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3EB2D61E51F001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8890,6 +8935,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3F52D61E60C001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8897,6 +8943,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3FD2D61E6BD001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8928,6 +8975,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AA3EF2D61E587001E72A0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
