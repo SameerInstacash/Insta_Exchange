@@ -1161,7 +1161,7 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                     print("response json is :","\(json)")
                     
                     let responseString = String(data: data, encoding: .utf8)
-                    self.responseData = responseString!
+                    self.responseData = responseString ?? ""
                     let preferences = UserDefaults.standard
                     var productIdenti = "0"
                     let productData = json["productData"]
@@ -1195,13 +1195,13 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                         
                         DispatchQueue.main.async() {
                             
-                            appDelegate_Obj.appStoreName = serverData["storeName"].string ?? ""
-                            appDelegate_Obj.appStoreAddress = serverData["storeAddress"].string ?? ""
-                            appDelegate_Obj.appStoreContactNumber = serverData["storeMobileNumber"].string ?? ""
+                            appDelegate_Obj?.appStoreName = serverData["storeName"].string ?? ""
+                            appDelegate_Obj?.appStoreAddress = serverData["storeAddress"].string ?? ""
+                            appDelegate_Obj?.appStoreContactNumber = serverData["storeMobileNumber"].string ?? ""
                             let storeGeoCordinate = serverData["geoCoordinates"].string ?? ""
                             let arrStoreGeoCordinate = storeGeoCordinate.components(separatedBy: ",")
-                            appDelegate_Obj.appStoreLatitude = arrStoreGeoCordinate[0]
-                            appDelegate_Obj.appStoreLongitude = arrStoreGeoCordinate[1]
+                            appDelegate_Obj?.appStoreLatitude = arrStoreGeoCordinate[0]
+                            appDelegate_Obj?.appStoreLongitude = arrStoreGeoCordinate[1]
                             
                             
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewInstructionVC") as! NewInstructionVC
@@ -1634,18 +1634,18 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                     print(responseObject?["msg"] as? [String:Any] ?? [:])
                     if let respObj = responseObject?["msg"] as? [String : Any] {
                         
-                        appDelegate_Obj.supportEmailAddress = (respObj["contact_detail"] as? NSDictionary)?.value(forKey: "email") as? String ?? "support@nayapurano.shop"
+                        appDelegate_Obj?.supportEmailAddress = (respObj["contact_detail"] as? NSDictionary)?.value(forKey: "email") as? String ?? "support@nayapurano.shop"
                         
                         let num = (respObj["contact_detail"] as? NSDictionary)?.value(forKey: "phone") as? String ?? "+9779802344846"
-                        appDelegate_Obj.supportPhoneNumber = num.replacingOccurrences(of: " ", with: "")
+                        appDelegate_Obj?.supportPhoneNumber = num.replacingOccurrences(of: " ", with: "")
                         
                         let chatnum = (respObj["contact_detail"] as? NSDictionary)?.value(forKey: "whatsapp") as? String ?? "+9779802344846"
-                        appDelegate_Obj.supportChatNumber = chatnum.replacingOccurrences(of: " ", with: "")
+                        appDelegate_Obj?.supportChatNumber = chatnum.replacingOccurrences(of: " ", with: "")
                         
                         
-                        print("appDelegate_Obj.supportEmailAddress",appDelegate_Obj.supportEmailAddress ?? "")
-                        print("appDelegate_Obj.supportPhoneNumber",appDelegate_Obj.supportPhoneNumber ?? "")
-                        print("appDelegate_Obj.supportChatNumber",appDelegate_Obj.supportChatNumber ??  "")
+                        print("appDelegate_Obj?.supportEmailAddress",appDelegate_Obj?.supportEmailAddress ?? "")
+                        print("appDelegate_Obj?.supportPhoneNumber",appDelegate_Obj?.supportPhoneNumber ?? "")
+                        print("appDelegate_Obj?.supportChatNumber",appDelegate_Obj?.supportChatNumber ??  "")
                     }
                     
                 }
@@ -2050,7 +2050,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate, MFMailComposeView
             self.onClickEmailButton()
         default:
             
-            guard let url = URL(string: "https://wa.me/\(appDelegate_Obj.supportChatNumber ?? "")") else {
+            guard let url = URL(string: "https://wa.me/\(appDelegate_Obj?.supportChatNumber ?? "")") else {
                 return //be safe
             }
             
@@ -2092,7 +2092,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate, MFMailComposeView
             
             // Configure the fields of the interface.
             //composeVC.setToRecipients([emailAddress])
-            composeVC.setToRecipients([appDelegate_Obj.supportEmailAddress ?? ""])
+            composeVC.setToRecipients([appDelegate_Obj?.supportEmailAddress ?? ""])
             composeVC.setSubject("Message Subject")
             composeVC.setMessageBody("Message content.", isHTML: false)
             
@@ -2112,7 +2112,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate, MFMailComposeView
     
     func onClickCallButton() {
         
-        if let url = URL(string: "tel://\(appDelegate_Obj.supportPhoneNumber ?? "")"), UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: "tel://\(appDelegate_Obj?.supportPhoneNumber ?? "")"), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url)
             } else {

@@ -108,7 +108,7 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
             }
             
             
-            if appDelegate_Obj.appStoreLatitude == "" {
+            if appDelegate_Obj?.appStoreLatitude == "" {
                 self.mapSubView.isHidden = true
             }
             else {
@@ -275,18 +275,18 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
         
         if self.isComeFromVC == "UserDetailsViewController" {
             
-            if appDelegate_Obj.appStoreLatitude == "" {
+            if appDelegate_Obj?.appStoreLatitude == "" {
                 return
             }
             else {
                                 
                 if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
                     
-                    UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
                     
                 } else {
                     
-                    UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=loc:\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=loc:\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
                     
                 }
                 
@@ -906,7 +906,7 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
                 
         var storeNormalText = ""
         if self.isComeFromVC == "UserDetailsViewController" {
-            storeNormalText = " " + (appDelegate_Obj.appStoreName ?? "")
+            storeNormalText = " " + (appDelegate_Obj?.appStoreName ?? "")
         }else {
             storeNormalText = " " + (self.sessionDict["storeName"] as? String ?? "")
         }
@@ -926,7 +926,7 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
                 
         var addressNormalText = ""
         if self.isComeFromVC == "UserDetailsViewController" {
-            addressNormalText = " " + (appDelegate_Obj.appStoreAddress ?? "")
+            addressNormalText = " " + (appDelegate_Obj?.appStoreAddress ?? "")
         }else {
             addressNormalText = " " + (self.sessionDict["storeAddress"] as? String ?? "")
         }

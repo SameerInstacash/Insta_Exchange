@@ -56,8 +56,8 @@ class NewInstructionVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         
-        self.lblMapDetail.text = appDelegate_Obj.appStoreAddress
-        self.lblContactNum.text = appDelegate_Obj.appStoreContactNumber
+        self.lblMapDetail.text = appDelegate_Obj?.appStoreAddress
+        self.lblContactNum.text = appDelegate_Obj?.appStoreContactNumber
         
         self.lblDeviceName.text = self.strDeviceName
         self.lblDeviceImei.text = self.strIMEI
@@ -141,18 +141,18 @@ class NewInstructionVC: UIViewController {
     
     @IBAction func mapBtnPressed(_ sender: UIButton) {
         
-        if appDelegate_Obj.appStoreLatitude == "" {
+        if appDelegate_Obj?.appStoreLatitude == "" {
             return
         }
         else {
             
             if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
                 
-                UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
                 
             } else {
                 
-                UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=loc:\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj.appStoreLatitude ?? ""),\(appDelegate_Obj.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=loc:\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")&zoom=14&views=traffic&q=\(appDelegate_Obj?.appStoreLatitude ?? ""),\(appDelegate_Obj?.appStoreLongitude ?? "")")!, options: [:], completionHandler: nil)
                 
             }
             
@@ -162,7 +162,7 @@ class NewInstructionVC: UIViewController {
     
     @IBAction func callBtnPressed(_ sender: UIButton) {
         
-        if let url = URL(string: "tel://\(appDelegate_Obj.appStoreContactNumber ?? "")"), UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: "tel://\(appDelegate_Obj?.appStoreContactNumber ?? "")"), UIApplication.shared.canOpenURL(url) {
             
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url)

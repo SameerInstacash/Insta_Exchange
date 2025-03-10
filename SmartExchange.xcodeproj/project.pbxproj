@@ -1296,7 +1296,7 @@
 					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.instacash.insta-exchange";
 				PRODUCT_NAME = "InstaCash Exchange";
@@ -1334,7 +1334,7 @@
 					"\"${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
 					/usr/lib/swift,
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.instacash.insta-exchange";
 				PRODUCT_NAME = "InstaCash Exchange";

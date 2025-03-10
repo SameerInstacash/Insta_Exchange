@@ -582,7 +582,7 @@ class FindStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 self.onClickEmailButton()
             default:
                 
-                guard let url = URL(string: "https://wa.me/\(appDelegate_Obj.supportChatNumber ?? "")") else {
+                guard let url = URL(string: "https://wa.me/\(appDelegate_Obj?.supportChatNumber ?? "")") else {
                     return //be safe
                 }
                 
@@ -851,7 +851,7 @@ extension FindStoreVC {
             
             // Configure the fields of the interface.
             //composeVC.setToRecipients([emailAddress])
-            composeVC.setToRecipients([appDelegate_Obj.supportEmailAddress ?? ""])
+            composeVC.setToRecipients([appDelegate_Obj?.supportEmailAddress ?? ""])
             composeVC.setSubject("Message Subject")
             composeVC.setMessageBody("Message content.", isHTML: false)
             
@@ -871,7 +871,7 @@ extension FindStoreVC {
     
     func onClickCallButton() {
         
-        if let url = URL(string: "tel://\(appDelegate_Obj.supportPhoneNumber ?? "")"), UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: "tel://\(appDelegate_Obj?.supportPhoneNumber ?? "")"), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url)
             } else {

@@ -18,7 +18,7 @@ var arrTestsInSDK = [String]()
 var arrHoldTestsInSDK = [String]()
 var currentTestIndex = 0
 
-let appDelegate_Obj = UIApplication.shared.delegate as! AppDelegate
+let appDelegate_Obj = UIApplication.shared.delegate as? AppDelegate
 
 //MARK: AppApiKey
 //var AppApiKey = UserDefaults.standard.string(forKey: "App_ApiKey") ?? "fd9a42ed13c8b8a27b5ead10d054caaf"

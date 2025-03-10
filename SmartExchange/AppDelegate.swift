@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //NewRelic.start(withApplicationToken: "eu01xxee4e481a844aeccafaee48fd3c22408575fc-NRMA")
         
         // Note: Set ".verbose" value for "logLevel" parameter while testing to debug initialization issues.
-        let clarityConfig = ClarityConfig(projectId: "q41zzaqht8__")
+        let clarityConfig = ClarityConfig(projectId: "q41zzaqht8")
         ClaritySDK.initialize(config: clarityConfig)
         
         // Override point for customization after application launch.
