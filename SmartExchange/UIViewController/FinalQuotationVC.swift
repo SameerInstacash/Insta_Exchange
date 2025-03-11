@@ -108,7 +108,7 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
             }
             
             
-            if appDelegate_Obj?.appStoreLatitude == "" {
+            if appDelegate_Obj?.appStoreLatitude == "" || appDelegate_Obj?.appStoreLatitude == nil {
                 self.mapSubView.isHidden = true
             }
             else {
@@ -274,8 +274,8 @@ class FinalQuotationVC: UIViewController, FloatingPanelControllerDelegate {
     @IBAction func btnClickHerePressed(_ sender: UIButton) {
         
         if self.isComeFromVC == "UserDetailsViewController" {
-            
-            if appDelegate_Obj?.appStoreLatitude == "" {
+                        
+            if appDelegate_Obj?.appStoreLatitude == "" || appDelegate_Obj?.appStoreLatitude == nil {
                 return
             }
             else {

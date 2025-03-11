@@ -141,7 +141,7 @@ class NewInstructionVC: UIViewController {
     
     @IBAction func mapBtnPressed(_ sender: UIButton) {
         
-        if appDelegate_Obj?.appStoreLatitude == "" {
+        if appDelegate_Obj?.appStoreLatitude == "" || appDelegate_Obj?.appStoreLatitude == nil {
             return
         }
         else {

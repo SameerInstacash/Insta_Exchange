@@ -1200,8 +1200,11 @@ class HomeVC: UIViewController, QRCodeReaderViewControllerDelegate {
                             appDelegate_Obj?.appStoreContactNumber = serverData["storeMobileNumber"].string ?? ""
                             let storeGeoCordinate = serverData["geoCoordinates"].string ?? ""
                             let arrStoreGeoCordinate = storeGeoCordinate.components(separatedBy: ",")
-                            appDelegate_Obj?.appStoreLatitude = arrStoreGeoCordinate[0]
-                            appDelegate_Obj?.appStoreLongitude = arrStoreGeoCordinate[1]
+                            
+                            if arrStoreGeoCordinate.count > 1 {
+                                appDelegate_Obj?.appStoreLatitude = arrStoreGeoCordinate[0]
+                                appDelegate_Obj?.appStoreLongitude = arrStoreGeoCordinate[1]
+                            }
                             
                             
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewInstructionVC") as! NewInstructionVC
